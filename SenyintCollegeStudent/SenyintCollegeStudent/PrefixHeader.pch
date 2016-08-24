@@ -1,0 +1,13 @@
+//
+//  PrefixHeader.pch
+//  SenyintCollegeStudent
+//
+//  Created by    任亚丽 on 16/8/1.
+//  Copyright © 2016年 YL. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#endif 
