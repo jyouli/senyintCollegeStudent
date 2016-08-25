@@ -46,6 +46,7 @@
 //3. [类 respondsToSelector]用于判断是否包含某个类方法。
 - (void)setRootViewcontroller:(Class) vcClass
 {
+    //jyouli test
     NSLog(@"%@",vcClass);
     if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
         [vcClass setWindowRootViewController];
