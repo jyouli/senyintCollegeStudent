@@ -31,13 +31,9 @@
         vcClass = NSClassFromString(@"TransitionViewController");
 
     }
-//    [self setRootViewcontroller:vcClass];
+    [self setRootViewcontroller:vcClass];
     
 
-    TeskViewController *tc = [[TeskViewController alloc] init];
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
-    self.window.rootViewController = nc;
-    
     
     return YES;
 }
@@ -50,9 +46,10 @@
 - (void)setRootViewcontroller:(Class) vcClass
 {
 
+    NSLog(@"%@",vcClass);
     if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
         [vcClass setWindowRootViewController];
-
+        
     }
     
 }
