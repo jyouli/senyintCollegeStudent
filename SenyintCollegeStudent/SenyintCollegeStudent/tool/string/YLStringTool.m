@@ -14,10 +14,10 @@
 #pragma mark 判空 去空格
 
 /**
- * 字符串判空 (空指针nil 空对象[NSNull null] 空内容[str length] == 0)
+ * 字符串判空 (空对象[NSNull null]  空指针nil  空内容[str length] == 0)
  nil：指向oc中对象的空指针(自己理解指针指向的对象不存在)
  Nil：指向oc中类的空指针
- NULL：指向其他类型的空指针，如一个c类型的内存指针
+ NULL：0地址（空地址）  指向其他类型的空指针，如一个c类型的内存指针
  NSNull：在集合对象中，表示空值的对象
  */
 + (BOOL)isEmpty:(NSString*)str

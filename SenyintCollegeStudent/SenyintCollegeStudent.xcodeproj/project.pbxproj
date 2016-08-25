@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD30021A1D55FC6E0086E7F5 /* StudentView.m */; };
-		BD3002281D58360E0086E7F5 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3002261D58360E0086E7F5 /* CollectionViewCell.m */; };
-		BD3002291D58360E0086E7F5 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3002271D58360E0086E7F5 /* CollectionViewCell.xib */; };
 		BD57F1AE1D4F3D4A00BAB291 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F18D1D4F3D4A00BAB291 /* AFHTTPSessionManager.m */; };
 		BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F1901D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m */; };
 		BD57F1B01D4F3D4A00BAB291 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F1921D4F3D4A00BAB291 /* AFSecurityPolicy.m */; };
@@ -108,9 +106,6 @@
 /* Begin PBXFileReference section */
 		BD3002191D55FC6E0086E7F5 /* StudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentView.h; sourceTree = "<group>"; };
 		BD30021A1D55FC6E0086E7F5 /* StudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentView.m; sourceTree = "<group>"; };
-		BD3002251D58360E0086E7F5 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
-		BD3002261D58360E0086E7F5 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		BD3002271D58360E0086E7F5 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		BD57F18C1D4F3D4A00BAB291 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		BD57F18D1D4F3D4A00BAB291 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		BD57F18E1D4F3D4A00BAB291 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -445,9 +440,6 @@
 				BDCAC5F31D53148500C66990 /* ClassmateCell.m */,
 				BD3002191D55FC6E0086E7F5 /* StudentView.h */,
 				BD30021A1D55FC6E0086E7F5 /* StudentView.m */,
-				BD3002251D58360E0086E7F5 /* CollectionViewCell.h */,
-				BD3002261D58360E0086E7F5 /* CollectionViewCell.m */,
-				BD3002271D58360E0086E7F5 /* CollectionViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -805,7 +797,6 @@
 			files = (
 				BD5C2A121D51954A0066762F /* SVProgressHUD.bundle in Resources */,
 				BDD426B11D4EFF6000A1C9C9 /* LaunchScreen.storyboard in Resources */,
-				BD3002291D58360E0086E7F5 /* CollectionViewCell.xib in Resources */,
 				BDD426AE1D4EFF6000A1C9C9 /* Assets.xcassets in Resources */,
 				BDD426AC1D4EFF6000A1C9C9 /* Main.storyboard in Resources */,
 				ED33F5971D6584EB00A64DC7 /* MJRefresh.bundle in Resources */,
@@ -845,7 +836,6 @@
 				EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */,
 				BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */,
 				EDD2909F1D6D6B580081FBAF /* SCRefreshTableViewController.m in Sources */,
-				BD3002281D58360E0086E7F5 /* CollectionViewCell.m in Sources */,
 				ED1E9FC01D6C2F45000BE638 /* URLImageView.m in Sources */,
 				ED33F5961D6584EB00A64DC7 /* MJRefreshStateHeader.m in Sources */,
 				BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */,

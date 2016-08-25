@@ -9,5 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "CommonMacroDefinition.h"
+
+
+#define  TextColor  [UIColor darkGrayColor]
+#define  TextFont   [UIFont systemFontOfSize:14]
+#define ViewBGColor [UIColor whiteColor]
+
 
 #endif 

@@ -160,11 +160,40 @@
         return NO;
     }
 
-    NSString *regex = @"^[A-Za-z0-9]{6,24}$";
+    NSString *regex = @"^[A-Za-z0-9]{6,20}$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [predicate evaluateWithObject:string];
 
 }
+
+/**
+ *  真实中国姓名校验(只包含汉字和.)
+ */
++ (BOOL)checkChineseReal:(NSString *)string
+{
+    if ([self isEmpty:string]) {
+        return NO;
+    }
+    
+    NSString *regex = @"^[.··•\u4e00-\u9fa5]{2,20}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [predicate evaluateWithObject:string];
+}
+
+/**
+ *  真实国际姓名校验(只包含汉字和.和大小写字母)
+ */
++ (BOOL)checkInternationalReal:(NSString *)string
+{
+    if ([self isEmpty:string]) {
+        return NO;
+    }
+    
+    NSString *regex = @"^[.··•a-zA-Z\u4e00-\u9fa5]{2,20}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [predicate evaluateWithObject:string];
+}
+
 
 /**
  *  普通正常字符串 只包含字母数字汉字和空格

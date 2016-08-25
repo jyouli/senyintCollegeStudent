@@ -18,7 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     
@@ -32,9 +31,13 @@
         vcClass = NSClassFromString(@"TransitionViewController");
 
     }
-    [self setRootViewcontroller:vcClass];
+//    [self setRootViewcontroller:vcClass];
     
 
+    TeskViewController *tc = [[TeskViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
+    self.window.rootViewController = nc;
+    
     
     return YES;
 }
@@ -46,14 +49,12 @@
 //3. [类 respondsToSelector]用于判断是否包含某个类方法。
 - (void)setRootViewcontroller:(Class) vcClass
 {
-    NSLog(@"%@",vcClass);
+
     if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
         [vcClass setWindowRootViewController];
 
     }
     
-    
-    //ghj 
 }
 
 
