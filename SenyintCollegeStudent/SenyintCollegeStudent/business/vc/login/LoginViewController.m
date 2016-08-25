@@ -44,6 +44,8 @@
     UITableView *tableview = (UITableView *)self.view;
     tableview.backgroundColor = [UIColor whiteColor];
     tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.title = @"登录";
 
 //    tableview.separatorColor = RGBACOLOR(17, 83, 146, 1);
 //    tableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -180,21 +182,17 @@
     //    UIImage *image = [UIImage imageNamed:@"Button_graybg"];
     //    [loginBtn setBackgroundImage:[[UIImage imageNamed:@"Button_graybg"] stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateSelected];
     
-    if (IOS7_OR_LATER) {
-        
-        [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
-    } else {
-        
-        [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
-        [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        loginBtn.titleLabel.font = [UIFont systemFontOfSize:13.5];
-        
-    }
-    
+    [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];    
     [loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:loginBtn];
     _loginBtn = loginBtn;
     _loginBtn.enabled = NO;
+    
+    
+    
+    
+    
+    
     return footer;
 }
 #pragma mark - Tableview data source

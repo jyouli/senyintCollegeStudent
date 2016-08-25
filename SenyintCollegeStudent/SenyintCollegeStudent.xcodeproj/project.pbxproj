@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79FDED1D1D6EC64000F32B14 /* InfoTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED1C1D6EC64000F32B14 /* InfoTextFieldCell.m */; };
+		79FDED201D6EC69200F32B14 /* RegistInfoInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED1F1D6EC69200F32B14 /* RegistInfoInputCell.m */; };
+		79FDED231D6EC71900F32B14 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED221D6EC71900F32B14 /* CellModel.m */; };
+		79FDED291D6EC7E100F32B14 /* ImproveRegistInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED281D6EC7E100F32B14 /* ImproveRegistInfoViewController.m */; };
+		79FDED2C1D6ECEFC00F32B14 /* EnterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */; };
+		79FDED2F1D6ED1E200F32B14 /* VerificationCodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED2E1D6ED1E200F32B14 /* VerificationCodeLoginViewController.m */; };
+		79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED341D6ED2C800F32B14 /* VerificationCodeCell.m */; };
+		79FDED381D6EE9A200F32B14 /* InfoTextFieldCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */; };
+		79FDED3B1D6EF96F00F32B14 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED3A1D6EF96F00F32B14 /* RegisterViewController.m */; };
 		BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD30021A1D55FC6E0086E7F5 /* StudentView.m */; };
 		BD57F1AE1D4F3D4A00BAB291 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F18D1D4F3D4A00BAB291 /* AFHTTPSessionManager.m */; };
 		BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F1901D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m */; };
@@ -104,6 +113,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79FDED1B1D6EC64000F32B14 /* InfoTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTextFieldCell.h; sourceTree = "<group>"; };
+		79FDED1C1D6EC64000F32B14 /* InfoTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTextFieldCell.m; sourceTree = "<group>"; };
+		79FDED1E1D6EC69200F32B14 /* RegistInfoInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInfoInputCell.h; sourceTree = "<group>"; };
+		79FDED1F1D6EC69200F32B14 /* RegistInfoInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistInfoInputCell.m; sourceTree = "<group>"; };
+		79FDED211D6EC71900F32B14 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		79FDED221D6EC71900F32B14 /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
+		79FDED271D6EC7E100F32B14 /* ImproveRegistInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproveRegistInfoViewController.h; sourceTree = "<group>"; };
+		79FDED281D6EC7E100F32B14 /* ImproveRegistInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveRegistInfoViewController.m; sourceTree = "<group>"; };
+		79FDED2A1D6ECEFC00F32B14 /* EnterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterViewController.h; sourceTree = "<group>"; };
+		79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterViewController.m; sourceTree = "<group>"; };
+		79FDED2D1D6ED1E200F32B14 /* VerificationCodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeLoginViewController.h; sourceTree = "<group>"; };
+		79FDED2E1D6ED1E200F32B14 /* VerificationCodeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeLoginViewController.m; sourceTree = "<group>"; };
+		79FDED331D6ED2C800F32B14 /* VerificationCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCell.h; sourceTree = "<group>"; };
+		79FDED341D6ED2C800F32B14 /* VerificationCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeCell.m; sourceTree = "<group>"; };
+		79FDED361D6EE9A200F32B14 /* InfoTextFieldCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTextFieldCellModel.h; sourceTree = "<group>"; };
+		79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTextFieldCellModel.m; sourceTree = "<group>"; };
+		79FDED391D6EF96F00F32B14 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		79FDED3A1D6EF96F00F32B14 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		BD3002191D55FC6E0086E7F5 /* StudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentView.h; sourceTree = "<group>"; };
 		BD30021A1D55FC6E0086E7F5 /* StudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentView.m; sourceTree = "<group>"; };
 		BD57F18C1D4F3D4A00BAB291 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -430,6 +457,12 @@
 		BD5C2A151D519C4A0066762F /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				79FDED1B1D6EC64000F32B14 /* InfoTextFieldCell.h */,
+				79FDED1C1D6EC64000F32B14 /* InfoTextFieldCell.m */,
+				79FDED1E1D6EC69200F32B14 /* RegistInfoInputCell.h */,
+				79FDED1F1D6EC69200F32B14 /* RegistInfoInputCell.m */,
+				79FDED331D6ED2C800F32B14 /* VerificationCodeCell.h */,
+				79FDED341D6ED2C800F32B14 /* VerificationCodeCell.m */,
 				BD5C2A2B1D51ADC60066762F /* LoginCell.h */,
 				BD5C2A2C1D51ADC60066762F /* LoginCell.m */,
 				BDCAC5EB1D53142E00C66990 /* CourseCell.h */,
@@ -447,6 +480,10 @@
 		BD5C2A161D519C4A0066762F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				79FDED211D6EC71900F32B14 /* CellModel.h */,
+				79FDED221D6EC71900F32B14 /* CellModel.m */,
+				79FDED361D6EE9A200F32B14 /* InfoTextFieldCellModel.h */,
+				79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */,
 				BDCAC5F81D53156600C66990 /* CourseModel.h */,
 				BDCAC5F91D53156600C66990 /* CourseModel.m */,
 				BDCAC5F51D53154A00C66990 /* StudentModel.h */,
@@ -469,10 +506,18 @@
 		BD5C2A191D519C4A0066762F /* login */ = {
 			isa = PBXGroup;
 			children = (
+				79FDED2A1D6ECEFC00F32B14 /* EnterViewController.h */,
+				79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */,
 				BD5C2A1B1D519CCC0066762F /* LoginViewController.h */,
 				BD5C2A1C1D519CCC0066762F /* LoginViewController.m */,
+				79FDED2D1D6ED1E200F32B14 /* VerificationCodeLoginViewController.h */,
+				79FDED2E1D6ED1E200F32B14 /* VerificationCodeLoginViewController.m */,
+				79FDED391D6EF96F00F32B14 /* RegisterViewController.h */,
+				79FDED3A1D6EF96F00F32B14 /* RegisterViewController.m */,
 				BD5C2AA41D52058A0066762F /* TransitionViewController.h */,
 				BD5C2AA51D52058A0066762F /* TransitionViewController.m */,
+				79FDED271D6EC7E100F32B14 /* ImproveRegistInfoViewController.h */,
+				79FDED281D6EC7E100F32B14 /* ImproveRegistInfoViewController.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -812,12 +857,16 @@
 			files = (
 				BDCAC5FD1D53158100C66990 /* TeacherModel.m in Sources */,
 				BD5C2A2D1D51ADC60066762F /* LoginCell.m in Sources */,
+				79FDED381D6EE9A200F32B14 /* InfoTextFieldCellModel.m in Sources */,
 				BDCAC5ED1D53142E00C66990 /* CourseCell.m in Sources */,
 				BDCAC5FA1D53156600C66990 /* CourseModel.m in Sources */,
 				ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */,
 				BD57F1BA1D4F3D4A00BAB291 /* UIProgressView+AFNetworking.m in Sources */,
+				79FDED291D6EC7E100F32B14 /* ImproveRegistInfoViewController.m in Sources */,
+				79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */,
 				ED1E9FAA1D6BF739000BE638 /* NSString+Attribute.m in Sources */,
 				ED33F58A1D6584EB00A64DC7 /* MJRefreshBackFooter.m in Sources */,
+				79FDED3B1D6EF96F00F32B14 /* RegisterViewController.m in Sources */,
 				BD57F1B31D4F3D4A00BAB291 /* AFURLSessionManager.m in Sources */,
 				ED33F59A1D6584EB00A64DC7 /* UIScrollView+MJExtension.m in Sources */,
 				ED33F5981D6584EB00A64DC7 /* MJRefreshConst.m in Sources */,
@@ -831,6 +880,7 @@
 				BD5C2A1D1D519CCC0066762F /* LoginViewController.m in Sources */,
 				BD57F1B81D4F3D4A00BAB291 /* UIButton+AFNetworking.m in Sources */,
 				BDCAC5F11D53146200C66990 /* TeacherCell.m in Sources */,
+				79FDED2F1D6ED1E200F32B14 /* VerificationCodeLoginViewController.m in Sources */,
 				BDD426A61D4EFF6000A1C9C9 /* AppDelegate.m in Sources */,
 				ED1E9FB71D6BF801000BE638 /* YLScrollerImagesController.m in Sources */,
 				EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */,
@@ -841,6 +891,7 @@
 				BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */,
 				BDCAC5F71D53154A00C66990 /* StudentModel.m in Sources */,
 				BD57F1BB1D4F3D4A00BAB291 /* UIRefreshControl+AFNetworking.m in Sources */,
+				79FDED231D6EC71900F32B14 /* CellModel.m in Sources */,
 				ED33F58D1D6584EB00A64DC7 /* MJRefreshHeader.m in Sources */,
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
 				ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */,
@@ -848,6 +899,7 @@
 				BDD426A31D4EFF6000A1C9C9 /* main.m in Sources */,
 				BD57F1B41D4F3D4A00BAB291 /* AFAutoPurgingImageCache.m in Sources */,
 				EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */,
+				79FDED1D1D6EC64000F32B14 /* InfoTextFieldCell.m in Sources */,
 				BD57F1B01D4F3D4A00BAB291 /* AFSecurityPolicy.m in Sources */,
 				ED33F5991D6584EB00A64DC7 /* NSBundle+MJRefresh.m in Sources */,
 				BD57F1B11D4F3D4A00BAB291 /* AFURLRequestSerialization.m in Sources */,
@@ -863,6 +915,7 @@
 				ED33F5951D6584EB00A64DC7 /* MJRefreshNormalHeader.m in Sources */,
 				BD57F1B51D4F3D4A00BAB291 /* AFImageDownloader.m in Sources */,
 				BDCAC5F41D53148500C66990 /* ClassmateCell.m in Sources */,
+				79FDED201D6EC69200F32B14 /* RegistInfoInputCell.m in Sources */,
 				ED33F58E1D6584EB00A64DC7 /* MJRefreshAutoGifFooter.m in Sources */,
 				ED33F5901D6584EB00A64DC7 /* MJRefreshAutoStateFooter.m in Sources */,
 				EDD2909D1D6D6B580081FBAF /* SCBaseTableViewController.m in Sources */,
@@ -872,6 +925,7 @@
 				ED33F5941D6584EB00A64DC7 /* MJRefreshGifHeader.m in Sources */,
 				EDD290A71D6D6EDB0081FBAF /* YLBaseTableView.m in Sources */,
 				ED1E9FA91D6BF739000BE638 /* YLDateTimeTool.m in Sources */,
+				79FDED2C1D6ECEFC00F32B14 /* EnterViewController.m in Sources */,
 				BD57F1B71D4F3D4A00BAB291 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */,
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,

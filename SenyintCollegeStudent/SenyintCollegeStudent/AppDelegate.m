@@ -10,6 +10,7 @@
 #import "AppSetting.h"
 #import "LoginViewController.h"
 #import "TeskViewController.h"
+#import "EnterViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -31,8 +32,12 @@
         vcClass = NSClassFromString(@"TransitionViewController");
 
     }
-    [self setRootViewcontroller:vcClass];
+//    [self setRootViewcontroller:vcClass];
     
+
+    EnterViewController *tc = [[EnterViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
+    self.window.rootViewController = nc;
 
     
     return YES;
@@ -46,7 +51,6 @@
 - (void)setRootViewcontroller:(Class) vcClass
 {
 
-    NSLog(@"%@",vcClass);
     if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
         [vcClass setWindowRootViewController];
         
