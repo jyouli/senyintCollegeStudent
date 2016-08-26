@@ -1,28 +1,29 @@
 //
-//  VerificationCodeLoginViewController.m
+//  PasswordLoginViewController.m
 //  SenyintCollegeStudent
 //
-//  Created by 任亚丽 on 16/8/25.
+//  Created by 任亚丽 on 16/8/26.
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "VerificationCodeLoginViewController.h"
 #import "PasswordLoginViewController.h"
 #import "RegistInfoInputCell.h"
-#import "VerificationCodeCell.h"
 #import "YLRegularCheck.h"
+#import "VerificationCodeLoginViewController.h"
+#import "RegisterViewController.h"
 
-@interface VerificationCodeLoginViewController ()
+@interface PasswordLoginViewController ()<UITextFieldDelegate>
 {
     __weak UIButton *_loginBtn;
 }
 
 @property (nonatomic, strong)NSMutableArray *dataArray;
 @property (nonatomic, weak)  UITextField *userTF;
-@property (nonatomic, weak)  UITextField *verTF;
+@property (nonatomic, weak)  UITextField *pwTF;
 @end
 
-@implementation VerificationCodeLoginViewController
+
+@implementation PasswordLoginViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -48,7 +49,6 @@
     self.title = @"登录";
     
     [self.tableView registerClass:[RegistInfoInputCell class] forCellReuseIdentifier:NSStringFromClass([RegistInfoInputCell class])];
-    [self.tableView registerClass:[VerificationCodeCell class] forCellReuseIdentifier:NSStringFromClass([VerificationCodeCell class])];
     
     [self creatFooterView];
     
@@ -57,16 +57,30 @@
 
 
 
-- (void)loginUsedPassword
+- (void)loginUsedVerificationCode
 {
-    PasswordLoginViewController *pwLoginvc = [[PasswordLoginViewController alloc] init];
-    pwLoginvc.userPhone = self.userTF.text;
-    [self.navigationController pushViewController:pwLoginvc animated:YES];
+    VerificationCodeLoginViewController *verLoginvc = [[VerificationCodeLoginViewController alloc] init];
+    verLoginvc.userPhone = self.userTF.text;
+    [self.navigationController pushViewController:verLoginvc animated:YES];
     
 }
+
+- (void)forgetPasswordBtnClick
+{
+    [SCProgressHUD showInfoWithStatus:@"忘记密码"];
+    
+}
+
+
+- (void)registBtnClick
+{
+    [self.navigationController pushViewController:[[RegisterViewController alloc] init] animated:YES];
+}
+
+
 - (void)loginBtnClick
 {
-    NSLog(@"loginBtnClick");
+    NSLog(@"loginBtnClick");      
     [self.view endEditing:YES];
     
     //格式校验
@@ -76,11 +90,11 @@
         [SCProgressHUD showInfoWithStatus:@"请输入正确手机号"];
         return;
     }
-    if (self.verTF.text.length == 0 || ![YLRegularCheck checkpassword:self.verTF.text]) {
+    if (self.pwTF.text.length == 0 || ![YLRegularCheck checkpassword:self.pwTF.text]) {
         [SCProgressHUD showInfoWithStatus:@"请输入6-20位字母或数字密码"];
         return;
     }
-
+    
     
     [self loginRequest];
     //通过校验之后 调用登录接口
@@ -96,7 +110,7 @@
     //通过校验之后 调用登录接口
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
     [paraDic setValue:self.userTF.text forKey:@"mobile"];
-    [paraDic setValue:self.verTF.text forKey:@"password"];
+    [paraDic setValue:self.pwTF.text forKey:@"password"];
     
     NSLog(@"%@",paraDic);
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
@@ -122,7 +136,7 @@
         [GlobalSingle setToken:[[responseObject objectForKey:@"content"] objectForKey:@"token"]];
         [GlobalSingle setUid:[[responseObject objectForKey:@"content"] objectForKey:@"uid"]];
         [GlobalSingle setMobile:self.userTF.text];
-        [GlobalSingle setPassword:self.verTF.text];
+        [GlobalSingle setPassword:self.pwTF.text];
         
         //        [NSClassFromString(@"HomeViewController") setWindowRootViewController];
         
@@ -154,10 +168,13 @@
         [_dataArray addObject:mode1];
         
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
-        mode2.infoName = @"验证码";
-        mode2.textFieldPlaceholder = @"请输入验证码";
-        mode2.cellClassName = NSStringFromClass([VerificationCodeCell class]);
+        mode2.infoName = @"密 码";
+        mode2.textFieldPlaceholder = @"请输入密码";
+        mode2.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
+        mode2.textFieldSetSecureRightView = YES;
+        mode2.textFieldSecureTextEntry = YES;
         [_dataArray addObject:mode2];
+
         
         
     }
@@ -173,7 +190,19 @@
     footer.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = footer;
     
-    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, Screen_Width - 40, 45)];
+    
+    
+    UIButton *verloginBtn = [[UIButton alloc] initWithFrame:CGRectMake(20,5, 70, 30)];
+    [verloginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"验证码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [verloginBtn addTarget:self action:@selector(loginUsedVerificationCode) forControlEvents:UIControlEventTouchUpInside];
+    [footer addSubview:verloginBtn];
+    
+    UIButton *forgetPwBtn = [[UIButton alloc] initWithFrame:CGRectMake(Screen_Width - 90,5, 70, 30)];
+    [forgetPwBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"忘记密码" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [forgetPwBtn addTarget:self action:@selector(forgetPasswordBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [footer addSubview:forgetPwBtn];
+    
+    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 40, Screen_Width - 40, 45)];
     loginBtn.backgroundColor = [UIColor colorWithRed:22 / 255. green:92 / 255. blue:111 / 255. alpha:1];
     loginBtn.layer.masksToBounds = YES;
     loginBtn.layer.cornerRadius = 5;
@@ -187,11 +216,12 @@
     _loginBtn.enabled = NO;
     
     
-    UIButton *pwLoginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 70, 70, 30)];
-    pwLoginBtn.center = CGPointMake(footer.center.x, 85);
-    [pwLoginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"用密码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
-    [pwLoginBtn addTarget:self action:@selector(loginUsedPassword) forControlEvents:UIControlEventTouchUpInside];
-    [footer addSubview:pwLoginBtn];
+    UIButton *rigistBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    rigistBtn.center = CGPointMake(footer.center.x, 105);
+    [rigistBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"注册" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [rigistBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [footer addSubview:rigistBtn];
+
     
     
 }
@@ -203,29 +233,29 @@
         InfoTextFieldCell *cell = [self.tableView  cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         _userTF = cell.infoTextField;
     }
-
+    
     return _userTF;
 }
 
-- (UITextField *)verTF
+- (UITextField *)pwTF
 {
-    if (!_verTF) {
+    if (!_pwTF) {
         InfoTextFieldCell *cell = [self.tableView  cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-        _verTF = cell.infoTextField;
-
+        _pwTF = cell.infoTextField;
+        
     }
-    return _verTF;
+    return _pwTF;
 }
 
 - (void)textFieldChange:(NSNotification *)noti
 {
-    if ([self.userTF.text length] && [self.verTF.text length]) {
+    if ([self.userTF.text length] && [self.pwTF.text length]) {
         _loginBtn.enabled = YES;
     } else {
-    
+        
         _loginBtn.enabled = NO;
     }
-
+    
 }
 #pragma mark ==UITableViewDataSource
 
@@ -244,8 +274,8 @@
     NSString * cellIdentifier = model.cellClassName;
     InfoTextFieldCell *cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.model = model;
-
-
+    
+    
     return cell;
 }
 

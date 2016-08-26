@@ -13,15 +13,14 @@
 #import "LoginCell.h"
 #import "YLScrollerImagesController.h"
 
-#import "SCTextTableViewController.h"
+#import "ImproveRegistInfoViewController.h"
 
-#import "NetWorkManager.h"
 @interface TeskViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
 @implementation TeskViewController
-////////////
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
@@ -39,23 +38,17 @@
     NSLog(@"%@",self.view.class);
     
     
-    SCTextTableViewController *tc = [[SCTextTableViewController alloc] init];
-    
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
-    
-    [self.navigationController presentViewController:nc animated:YES completion:nil];
-    
 }
 
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    SCTextTableViewController *tc = [[SCTextTableViewController alloc] init];
+    ImproveRegistInfoViewController  *tc = [[ImproveRegistInfoViewController alloc] init];
     
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
     
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:tc animated:YES completion:nil];
+    [self.navigationController presentViewController:nc animated:YES completion:nil];
 }
 
 - (void)testscrollerImagecontroller

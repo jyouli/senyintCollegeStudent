@@ -6,8 +6,8 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
+#import "SCTextTableViewController.h"
 #import "SCBaseTableViewController.h"
-
 @interface ImproveRegistInfoViewController : SCBaseTableViewController
 
 @end

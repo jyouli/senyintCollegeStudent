@@ -8,7 +8,13 @@
 
 #import "EnterViewController.h"
 #import "LoginViewController.h"
+#import "PasswordLoginViewController.h"
 #import "VerificationCodeLoginViewController.h"
+#import "RegisterViewController.h"
+
+
+#import "ImproveRegistInfoViewController.h"
+
 @interface EnterViewController ()
 
 @end
@@ -21,13 +27,8 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"开启新的教与学体验之旅";
-    label.backgroundColor = [UIColor lightGrayColor];
    
     self.tableView.tableHeaderView = label;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-  
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-
 }
 
 #pragma mark ==UITableViewDataSource
@@ -43,9 +44,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString * cellIdentifier = @"cell";
+    NSString * cellIdentifier = @"UITableViewCell";
     UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell.backgroundColor = [UIColor lightGrayColor];
+//    cell.backgroundColor = [UIColor lightGrayColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     switch (indexPath.row) {
         case 0:
@@ -77,17 +78,19 @@
 {
     switch (indexPath.row) {
         case 0:
-            [self.navigationController pushViewController:[[VerificationCodeLoginViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[PasswordLoginViewController alloc] init] animated:YES];
 
             break;
         case 1:
         {
-            VerificationCodeLoginViewController *vc = [[VerificationCodeLoginViewController alloc] init];
+            RegisterViewController *vc = [[RegisterViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
             
         case 2:
+            [self.navigationController pushViewController:[[ImproveRegistInfoViewController alloc] init] animated:YES];
+
             break;
         default:
             break;
@@ -96,5 +99,7 @@
 
 
 }
+
+
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "SCTextViewController.h"
-@interface TeskViewController : SCTextViewController
+#import "SCBaseViewController.h"
+@interface TeskViewController : SCBaseViewController
 
 @end

@@ -10,4 +10,5 @@
 
 @interface VerificationCodeLoginViewController : SCBaseTableViewController
 
+@property (nonatomic, strong) NSString *userPhone;
 @end

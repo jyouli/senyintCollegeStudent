@@ -26,17 +26,43 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+    }
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)
+         ];
+    }
+    
+
+    
+    UIView *v = [[UIView alloc] init];
+    self.tableView.tableFooterView = v;
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
 }
+
+#pragma mark ==UITableViewDelegate
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+    }
+    
+}
+
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
 - (NSUInteger)supportedInterfaceOrientations

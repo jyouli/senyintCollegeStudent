@@ -88,6 +88,9 @@
     self.infoTextField.clearButtonMode = self.model.textFieldClearBtnMode;
     self.infoTextField.secureTextEntry = self.model.textFieldSecureTextEntry;
     self.infoTextField.enabled = self.model.textFieldEnabled;
+    if (model.textFieldDelegate) {
+        self.infoTextField.delegate = model.textFieldDelegate;
+    }
     
 }
 

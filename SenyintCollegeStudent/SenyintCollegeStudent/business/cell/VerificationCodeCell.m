@@ -9,7 +9,7 @@
 
 #import "VerificationCodeCell.h"
 #import "NSString+Attribute.h"
-
+#import "SCProgressHUD.h"
 @interface VerificationCodeCell ()
 {
     NSTimer *timer;
@@ -113,7 +113,6 @@
 
 - (void)setCountdown
 {
-    NSLog(@"setCountdown");
     if (countdown) {
         [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateDisabled];
         countdown --;

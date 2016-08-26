@@ -93,6 +93,9 @@
 
     _loginBtn.enabled = NO;
     
+    
+    
+    
     //通过校验之后 调用登录接口
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
     [paraDic setValue:_userTF.text forKey:@"mobile"];
@@ -112,6 +115,9 @@
         [safeSelf loginFailure];
     }];
 
+    
+    
+    
 }
 - (void)loginSuccess:(id)responseObject
 {

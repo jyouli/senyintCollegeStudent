@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		797344FB1D6FD5020083B5D6 /* PasswordLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797344FA1D6FD5020083B5D6 /* PasswordLoginViewController.m */; };
+		797345071D7019E30083B5D6 /* SelectHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797345061D7019E30083B5D6 /* SelectHospitalViewController.m */; };
+		7973450A1D701A830083B5D6 /* SelectDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797345091D701A830083B5D6 /* SelectDepartmentViewController.m */; };
+		7973450D1D701AAE0083B5D6 /* SelectTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7973450C1D701AAE0083B5D6 /* SelectTitleViewController.m */; };
 		79FDED1D1D6EC64000F32B14 /* InfoTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED1C1D6EC64000F32B14 /* InfoTextFieldCell.m */; };
 		79FDED201D6EC69200F32B14 /* RegistInfoInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED1F1D6EC69200F32B14 /* RegistInfoInputCell.m */; };
 		79FDED231D6EC71900F32B14 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED221D6EC71900F32B14 /* CellModel.m */; };
@@ -110,17 +114,17 @@
 		EDD290A71D6D6EDB0081FBAF /* YLBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A41D6D6EDB0081FBAF /* YLBaseTableView.m */; };
 		EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */; };
 		EDD290AE1D6D75340081FBAF /* SCTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290AD1D6D75340081FBAF /* SCTextViewController.m */; };
-		F7B3834C1D702E8B00464E35 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F7B3834B1D702E8B00464E35 /* database.sqlite */; };
-		F7B3834E1D702EAA00464E35 /* 建表sql语句.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F7B3834D1D702EAA00464E35 /* 建表sql语句.rtf */; };
-		F7B3835C1D702FF500464E35 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B383511D702FF500464E35 /* FMDatabase.m */; };
-		F7B3835D1D702FF500464E35 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B383531D702FF500464E35 /* FMDatabaseAdditions.m */; };
-		F7B3835E1D702FF500464E35 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B383551D702FF500464E35 /* FMDatabasePool.m */; };
-		F7B3835F1D702FF500464E35 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B383571D702FF500464E35 /* FMDatabaseQueue.m */; };
-		F7B383601D702FF500464E35 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B3835A1D702FF500464E35 /* FMResultSet.m */; };
-		F7B383611D702FF500464E35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B3835B1D702FF500464E35 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		797344F91D6FD5020083B5D6 /* PasswordLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordLoginViewController.h; sourceTree = "<group>"; };
+		797344FA1D6FD5020083B5D6 /* PasswordLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordLoginViewController.m; sourceTree = "<group>"; };
+		797345051D7019E30083B5D6 /* SelectHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHospitalViewController.h; sourceTree = "<group>"; };
+		797345061D7019E30083B5D6 /* SelectHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHospitalViewController.m; sourceTree = "<group>"; };
+		797345081D701A830083B5D6 /* SelectDepartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDepartmentViewController.h; sourceTree = "<group>"; };
+		797345091D701A830083B5D6 /* SelectDepartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDepartmentViewController.m; sourceTree = "<group>"; };
+		7973450B1D701AAE0083B5D6 /* SelectTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTitleViewController.h; sourceTree = "<group>"; };
+		7973450C1D701AAE0083B5D6 /* SelectTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTitleViewController.m; sourceTree = "<group>"; };
 		79FDED1B1D6EC64000F32B14 /* InfoTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTextFieldCell.h; sourceTree = "<group>"; };
 		79FDED1C1D6EC64000F32B14 /* InfoTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTextFieldCell.m; sourceTree = "<group>"; };
 		79FDED1E1D6EC69200F32B14 /* RegistInfoInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInfoInputCell.h; sourceTree = "<group>"; };
@@ -309,20 +313,6 @@
 		EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLBaseView.m; sourceTree = "<group>"; };
 		EDD290AC1D6D75340081FBAF /* SCTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTextViewController.h; sourceTree = "<group>"; };
 		EDD290AD1D6D75340081FBAF /* SCTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTextViewController.m; sourceTree = "<group>"; };
-		F7B3834B1D702E8B00464E35 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
-		F7B3834D1D702EAA00464E35 /* 建表sql语句.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "建表sql语句.rtf"; sourceTree = "<group>"; };
-		F7B383501D702FF500464E35 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		F7B383511D702FF500464E35 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		F7B383521D702FF500464E35 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		F7B383531D702FF500464E35 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		F7B383541D702FF500464E35 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		F7B383551D702FF500464E35 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		F7B383561D702FF500464E35 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		F7B383571D702FF500464E35 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		F7B383581D702FF500464E35 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		F7B383591D702FF500464E35 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		F7B3835A1D702FF500464E35 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		F7B3835B1D702FF500464E35 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,10 +347,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		797345021D7019930083B5D6 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				797345051D7019E30083B5D6 /* SelectHospitalViewController.h */,
+				797345061D7019E30083B5D6 /* SelectHospitalViewController.m */,
+				797345081D701A830083B5D6 /* SelectDepartmentViewController.h */,
+				797345091D701A830083B5D6 /* SelectDepartmentViewController.m */,
+				7973450B1D701AAE0083B5D6 /* SelectTitleViewController.h */,
+				7973450C1D701AAE0083B5D6 /* SelectTitleViewController.m */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
 		BD57F1891D4F3D4A00BAB291 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
-				F7B3834F1D702FF500464E35 /* fmdb */,
 				ED33F55A1D6584EB00A64DC7 /* MJRefresh */,
 				BD5C2A0B1D51954A0066762F /* SVProgressHUD */,
 				BD57F18A1D4F3D4A00BAB291 /* AFN */,
@@ -520,6 +522,7 @@
 		BD5C2A171D519C4A0066762F /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				797345021D7019930083B5D6 /* other */,
 				EDD290921D6D6B580081FBAF /* base */,
 				BD5C2A191D519C4A0066762F /* login */,
 			);
@@ -531,6 +534,8 @@
 			children = (
 				79FDED2A1D6ECEFC00F32B14 /* EnterViewController.h */,
 				79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */,
+				797344F91D6FD5020083B5D6 /* PasswordLoginViewController.h */,
+				797344FA1D6FD5020083B5D6 /* PasswordLoginViewController.m */,
 				BD5C2A1B1D519CCC0066762F /* LoginViewController.h */,
 				BD5C2A1C1D519CCC0066762F /* LoginViewController.m */,
 				79FDED2D1D6ED1E200F32B14 /* VerificationCodeLoginViewController.h */,
@@ -598,8 +603,6 @@
 		BDD426A11D4EFF6000A1C9C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7B3834B1D702E8B00464E35 /* database.sqlite */,
-				F7B3834D1D702EAA00464E35 /* 建表sql语句.rtf */,
 				BDD426A21D4EFF6000A1C9C9 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -802,25 +805,6 @@
 			path = baseview;
 			sourceTree = "<group>";
 		};
-		F7B3834F1D702FF500464E35 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				F7B383501D702FF500464E35 /* FMDatabase.h */,
-				F7B383511D702FF500464E35 /* FMDatabase.m */,
-				F7B383521D702FF500464E35 /* FMDatabaseAdditions.h */,
-				F7B383531D702FF500464E35 /* FMDatabaseAdditions.m */,
-				F7B383541D702FF500464E35 /* FMDatabasePool.h */,
-				F7B383551D702FF500464E35 /* FMDatabasePool.m */,
-				F7B383561D702FF500464E35 /* FMDatabaseQueue.h */,
-				F7B383571D702FF500464E35 /* FMDatabaseQueue.m */,
-				F7B383581D702FF500464E35 /* FMDB.h */,
-				F7B383591D702FF500464E35 /* FMResultSet.h */,
-				F7B3835A1D702FF500464E35 /* FMResultSet.m */,
-				F7B3835B1D702FF500464E35 /* Info.plist */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -884,9 +868,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B383611D702FF500464E35 /* Info.plist in Resources */,
-				F7B3834C1D702E8B00464E35 /* database.sqlite in Resources */,
-				F7B3834E1D702EAA00464E35 /* 建表sql语句.rtf in Resources */,
 				BD5C2A121D51954A0066762F /* SVProgressHUD.bundle in Resources */,
 				BDD426B11D4EFF6000A1C9C9 /* LaunchScreen.storyboard in Resources */,
 				BDD426AE1D4EFF6000A1C9C9 /* Assets.xcassets in Resources */,
@@ -911,17 +892,18 @@
 				BD57F1BA1D4F3D4A00BAB291 /* UIProgressView+AFNetworking.m in Sources */,
 				79FDED291D6EC7E100F32B14 /* ImproveRegistInfoViewController.m in Sources */,
 				79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */,
+				7973450D1D701AAE0083B5D6 /* SelectTitleViewController.m in Sources */,
 				ED1E9FAA1D6BF739000BE638 /* NSString+Attribute.m in Sources */,
 				ED33F58A1D6584EB00A64DC7 /* MJRefreshBackFooter.m in Sources */,
+				797344FB1D6FD5020083B5D6 /* PasswordLoginViewController.m in Sources */,
 				79FDED3B1D6EF96F00F32B14 /* RegisterViewController.m in Sources */,
+				797345071D7019E30083B5D6 /* SelectHospitalViewController.m in Sources */,
 				BD57F1B31D4F3D4A00BAB291 /* AFURLSessionManager.m in Sources */,
 				ED33F59A1D6584EB00A64DC7 /* UIScrollView+MJExtension.m in Sources */,
 				ED33F5981D6584EB00A64DC7 /* MJRefreshConst.m in Sources */,
-				F7B3835C1D702FF500464E35 /* FMDatabase.m in Sources */,
 				EDD290A11D6D6B580081FBAF /* SCTextTableViewController.m in Sources */,
 				ED1E9FC61D6C49B2000BE638 /* NetWorkManager.m in Sources */,
 				ED33F5A51D65B02900A64DC7 /* SCProgressHUD.m in Sources */,
-				F7B3835D1D702FF500464E35 /* FMDatabaseAdditions.m in Sources */,
 				ED33F5931D6584EB00A64DC7 /* MJRefreshBackStateFooter.m in Sources */,
 				ED1E9FB91D6BF801000BE638 /* YLShowImagesViewController.m in Sources */,
 				BD57F1BC1D4F3D4A00BAB291 /* UIWebView+AFNetworking.m in Sources */,
@@ -940,13 +922,13 @@
 				BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */,
 				BDCAC5F71D53154A00C66990 /* StudentModel.m in Sources */,
 				BD57F1BB1D4F3D4A00BAB291 /* UIRefreshControl+AFNetworking.m in Sources */,
-				F7B383601D702FF500464E35 /* FMResultSet.m in Sources */,
 				79FDED231D6EC71900F32B14 /* CellModel.m in Sources */,
 				ED33F58D1D6584EB00A64DC7 /* MJRefreshHeader.m in Sources */,
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
 				ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */,
 				ED1E9FAB1D6BF739000BE638 /* NSString+Size.m in Sources */,
 				BDD426A31D4EFF6000A1C9C9 /* main.m in Sources */,
+				7973450A1D701A830083B5D6 /* SelectDepartmentViewController.m in Sources */,
 				BD57F1B41D4F3D4A00BAB291 /* AFAutoPurgingImageCache.m in Sources */,
 				EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */,
 				79FDED1D1D6EC64000F32B14 /* InfoTextFieldCell.m in Sources */,
@@ -980,10 +962,8 @@
 				ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */,
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ED33F58B1D6584EB00A64DC7 /* MJRefreshComponent.m in Sources */,
-				F7B3835E1D702FF500464E35 /* FMDatabasePool.m in Sources */,
 				ED33F59C1D6584EB00A64DC7 /* UIView+MJExtension.m in Sources */,
 				ED33F58C1D6584EB00A64DC7 /* MJRefreshFooter.m in Sources */,
-				F7B3835F1D702FF500464E35 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,7 +1098,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cinyi.killtest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.SenyintCollegeStudent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

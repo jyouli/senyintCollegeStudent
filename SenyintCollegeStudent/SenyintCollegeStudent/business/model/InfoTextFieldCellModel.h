@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *textFieldPlaceholder;  //Placeholder
 @property (nonatomic, assign) UIKeyboardType textFieldKeyboardType;//键盘类型
 @property (nonatomic, assign) UIReturnKeyType textFieldReturnKeyType;//键盘返回按钮类型
+@property (nonatomic, weak) id<UITextFieldDelegate> textFieldDelegate;//delegate  不设的时候为cell
 @property (nonatomic, assign) BOOL textFieldEnabled;   //textField是否可以获取焦点 默认为YES
 @property (nonatomic, assign) BOOL textFieldSecureTextEntry;    //YES 密文 NO明文  默认为NO
 @property (nonatomic, assign) UITextFieldViewMode textFieldClearBtnMode; //clearBtn展示的ViewMode 默认UITextFieldViewModeWhileEditing
