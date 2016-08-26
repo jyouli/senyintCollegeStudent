@@ -12,17 +12,9 @@
 #import "SelectDepartmentViewController.h"
 #import "SelectTitleViewController.h"
 #import "YLRegularCheck.h"
-
+#import "YLStringTool.h"
 @interface ImproveRegistInfoViewController ()
-{
-    __weak  UIButton *_commitBtn;
-    __weak  UITextField *_nameTF;
-    __weak  UITextField *_pwTF;
-    __weak  UITextField *_hosTF;
-    __weak  UITextField *_departTF;
-    __weak  UITextField *_titleTF;
 
-}
 
 @property (nonatomic, strong)NSMutableArray *dataArray;
 @end
@@ -65,35 +57,52 @@
     [commitBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [commitBtn addTarget:self action:@selector(commitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:commitBtn];
-    _commitBtn = commitBtn;
+//    _commitBtn = commitBtn;
     
     [self.tableView setTableFooterView:footer];
     
 }
 
 
-//- (NSString *)description
-//{
-//    NSString *str = [super description];
-//    
-////    return [NSString stringWithFormat:@"%@\nname:%@,pw:%@,hos:%s,dep:%@,title:%@",str,_nameTF.text,_pwTF.text,_hosTF,depart,title];
-//}
+
 - (void)commitBtnClick
 {
     [self.view endEditing:YES];
-    NSLog(@"%@",self);
-    
-    //格式校验
-    
-    if (_nameTF.text.length == 0 || ![YLRegularCheck checkMobilePhoneNumber:_nameTF.text]) {
+    InfoTextFieldCell *namecell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if ([YLStringTool isEmpty:namecell.infoTextField.text ] || ![YLRegularCheck checkMobilePhoneNumber:namecell.infoTextField.text]) {
         
         [SCProgressHUD showInfoWithStatus:@"请输入正确手机号"];
         return;
     }
-    if (_pwTF.text.length == 0 || ![YLRegularCheck checkpassword:_pwTF.text]) {
-        [SCProgressHUD showInfoWithStatus:@"请输入6-24位字母或数字密码"];
+    
+    InfoTextFieldCell *pwCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+
+    if ([YLStringTool isEmpty:pwCell.infoTextField.text ] || ![YLRegularCheck checkpassword:pwCell.infoTextField.text]) {
+        [SCProgressHUD showInfoWithStatus:@"请输入6-20位字母或数字密码"];
         return;
     }
+
+    InfoTextFieldCell *hosCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    if ([YLStringTool isEmpty:hosCell.infoTextField.text ]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择医院"];
+        return;
+    }
+    
+    InfoTextFieldCell *deptCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    
+    if ([YLStringTool isEmpty:deptCell.infoTextField.text ]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择科室"];
+        return;
+    }
+
+    InfoTextFieldCell *titleCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    
+    if ([YLStringTool isEmpty:titleCell.infoTextField.text ]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择职称"];
+        return;
+    }
+
 
     
 }
@@ -201,13 +210,8 @@
     RegistInfoInputCell *cell =  [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     [cell setModel:model];
-    if (indexPath.row == 0) {
-        _nameTF = cell.infoTextField;
-    }
+
     
-    if (indexPath.row == 1) {
-        _pwTF = cell.infoTextField;
-    }
     return cell;
 }
 

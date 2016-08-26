@@ -29,6 +29,8 @@
     label.text = @"开启新的教与学体验之旅";
    
     self.tableView.tableHeaderView = label;
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
 }
 
 #pragma mark ==UITableViewDataSource
