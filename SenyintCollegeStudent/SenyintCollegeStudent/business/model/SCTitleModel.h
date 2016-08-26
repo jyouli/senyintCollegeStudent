@@ -10,4 +10,7 @@
 
 @interface SCTitleModel : NSObject
 
+@property (nonatomic , strong) NSString * severId;//该科室对应的服务器id
+@property (nonatomic , strong) NSString * titleId;//市id
+@property (nonatomic , strong) NSString * name;//科室名字
 @end

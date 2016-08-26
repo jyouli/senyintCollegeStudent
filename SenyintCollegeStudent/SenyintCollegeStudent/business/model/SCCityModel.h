@@ -12,7 +12,7 @@
 
 @property (nonatomic , strong) NSString * severId;//该城市对应的服务器id
 @property (nonatomic , strong) NSString * provId;//省id
-@property (nonatomic , strong) NSString * cityId;//市id
+@property (nonatomic , strong) NSString * cityId;//市id  为省model时，此字段无效
 @property (nonatomic , strong) NSString * name;//省/市名字
 
 

@@ -14,6 +14,11 @@
 #import "FMResultSet.h"
 #import "FMDatabaseAdditions.h"
 
+
+#import "SCCityModel.h"
+#import "SCTitleModel.h"
+#import "SCSpecialtyModel.h"
+
 @implementation DatabaseManager
 
 + (NSString *)getDatabasePath
@@ -49,50 +54,103 @@
     return verFilePath;
 }
 
-/**
- * 获取专科数据，specialtyNo为0时表示获取一级专科数据，其他为对应的一级专科下级数据
- */
-+ (NSArray *)getSpecialtyArrayWithId:(int)sepcialtyId{
-    
-    //parentID = 0 获取所有一级专科  子专科则根据一级专科specialtyID作为parentID来搜索
-    
-    NSMutableArray *specialtyListArray = [[NSMutableArray alloc] init];
++ (NSArray *)getAddressArrayWithId:(int)provId
+{
+    NSMutableArray *listArray = [[NSMutableArray alloc] init];
     
     NSString *filePath =  [DatabaseManager getDatabasePath];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        return specialtyListArray;
+        return listArray;
     }
     
     FMDatabase *fmdb   = [[FMDatabase alloc] initWithPath:filePath];
+    
     [fmdb open];
+    
     //如果表或者数据库文件不存在则直接返回空数组
-    if (![fmdb tableExists:@"med_specialty"]) {
+    if (![fmdb tableExists:@"dict_city"] || ![fmdb tableExists:@"dict_province"]) {
         [fmdb close];
-        return specialtyListArray;
+        return listArray;
     }
     
     [fmdb setShouldCacheStatements:YES];
     
-    FMResultSet *rs = [fmdb executeQuery:@"select * from med_specialty where parent_id=?",[NSNumber numberWithInt:sepcialtyId]];
+    if (provId == 0) {
+        
+        FMResultSet *rs = [fmdb executeQuery:@"select sever_id,prov_id,name from dict_province"];
+        while ([rs next])
+        {
+            SCCityModel *model  = [[SCCityModel alloc] init];
+            model.severId       = [rs stringForColumn:@"sever_id"];
+            model.provId        = [rs stringForColumn:@"prov_id"];
+            model.name          = [rs stringForColumn:@"name"];
+            [listArray addObject:model];
+        }
+        
+        [rs close];
+    }
+    else{
+        
+        FMResultSet *rs = [fmdb executeQuery:@"select sever_id,prov_id,city_id,name,area_id from dict_city where prov_id=?",[NSString stringWithFormat:@"%d",provId]];
+        
+        while ([rs next])
+        {
+            SCCityModel *model  = [[SCCityModel alloc] init];
+            model.severId       = [rs stringForColumn:@"sever_id"];
+            model.provId        = [rs stringForColumn:@"prov_id"];
+            model.cityId        = [rs stringForColumn:@"city_id"];
+            model.name          = [rs stringForColumn:@"name"];
+            [listArray addObject:model];
+        }
+        
+        [rs close];
+    }
+    
+    [fmdb close];
+    
+    return listArray;
+}
+
++ (NSArray *)getSpecialtyArrayWithId:(int)parentId
+{
+    NSMutableArray *listArray = [[NSMutableArray alloc] init];
+    
+    NSString *filePath =  [DatabaseManager getDatabasePath];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        return listArray;
+    }
+    
+    FMDatabase *fmdb   = [[FMDatabase alloc] initWithPath:filePath];
+    
+    [fmdb open];
+    
+    //如果表或者数据库文件不存在则直接返回空数组
+    if (![fmdb tableExists:@"dict_specialty"]) {
+        [fmdb close];
+        return listArray;
+    }
+    
+    [fmdb setShouldCacheStatements:YES];
+    
+    FMResultSet *rs = [fmdb executeQuery:@"select sever_id,pid,specialty_id,specialty_name from dict_specialty where pid=?",[NSString stringWithFormat:@"%d",parentId]];
     
     while ([rs next])
     {
-//        CMASpecialtyModel *specialty       = [[CMASpecialtyModel alloc] init];
-//        specialty.specialtyID           = [rs intForColumn:@"id"];
-//        specialty.specialtyParentID     = [rs intForColumn:@"parent_id"];
-//        specialty.specialtyName         = [rs stringForColumn:@"name"];
-//        specialty.specialtyImgUrl       = [rs stringForColumn:@"img_url"];
-        //        specialty.specialtyDisplayOrder = [rs intForColumn:@"create_date"];
-        
-//        [specialtyListArray addObject:specialty];
+        SCSpecialtyModel *model  = [[SCSpecialtyModel alloc] init];
+        model.severId       = [rs stringForColumn:@"sever_id"];
+        model.pid           = [rs stringForColumn:@"pid"];
+        model.specialtyId   = [rs stringForColumn:@"specialty_id"];
+        model.name          = [rs stringForColumn:@"specialty_name"];
+        [listArray addObject:model];
     }
     
     [rs close];
+    
     [fmdb close];
     
-    return specialtyListArray;
-
+    return listArray;
 }
 
 + (NSString *)getSpecialtyNameWithId:(int)sepcialtyId
@@ -107,71 +165,70 @@
     
     FMDatabase *fmdb   = [[FMDatabase alloc] initWithPath:filePath];
     [fmdb open];
-    //如果表或者数据库文件不存在则直接返回空数组
-    if (![fmdb tableExists:@"med_specialty"]) {
+    
+    //如果表或者数据库文件不存在则直接返回空
+    if (![fmdb tableExists:@"dict_specialty"]) {
         [fmdb close];
         return @"";
     }
     
     [fmdb setShouldCacheStatements:YES];
     
-    FMResultSet *rs = [fmdb executeQuery:@"select name from med_specialty where id=?",[NSNumber numberWithInt:sepcialtyId]];
+    FMResultSet *rs = [fmdb executeQuery:@"select specialty_name from dict_specialty where specialty_id=?",[NSNumber numberWithInt:sepcialtyId]];
     
     while ([rs next])
     {
         
-        name         = [rs stringForColumn:@"name"];
+        name  = [rs stringForColumn:@"specialty_name"];
     }
     
     [rs close];
     [fmdb close];
     
     return name;
-
 }
 
 
 /**
  * 获取职称列表
  */
-+ (NSArray *)getTitleArrayWithId:(int)titleId
++ (NSArray *)getTitleArray
 {
-    //parentID = 0 获取所有一级专科  子专科则根据一级专科specialtyID作为parentID来搜索
     
-    NSMutableArray *specialtyListArray = [[NSMutableArray alloc] init];
+    NSMutableArray *listArray = [[NSMutableArray alloc] init];
     
     NSString *filePath =  [DatabaseManager getDatabasePath];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        return specialtyListArray;
+        return listArray;
     }
     
     FMDatabase *fmdb   = [[FMDatabase alloc] initWithPath:filePath];
     [fmdb open];
+    
     //如果表或者数据库文件不存在则直接返回空数组
-    if (![fmdb tableExists:@"d_medical_title"]) {
+    if (![fmdb tableExists:@"dict_medical_title"]) {
         [fmdb close];
-        return specialtyListArray;
+        return listArray;
     }
     
     [fmdb setShouldCacheStatements:YES];
     
-    FMResultSet *rs = [fmdb executeQuery:@"select * from d_medical_title where pid=?",[NSNumber numberWithInt:titleId]];
+    FMResultSet *rs = [fmdb executeQuery:@"select sever_id,title_id,title_name from dict_medical_title"];
     
     while ([rs next])
     {
-//        CMATitleModel *specialty    = [[CMATitleModel alloc] init];
-//        specialty.titleId           = [rs intForColumn:@"id"];
-//        specialty.pid               = [rs intForColumn:@"parent_id"];
-//        specialty.name              = [rs stringForColumn:@"name"];
-//        
-//        [specialtyListArray addObject:specialty];
+        SCTitleModel *model = [[SCTitleModel alloc] init];
+        model.severId   = [rs stringForColumn:@"sever_id"];
+        model.titleId   = [rs stringForColumn:@"title_id"];
+        model.name      = [rs stringForColumn:@"title_name"];
+        [listArray addObject:model];
     }
     
     [rs close];
     [fmdb close];
     
-    return specialtyListArray;
+    return listArray;
 }
 
 + (NSString *)getTitleNameWithId:(int)titleId
@@ -187,20 +244,21 @@
     
     FMDatabase *fmdb   = [[FMDatabase alloc] initWithPath:filePath];
     [fmdb open];
-    //如果表或者数据库文件不存在则直接返回空数组
-    if (![fmdb tableExists:@"d_medical_title"]) {
+    
+    //如果表或者数据库文件不存在则直接返回空
+    if (![fmdb tableExists:@"dict_medical_title"]) {
         [fmdb close];
         return @"";
     }
     
     [fmdb setShouldCacheStatements:YES];
     
-    FMResultSet *rs = [fmdb executeQuery:@"select name from d_medical_title where id=?",[NSNumber numberWithInt:titleId]];
+    FMResultSet *rs = [fmdb executeQuery:@"select title_name from dict_medical_title where title_id=?",[NSNumber numberWithInt:titleId]];
     
     while ([rs next])
     {
         
-        name  = [rs stringForColumn:@"name"];
+        name  = [rs stringForColumn:@"title_name"];
     }
     
     [rs close];
