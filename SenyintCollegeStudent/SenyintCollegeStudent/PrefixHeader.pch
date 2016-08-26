@@ -11,6 +11,9 @@
 
 #import "CommonMacroDefinition.h"
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 
 #define  TextColor  [UIColor darkGrayColor]
 #define  TextFont   [UIFont systemFontOfSize:14]
