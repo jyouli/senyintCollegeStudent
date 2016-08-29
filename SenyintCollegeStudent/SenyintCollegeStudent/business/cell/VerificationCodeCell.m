@@ -24,6 +24,7 @@
     [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
     
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -68,10 +69,11 @@
 }
 
 
-- (void)layoutSubviews
+#pragma mark ---交互
+- (void)setModel:(InfoTextFieldCellModel *)model
 {
-    [super layoutSubviews];
-    NSInteger  countdown = [VerificationCodeCountdownSingle getCurrentRemainingsecondSWithKey:self.model.verificationCodeCountdownKey AndCountdown_Second:0];
+    [super setModel:model];
+    NSInteger  countdown = [VerificationCodeCountdownSingle getCurrentRemainingsecondSWithKey:model.verificationCodeCountdownKey AndCountdown_Second:0];
     if (countdown == Countdown_Second) {
         [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
         countdownBtn.enabled = YES;
@@ -79,24 +81,19 @@
     } else {
         countdownBtn.enabled = NO;
         [self performSelectorInBackground:@selector(startCountdown) withObject:nil];
+        
     }
-}
 
-
-#pragma mark ---交互
-- (void)setModel:(InfoTextFieldCellModel *)model
-{
-    [super setModel:model];
-    
+    __weak typeof(countdownBtn) safeBtn = countdownBtn;
     if ([Countdown_UserRegist isEqualToString:model.verificationCodeCountdownKey]) {
         [VerificationCodeCountdownSingle sharedCodeCountdownSingle].userRegistUpdateUI = ^(NSInteger countdown){
            
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (countdown == 0) {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
-                    countdownBtn.enabled = YES;
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
+                    safeBtn.enabled = YES;
                 } else {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateDisabled];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateDisabled];
 
                 }
                 
@@ -113,11 +110,11 @@
            
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (countdown == 0) {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
-                    countdownBtn.enabled = YES;
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
+                    safeBtn.enabled = YES;
               
                 } else {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
                 }
                 
                 
@@ -132,11 +129,11 @@
         [VerificationCodeCountdownSingle sharedCodeCountdownSingle].verificationCodeLoginUpdateUI = ^(NSInteger countdown){
            
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (countdown == 0) {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
-                    countdownBtn.enabled = YES;
+                if (safeBtn == 0) {
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
+                    safeBtn.enabled = YES;
                 } else {
-                    [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateDisabled];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds",countdown] Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateDisabled];
                     
                 }
                 
@@ -154,6 +151,7 @@
 - (void)getVerificationCodeBtnClick:(UIButton *)btn
 #warning 服务器获取验证码
 {
+    
     btn.enabled = NO;
 
     [self performSelectorInBackground:@selector(startCountdown) withObject:nil];

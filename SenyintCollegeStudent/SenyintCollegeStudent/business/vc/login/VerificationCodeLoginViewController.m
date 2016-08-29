@@ -36,7 +36,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
+    [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillDisappear:animated];
     

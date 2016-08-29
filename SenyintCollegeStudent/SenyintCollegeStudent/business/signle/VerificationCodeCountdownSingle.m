@@ -60,6 +60,12 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:countdownKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
++(void)clearCountdownStartDateWithKey:(NSString *)countdownKey
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:countdownKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 /**
  * 获取验证码类型(如 忘记密码界面)的当前剩余秒数
  
@@ -93,24 +99,24 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
 
 - (void)closeTimer
 {
-    NSLog(@"%d",timer.valid);
     if (timer.valid) {
         [timer invalidate];
         CFRunLoopStop(timerRunLoop);
-
+        timer = nil;
     }
-    
 }
 
-//只有一个当前显示的cell只能有一个  所以view每次出现的时候都需要刷新
+//只有一个当前显示的cell只能有一个   所以view每次出现的时候都需要刷新
 - (void)startCountdownWith:(NSString *)countdownKey
 {
     
     [self closeTimer];
 
     countdown = [VerificationCodeCountdownSingle getCurrentRemainingsecondSWithKey:countdownKey AndCountdown_Second:0];
-    [VerificationCodeCountdownSingle saveCountdownStartDateWithKey:countdownKey];
+    if (countdown > Countdown_Second) {
+        [VerificationCodeCountdownSingle saveCountdownStartDateWithKey:countdownKey];
 
+    }
     NSDictionary *dic = @{@"key":countdownKey,@"countdown": [NSNumber numberWithInteger:countdown]};
     timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdown:) userInfo:dic repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -123,7 +129,6 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
 - (void)updateCountdown:(NSTimer *)sender
 {
     NSDictionary *dic = sender.userInfo;
-//    NSInteger keyCountdown = [[dic objectForKey:@"countdown"] integerValue];
     if ([Countdown_UserRegist isEqualToString:dic[@"key"]]) {
         if (self.userRegistUpdateUI) {
             self.userRegistUpdateUI(countdown);
@@ -144,6 +149,7 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
     }
 
     if (countdown == 0) {
+        [VerificationCodeCountdownSingle clearCountdownStartDateWithKey:dic[@"key"]];
         [self closeTimer];
  
     } else {

@@ -19,7 +19,11 @@
 
 @implementation ForgetPasswordViewController
 
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
+    [super viewWillDisappear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"忘记密码";

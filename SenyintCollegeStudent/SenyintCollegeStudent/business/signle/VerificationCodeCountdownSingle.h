@@ -25,6 +25,13 @@
 
 //开始计时
 - (void)startCountdownWith:(NSString *)countdownKey;
+
+/**
+ * 保存验证码类型(如 忘记密码界面)的当前时间
+ 
+ * countdownKey：验证码类型
+ */
++(void)saveCountdownStartDateWithKey:(NSString *)countdownKey;
 /**
  * 获取验证码类型(如 忘记密码界面)的当前剩余秒数 <60 直接显示 >= 60秒
  * countdownKey：验证码类型
