@@ -120,12 +120,14 @@
         InfoTextFieldCellModel *mode1 = [[InfoTextFieldCellModel alloc] init];
         mode1.infoName = @"手机号";
         mode1.textFieldPlaceholder = @"请输入手机号";
+        mode1.textFieldKeyboardType = UIKeyboardTypePhonePad;
         mode1.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         [_dataArray addObject:mode1];
         
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"验证码";
         mode2.textFieldPlaceholder = @"请输入验证码";
+        mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode2.cellClassName = NSStringFromClass([VerificationCodeCell class]);
         [_dataArray addObject:mode2];
         

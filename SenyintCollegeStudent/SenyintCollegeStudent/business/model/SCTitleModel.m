@@ -10,4 +10,14 @@
 
 @implementation SCTitleModel
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@\n titleId:%@,name:%@,serverid:%@",[super description],self.titleId,self.name,self.severId];
+}
+- (void)setModel:(SCTitleModel *)model
+{
+    self.severId = model.severId;
+    self.titleId = model.titleId;
+    self.name = model.name;
+}
 @end

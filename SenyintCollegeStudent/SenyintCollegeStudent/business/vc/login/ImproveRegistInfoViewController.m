@@ -13,7 +13,13 @@
 #import "SelectTitleViewController.h"
 #import "YLRegularCheck.h"
 #import "YLStringTool.h"
+#import "SCSpecialtyModel.h"
+#import "SCTitleModel.h"
 @interface ImproveRegistInfoViewController ()
+{
+    SCTitleModel *titleModel;
+    SCSpecialtyModel *deptModel;
+}
 
 
 @property (nonatomic, strong)NSMutableArray *dataArray;
@@ -24,6 +30,7 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    
 }
 - (void)viewDidLoad
 {
@@ -57,7 +64,6 @@
     [commitBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [commitBtn addTarget:self action:@selector(commitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:commitBtn];
-//    _commitBtn = commitBtn;
     
     [self.tableView setTableFooterView:footer];
     
@@ -69,9 +75,9 @@
 {
     [self.view endEditing:YES];
     InfoTextFieldCell *namecell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if ([YLStringTool isEmpty:namecell.infoTextField.text ] || ![YLRegularCheck checkMobilePhoneNumber:namecell.infoTextField.text]) {
+    if ([YLStringTool isEmpty:namecell.infoTextField.text ] || ![YLRegularCheck checkChineseRealName:namecell.infoTextField.text]) {
         
-        [SCProgressHUD showInfoWithStatus:@"请输入正确手机号"];
+        [SCProgressHUD showInfoWithStatus:@"请输入真实姓名"];
         return;
     }
     
@@ -88,27 +94,31 @@
         [SCProgressHUD showInfoWithStatus:@"请选择医院"];
         return;
     }
+
     
-    InfoTextFieldCell *deptCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    
-    if ([YLStringTool isEmpty:deptCell.infoTextField.text ]) {
+    if ([YLStringTool isEmpty:deptModel.name]) {
         [SCProgressHUD showInfoWithStatus:@"请选择科室"];
         return;
     }
 
-    InfoTextFieldCell *titleCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
     
-    if ([YLStringTool isEmpty:titleCell.infoTextField.text ]) {
+    if ([YLStringTool isEmpty:titleModel.name]) {
         [SCProgressHUD showInfoWithStatus:@"请选择职称"];
         return;
     }
 
-
+    [SCProgressHUD showInfoWithStatus:@"调接口"];
     
 }
 
 - (NSMutableArray *)dataArray
 {
+    if (!deptModel) {
+        deptModel = [[SCSpecialtyModel alloc] init];
+    }
+    if (!titleModel) {
+        titleModel = [[SCTitleModel alloc] init];
+    }
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] initWithCapacity:5];
         InfoTextFieldCellModel *mode1 = [[InfoTextFieldCellModel alloc] init];
@@ -120,6 +130,7 @@
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"密 码";
         mode2.textFieldPlaceholder = @"请输入密码";
+        mode2.textFieldKeyboardType = UIKeyboardTypeASCIICapable;
         mode2.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         mode2.textFieldSetSecureRightView = YES;
         mode2.textFieldSecureTextEntry = YES;
@@ -157,38 +168,9 @@
         mode5.jumpVCClassName = NSStringFromClass([SelectTitleViewController class]);
         [_dataArray addObject:mode5];
         
-        
-//        for (int i = 0 ;i < 6 ; i ++) {
-//            InfoTextFieldCellModel *mode1 = [[InfoTextFieldCellModel alloc] init];
-//            mode1.infoName = @"姓 名";
-//            mode1.textFieldPlaceholder = @"请输入真实姓名";
-//            mode1.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
-//            [_dataArray addObject:mode1];
-//            
-//            InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
-//            mode2.infoName = @"密 码";
-//            mode2.textFieldPlaceholder = @"请输入密码";
-//            mode2.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
-//            mode2.textFieldSetSecureRightView = YES;
-//            mode2.textFieldSecureTextEntry = YES;
-//            [_dataArray addObject:mode2];
-//            
-//            InfoTextFieldCellModel *mode3 = [[InfoTextFieldCellModel alloc] init];
-//            mode3.infoName = @"医 院";
-//            mode3.textFieldPlaceholder = @"请选择所在医院";
-//            mode3.textFieldEnabled = NO;
-//            
-//            mode3.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
-//            mode3.cellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//            mode3.jumpType = 2;
-//            //        mode.jumpVCClassName = NSStringFromClass([self class]);
-//            [_dataArray addObject:mode3];
-//
-//        }
+
         
     }
-    
-    
     return _dataArray;
 }
 
@@ -230,13 +212,31 @@
     InfoTextFieldCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
     if (model.jumpType == 2) {
         UIViewController *vc = [[NSClassFromString(model.jumpVCClassName) alloc] init];
-        if ([vc respondsToSelector:@selector(setModel:)]) {
-            [vc performSelector:@selector(setModel:) withObject:model];
+        if ([vc respondsToSelector:@selector(setCellModel:)]) {
+            [vc performSelector:@selector(setCellModel:) withObject:model];
         }
+        
+        
+        if ([model.jumpVCClassName isEqualToString:NSStringFromClass([SelectTitleViewController class])]) {
+            if ([vc respondsToSelector:@selector(setTitleModel:)]) {
+                [vc performSelector:@selector(setTitleModel:) withObject:titleModel];
+            }
+
+        }
+        
+        if ([model.jumpVCClassName isEqualToString:NSStringFromClass([SelectDepartmentViewController class])]) {
+            if ([vc respondsToSelector:@selector(setDeptModel:)]) {
+                [vc performSelector:@selector(setDeptModel:) withObject:deptModel];
+            }
+        }
+
+        
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 
     
+   
 }
 
 

@@ -10,4 +10,16 @@
 
 @implementation SCSpecialtyModel
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@\n pecialtyId:%@,pid:%@,name:%@,serverid:%@",[super description],self.specialtyId,self.pid,self.name,self.severId];
+}
+- (void)setModel:(SCSpecialtyModel *)model
+{
+    self.severId = model.severId;
+    self.pid = model.pid;
+    self.specialtyId = model.specialtyId;
+    self.name = model.name;
+}
+
 @end

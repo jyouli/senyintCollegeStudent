@@ -8,7 +8,11 @@
 
 #import "SCBaseTableViewController.h"
 #import "InfoTextFieldCellModel.h"
+#import "SCSpecialtyModel.h"
 @interface SelectDepartmentViewController : SCBaseTableViewController
 
-@property (nonatomic, strong) InfoTextFieldCellModel *model;
+@property (nonatomic, strong) InfoTextFieldCellModel *cellModel;
+@property (nonatomic, strong) SCSpecialtyModel *deptModel;
+@property (nonatomic, assign) int  parentId;//查数据库用到 一级科室为0 二级科室为其所属一级科室的id
+
 @end

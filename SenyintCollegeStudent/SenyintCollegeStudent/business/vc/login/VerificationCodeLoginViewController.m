@@ -81,17 +81,14 @@
         return;
     }
 
-    
-    [self loginRequest];
+    [SCProgressHUD showInfoWithStatus:@"调接口"];
+//    [self loginRequest];
     //通过校验之后 调用登录接口
 }
 
 
 - (void)loginRequest
 {
-    
-    
-    _loginBtn.enabled = NO;
     
     //通过校验之后 调用登录接口
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
@@ -130,14 +127,12 @@
         
         [SCProgressHUD showInfoWithStatus:[[responseObject objectForKey:@"header"] objectForKey:@"message"]];
     }
-    _loginBtn.enabled = YES;
     
     
 }
 
 - (void)loginFailure
 {
-    _loginBtn.enabled = YES;
     [SCProgressHUD showErrorWithStatus:@"请求超时，请稍后再试"];
 }
 
@@ -150,12 +145,14 @@
         mode1.infoName = @"手机号";
         mode1.textFieldPlaceholder = @"请输入手机号";
         mode1.textFieldinfo = self.userPhone;
+        mode1.textFieldKeyboardType = UIKeyboardTypePhonePad;
         mode1.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         [_dataArray addObject:mode1];
         
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"验证码";
         mode2.textFieldPlaceholder = @"请输入验证码";
+        mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode2.cellClassName = NSStringFromClass([VerificationCodeCell class]);
         [_dataArray addObject:mode2];
         
