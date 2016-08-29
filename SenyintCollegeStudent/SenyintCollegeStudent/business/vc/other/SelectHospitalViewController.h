@@ -10,5 +10,5 @@
 #import "InfoTextFieldCellModel.h"
 @interface SelectHospitalViewController : SCBaseTableViewController
 
-@property (nonatomic, strong) InfoTextFieldCellModel *model;
+@property (nonatomic, strong) InfoTextFieldCellModel *cellModel;
 @end

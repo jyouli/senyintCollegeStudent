@@ -24,8 +24,37 @@
     NSString *regexStr = @"^(13[0-9]|14[5|7]|15[0-9]|18[0-9])\\d{8}$";
     
     NSPredicate *mobilePhonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexStr];
+    if ([mobilePhonePredicate evaluateWithObject:str]) {
+        return YES;
+    } else {
     
-    return [mobilePhonePredicate evaluateWithObject:str];
+        return [mobilePhonePredicate evaluateWithObject:[self mobileRemoveChinaPrefixNum:str]];
+    }
+    
+}
+/**
+ *  去掉一些手机号前缀
+ */
++(NSString *)mobileRemoveChinaPrefixNum:(NSString *)mobile
+{
+    if (mobile.length <= 6) {
+        return @"";
+    }
+    mobile = [mobile stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];//去除左右的空格和换行
+    mobile = [mobile stringByReplacingOccurrencesOfString:@" " withString:@""];//去除所有空格
+    if ([mobile hasPrefix:@"+86"]) {
+        mobile = [mobile substringFromIndex:3];
+    }
+    
+    if ([mobile hasPrefix:@"86"]) {
+        mobile = [mobile substringFromIndex:2];
+    }
+    
+    if ([mobile hasPrefix:@"0086"]) {
+        mobile = [mobile substringFromIndex:4];
+    }
+    
+    return mobile;
 }
 
 
@@ -169,7 +198,7 @@
 /**
  *  真实中国姓名校验(只包含汉字和.)
  */
-+ (BOOL)checkChineseReal:(NSString *)string
++ (BOOL)checkChineseRealName:(NSString *)string
 {
     if ([self isEmpty:string]) {
         return NO;
@@ -183,7 +212,7 @@
 /**
  *  真实国际姓名校验(只包含汉字和.和大小写字母)
  */
-+ (BOOL)checkInternationalReal:(NSString *)string
++ (BOOL)checkInternationalRealName:(NSString *)string
 {
     if ([self isEmpty:string]) {
         return NO;
@@ -310,8 +339,7 @@
 
 + (BOOL)isEmpty:(NSString *)str {
     
-    if (str == nil || [str length] == 0 || [str isEqual:[NSNull null]] || str == NULL) {
-        NSLog(@"str=======%@",str);
+    if ([str isEqual:[NSNull null]] || str == NULL || [str length] == 0 ) {
         return YES;
     }
     

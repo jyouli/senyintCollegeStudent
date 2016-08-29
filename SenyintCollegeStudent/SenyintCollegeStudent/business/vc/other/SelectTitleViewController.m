@@ -7,7 +7,7 @@
 //
 
 #import "SelectTitleViewController.h"
-
+#import "DatabaseManager.h"
 @interface SelectTitleViewController ()
 
 @property (nonatomic,strong) NSMutableArray *dataArray;
@@ -27,11 +27,8 @@
 - (NSMutableArray *)dataArray
 {
     if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc] init];
-    }
-    
-    for (int i = 0; i < 100; i ++) {
-        [_dataArray addObject:[NSString stringWithFormat:@"职称%d",i]];
+        _dataArray = [[NSMutableArray alloc] initWithArray:[DatabaseManager getTitleArray]];
+        
     }
     
     return _dataArray;
@@ -54,7 +51,7 @@
 {
     static NSString *identifier = @"UITableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.dataArray objectAtIndex:indexPath.row] name];
     
     return cell;
 
@@ -70,7 +67,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.model.textFieldinfo = self.dataArray[indexPath.row];
+    [self.titleModel  setModel:self.dataArray[indexPath.row]];
+    self.cellModel.textFieldinfo = self.titleModel.name;
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

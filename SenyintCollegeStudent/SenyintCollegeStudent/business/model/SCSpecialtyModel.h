@@ -12,7 +12,12 @@
 
 @property (nonatomic , strong) NSString * severId;//该科室对应的服务器id
 @property (nonatomic , strong) NSString * pid;//父id 一级父id为0
-@property (nonatomic , strong) NSString * specialtyId;//市id
+@property (nonatomic , strong) NSString * specialtyId;//id
 @property (nonatomic , strong) NSString * name;//科室名字
+
+/**
+ 设置参数
+ */
+- (void)setModel:(SCSpecialtyModel *)model;
 
 @end

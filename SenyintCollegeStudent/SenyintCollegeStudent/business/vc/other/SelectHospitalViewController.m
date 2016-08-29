@@ -68,7 +68,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.model.textFieldinfo = self.dataArray[indexPath.row];
+    self.cellModel.textFieldinfo = self.dataArray[indexPath.row];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -16,7 +16,10 @@
  *
  */
 +(BOOL)checkMobilePhoneNumber:(NSString *)str;
-
+/**
+ *  去掉一些手机号前缀
+ */
++(NSString *)mobileRemoveChinaPrefixNum:(NSString *)mobile;
 
 /**
  *  座机校验
@@ -63,12 +66,12 @@
 /**
  *  真实中国姓名校验(2-20位含汉字和•)
  */
-+ (BOOL)checkChineseReal:(NSString *)string;
++ (BOOL)checkChineseRealName:(NSString *)string;
 
 /**
  *  真实国际姓名校验(2-20位汉字•和大小写字母)
  */
-+ (BOOL)checkInternationalReal:(NSString *)string;
++ (BOOL)checkInternationalRealName:(NSString *)string;
 
 /**
  *  普通正常字符串 只包含字母数字汉字和空格

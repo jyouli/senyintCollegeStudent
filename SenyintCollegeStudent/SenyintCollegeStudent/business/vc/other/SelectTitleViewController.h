@@ -8,7 +8,9 @@
 
 #import "SCBaseTableViewController.h"
 #import "InfoTextFieldCellModel.h"
+#import "SCTitleModel.h"
 @interface SelectTitleViewController : SCBaseTableViewController
 
-@property (nonatomic, strong) InfoTextFieldCellModel *model;
+@property (nonatomic, strong) InfoTextFieldCellModel *cellModel;
+@property (nonatomic, strong) SCTitleModel *titleModel;
 @end

@@ -83,8 +83,6 @@
     NSLog(@"loginBtnClick");      
     [self.view endEditing:YES];
     
-    //格式校验
-    
     if (self.userTF.text.length == 0 || ![YLRegularCheck checkMobilePhoneNumber:self.userTF.text]) {
         
         [SCProgressHUD showInfoWithStatus:@"请输入正确手机号"];
@@ -95,17 +93,14 @@
         return;
     }
     
-    
-    [self loginRequest];
+    [SCProgressHUD showInfoWithStatus:@"调接口"];
+//    [self loginRequest];
     //通过校验之后 调用登录接口
 }
 
 
 - (void)loginRequest
 {
-    
-    
-    _loginBtn.enabled = NO;
     
     //通过校验之后 调用登录接口
     NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
@@ -144,14 +139,12 @@
         
         [SCProgressHUD showInfoWithStatus:[[responseObject objectForKey:@"header"] objectForKey:@"message"]];
     }
-    _loginBtn.enabled = YES;
     
     
 }
 
 - (void)loginFailure
 {
-    _loginBtn.enabled = YES;
     [SCProgressHUD showErrorWithStatus:@"请求超时，请稍后再试"];
 }
 
@@ -164,11 +157,13 @@
         mode1.infoName = @"手机号";
         mode1.textFieldPlaceholder = @"请输入手机号";
         mode1.textFieldinfo = self.userPhone;
+        mode1.textFieldKeyboardType = UIKeyboardTypePhonePad;
         mode1.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         [_dataArray addObject:mode1];
         
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"密 码";
+        mode2.textFieldKeyboardType = UIKeyboardTypeASCIICapable;
         mode2.textFieldPlaceholder = @"请输入密码";
         mode2.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         mode2.textFieldSetSecureRightView = YES;
