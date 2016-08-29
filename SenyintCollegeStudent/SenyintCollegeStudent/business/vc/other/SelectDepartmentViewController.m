@@ -27,9 +27,7 @@
 - (NSMutableArray *)dataArray
 {
     if (!_dataArray) {
-        NSLog(@"%d====%d===%d",[self.deptModel.pid intValue],[self.deptModel.specialtyId intValue],[self.deptModel.pid intValue] == 0 ? 0 : [self.deptModel.specialtyId  intValue]);
         _dataArray = [[NSMutableArray alloc] initWithArray:[DatabaseManager getSpecialtyArrayWithId:self.parentId]];
-        NSLog(@"%@",_dataArray);
     }
     
     return _dataArray;

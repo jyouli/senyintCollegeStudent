@@ -30,7 +30,6 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-
     
 }
 - (void)viewDidLoad
@@ -41,7 +40,6 @@
     [self.tableView registerClass:[RegistInfoInputCell class] forCellReuseIdentifier:@"RegistInfoInputCell"];
     
     [self createFooterView];
-    titleModel = [[SCTitleModel alloc] init];
 
 }
 
@@ -66,7 +64,6 @@
     [commitBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [commitBtn addTarget:self action:@selector(commitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:commitBtn];
-//    _commitBtn = commitBtn;
     
     [self.tableView setTableFooterView:footer];
     
@@ -231,7 +228,6 @@
             if ([vc respondsToSelector:@selector(setDeptModel:)]) {
                 [vc performSelector:@selector(setDeptModel:) withObject:deptModel];
             }
-            [vc performSelector:@selector(setDeptModel:) withObject:deptModel];
         }
 
         
