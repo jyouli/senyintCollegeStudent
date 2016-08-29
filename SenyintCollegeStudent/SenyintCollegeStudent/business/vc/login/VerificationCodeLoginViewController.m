@@ -152,6 +152,7 @@
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"验证码";
         mode2.textFieldPlaceholder = @"请输入验证码";
+        mode2.verificationCodeCountdownKey = Countdown_VerificationCodeLogin;
         mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode2.cellClassName = NSStringFromClass([VerificationCodeCell class]);
         [_dataArray addObject:mode2];
