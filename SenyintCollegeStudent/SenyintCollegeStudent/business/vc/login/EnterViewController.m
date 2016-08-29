@@ -11,7 +11,7 @@
 #import "PasswordLoginViewController.h"
 #import "VerificationCodeLoginViewController.h"
 #import "RegisterViewController.h"
-
+#import "SCVisitViewController.h"
 
 #import "ImproveRegistInfoViewController.h"
 
@@ -91,7 +91,7 @@
         }
             
         case 2:
-            [self.navigationController pushViewController:[[ImproveRegistInfoViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
 
             break;
         default:

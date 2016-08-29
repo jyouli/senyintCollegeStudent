@@ -17,6 +17,7 @@
 - (void)dealloc
 {
     NSLog(@"%@ dealloc",self.class);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

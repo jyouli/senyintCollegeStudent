@@ -13,25 +13,25 @@
 
 /**
  * 获取省市数据
- * @param provId：为0时表示获取所有的省，其他为该id对应的该省下所有的城市
+ * @param provId : 为0时表示获取所有的省，其他为该id对应的该省下所有的城市
  */
 + (NSArray *)getAddressArrayWithId:(int)provId;
 
 /**
  * 根据id获取城市名字
- * @param cityId：城市的Id
+ * @param cityId : 城市的Id
  */
 + (NSString *)getcityNameWithId:(int)cityId;
 
 /**
  * 获取科室数据
- * @param parentId：为0时表示获取一级专科数据，其他为该一级专科的所有下级数据
+ * @param parentId : 为0时表示获取一级专科数据，其他为该一级专科的所有下级数据
  */
 + (NSArray *)getSpecialtyArrayWithId:(int)parentId;
 
 /**
  * 根据id获取专科名字
- * @param sepcialtyId：科室id
+ * @param sepcialtyId : 科室id
  */
 + (NSString *)getSpecialtyNameWithId:(int)sepcialtyId;
 
@@ -42,8 +42,8 @@
 
 /**
  * 获取职称名字根据职称id
- * @param titleId：职称id
+ * @param titleId : 职称id
  */
-+ (NSArray *)getTitleNameWithId:(int)titleId;
++ (NSString *)getTitleNameWithId:(int)titleId;
 
 @end

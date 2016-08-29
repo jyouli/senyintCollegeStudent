@@ -114,6 +114,10 @@
 		EDD290A71D6D6EDB0081FBAF /* YLBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A41D6D6EDB0081FBAF /* YLBaseTableView.m */; };
 		EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */; };
 		EDD290AE1D6D75340081FBAF /* SCTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290AD1D6D75340081FBAF /* SCTextViewController.m */; };
+		F786C3B21D7400700015C16E /* SCVisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F786C3B11D7400700015C16E /* SCVisitViewController.m */; };
+		F786C3B61D740A5C0015C16E /* SCCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F786C3B41D740A5C0015C16E /* SCCourseTableViewCell.m */; };
+		F786C3B71D740A5C0015C16E /* SCCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F786C3B51D740A5C0015C16E /* SCCourseTableViewCell.xib */; };
+		F786C3BD1D7421560015C16E /* SCCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F786C3BC1D7421560015C16E /* SCCourseDetailViewController.m */; };
 		F7B383841D703E4B00464E35 /* SCCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B3837D1D703E4B00464E35 /* SCCityModel.m */; };
 		F7B383851D703E4B00464E35 /* SCSpecialtyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B3837F1D703E4B00464E35 /* SCSpecialtyModel.m */; };
 		F7B383861D703E4B00464E35 /* SCTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B383811D703E4B00464E35 /* SCTitleModel.m */; };
@@ -327,6 +331,13 @@
 		EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLBaseView.m; sourceTree = "<group>"; };
 		EDD290AC1D6D75340081FBAF /* SCTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTextViewController.h; sourceTree = "<group>"; };
 		EDD290AD1D6D75340081FBAF /* SCTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTextViewController.m; sourceTree = "<group>"; };
+		F786C3B01D7400700015C16E /* SCVisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCVisitViewController.h; sourceTree = "<group>"; };
+		F786C3B11D7400700015C16E /* SCVisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVisitViewController.m; sourceTree = "<group>"; };
+		F786C3B31D740A5C0015C16E /* SCCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCourseTableViewCell.h; sourceTree = "<group>"; };
+		F786C3B41D740A5C0015C16E /* SCCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCourseTableViewCell.m; sourceTree = "<group>"; };
+		F786C3B51D740A5C0015C16E /* SCCourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCCourseTableViewCell.xib; sourceTree = "<group>"; };
+		F786C3BB1D7421560015C16E /* SCCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCourseDetailViewController.h; sourceTree = "<group>"; };
+		F786C3BC1D7421560015C16E /* SCCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCourseDetailViewController.m; sourceTree = "<group>"; };
 		F7B3837C1D703E4B00464E35 /* SCCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCityModel.h; sourceTree = "<group>"; };
 		F7B3837D1D703E4B00464E35 /* SCCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCityModel.m; sourceTree = "<group>"; };
 		F7B3837E1D703E4B00464E35 /* SCSpecialtyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSpecialtyModel.h; sourceTree = "<group>"; };
@@ -539,6 +550,9 @@
 				BDCAC5F31D53148500C66990 /* ClassmateCell.m */,
 				BD3002191D55FC6E0086E7F5 /* StudentView.h */,
 				BD30021A1D55FC6E0086E7F5 /* StudentView.m */,
+				F786C3B31D740A5C0015C16E /* SCCourseTableViewCell.h */,
+				F786C3B41D740A5C0015C16E /* SCCourseTableViewCell.m */,
+				F786C3B51D740A5C0015C16E /* SCCourseTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -569,6 +583,7 @@
 		BD5C2A171D519C4A0066762F /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				F786C3AF1D74004A0015C16E /* visit */,
 				797345021D7019930083B5D6 /* other */,
 				EDD290921D6D6B580081FBAF /* base */,
 				BD5C2A191D519C4A0066762F /* login */,
@@ -859,6 +874,17 @@
 			path = baseview;
 			sourceTree = "<group>";
 		};
+		F786C3AF1D74004A0015C16E /* visit */ = {
+			isa = PBXGroup;
+			children = (
+				F786C3B01D7400700015C16E /* SCVisitViewController.h */,
+				F786C3B11D7400700015C16E /* SCVisitViewController.m */,
+				F786C3BB1D7421560015C16E /* SCCourseDetailViewController.h */,
+				F786C3BC1D7421560015C16E /* SCCourseDetailViewController.m */,
+			);
+			path = visit;
+			sourceTree = "<group>";
+		};
 		F7B3838B1D703E8500464E35 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -953,6 +979,7 @@
 				F7B3839D1D703E8500464E35 /* Info.plist in Resources */,
 				F7B383881D703E6800464E35 /* database.sqlite in Resources */,
 				F7B3838A1D703E6D00464E35 /* 建表sql语句.rtf in Resources */,
+				F786C3B71D740A5C0015C16E /* SCCourseTableViewCell.xib in Resources */,
 				BD5C2A121D51954A0066762F /* SVProgressHUD.bundle in Resources */,
 				BDD426B11D4EFF6000A1C9C9 /* LaunchScreen.storyboard in Resources */,
 				BDD426AE1D4EFF6000A1C9C9 /* Assets.xcassets in Resources */,
@@ -975,6 +1002,7 @@
 				BDCAC5FA1D53156600C66990 /* CourseModel.m in Sources */,
 				ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */,
 				F7B383991D703E8500464E35 /* FMDatabaseAdditions.m in Sources */,
+				F786C3B21D7400700015C16E /* SCVisitViewController.m in Sources */,
 				BD57F1BA1D4F3D4A00BAB291 /* UIProgressView+AFNetworking.m in Sources */,
 				79FDED291D6EC7E100F32B14 /* ImproveRegistInfoViewController.m in Sources */,
 				79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */,
@@ -1013,6 +1041,7 @@
 				BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */,
 				BDCAC5F71D53154A00C66990 /* StudentModel.m in Sources */,
 				BD57F1BB1D4F3D4A00BAB291 /* UIRefreshControl+AFNetworking.m in Sources */,
+				F786C3B61D740A5C0015C16E /* SCCourseTableViewCell.m in Sources */,
 				79FDED231D6EC71900F32B14 /* CellModel.m in Sources */,
 				ED33F58D1D6584EB00A64DC7 /* MJRefreshHeader.m in Sources */,
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1053,6 +1082,7 @@
 				EDD290A71D6D6EDB0081FBAF /* YLBaseTableView.m in Sources */,
 				ED1E9FA91D6BF739000BE638 /* YLDateTimeTool.m in Sources */,
 				79FDED2C1D6ECEFC00F32B14 /* EnterViewController.m in Sources */,
+				F786C3BD1D7421560015C16E /* SCCourseDetailViewController.m in Sources */,
 				BD57F1B71D4F3D4A00BAB291 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */,
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1194,7 +1224,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.SenyintCollegeStudent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cinyi.killtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1220,7 +1250,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.SenyintCollegeStudent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cinyi.killtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
