@@ -38,7 +38,6 @@
     }
     
     [self putViews];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,7 +54,7 @@
 
 - (void)putTopView
 {
-    
+    //顶部筛选按钮
     UIButton * topBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     [topBtn setTitle:@"全部学科" forState:UIControlStateNormal];
     [topBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -64,13 +63,13 @@
     [topBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -25, 0, 0)];
     [topBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -125)];
     [topBtn addTarget:self action:@selector(topBarAction) forControlEvents:UIControlEventTouchUpInside];
-    //    topBtn.backgroundColor = [UIColor yellowColor];
+    
     self.navigationController.navigationBar.topItem.titleView = topBtn;
 }
 
 - (void)putTableView
 {
-    
+    //班级课程表
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height - 64) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -223,7 +222,6 @@
         _specialtyTabelView.hidden = YES;
         alphaView.hidden = YES;
         _specialtyTabelView.scrollsToTop = NO;
-
     }
 }
 
