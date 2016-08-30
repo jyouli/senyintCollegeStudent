@@ -10,7 +10,7 @@
 #define Countdown_UserRegist @"Countdown_UserRegist"
 #define Countdown_VerificationCodeLogin  @"Countdown_VerificationCodeLogin"
 #define Countdown_ForgetPassWord @"Countdown_ForgetPassWord"
-#define Countdown_Second  20 //一次验证码等待的时间
+#define Countdown_Second  60 //一次验证码等待的时间
 
 @interface VerificationCodeCountdownSingle : NSObject
 

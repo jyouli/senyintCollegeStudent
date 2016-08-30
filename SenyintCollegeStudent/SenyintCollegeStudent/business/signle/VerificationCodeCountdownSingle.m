@@ -61,11 +61,6 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+(void)clearCountdownStartDateWithKey:(NSString *)countdownKey
-{
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:countdownKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
 /**
  * 获取验证码类型(如 忘记密码界面)的当前剩余秒数
  
@@ -80,18 +75,26 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
     NSInteger countdown; //需等待时间
     NSTimeInterval current =  [[NSDate date] timeIntervalSince1970];
     NSTimeInterval start;
+
     if ([[NSUserDefaults standardUserDefaults] objectForKey:countdownKey]) {
        start = [[[NSUserDefaults standardUserDefaults] objectForKey:countdownKey] timeIntervalSince1970];
        countdown = current - start;
-        if (countdown > Countdown_Second) { //如大于Countdown_Second 设为Countdown_Second重新开始
+
+        if (countdown > Countdown_Second) { //如大于Countdown_Second 重新开始
             countdown = second;
+        } else {
+            
+            countdown = Countdown_Second - (current - start);
+
         }
+        
+
 
     } else {
     
         countdown = second;
     }
-    
+
     return countdown;
     
 }
@@ -109,18 +112,21 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
 //只有一个当前显示的cell只能有一个   所以view每次出现的时候都需要刷新
 - (void)startCountdownWith:(NSString *)countdownKey
 {
-    
+    NSLog(@"计时中");
     [self closeTimer];
 
     countdown = [VerificationCodeCountdownSingle getCurrentRemainingsecondSWithKey:countdownKey AndCountdown_Second:0];
-    if (countdown > Countdown_Second) {
+    if (countdown == Countdown_Second) { //重新开始的时候保存新值
         [VerificationCodeCountdownSingle saveCountdownStartDateWithKey:countdownKey];
+        NSLog(@"重新开始");
 
     }
+
     NSDictionary *dic = @{@"key":countdownKey,@"countdown": [NSNumber numberWithInteger:countdown]};
     timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdown:) userInfo:dic repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    
+    [timer fire];
+
     timerRunLoop = CFRunLoopGetCurrent();
     CFRunLoopRun();
     
@@ -149,7 +155,6 @@ static VerificationCodeCountdownSingle *_sharedCountdownSingle = nil;
     }
 
     if (countdown == 0) {
-        [VerificationCodeCountdownSingle clearCountdownStartDateWithKey:dic[@"key"]];
         [self closeTimer];
  
     } else {

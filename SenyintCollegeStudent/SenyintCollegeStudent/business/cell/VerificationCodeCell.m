@@ -127,9 +127,8 @@
     if ([Countdown_VerificationCodeLogin isEqualToString:model.verificationCodeCountdownKey]) {
         
         [VerificationCodeCountdownSingle sharedCodeCountdownSingle].verificationCodeLoginUpdateUI = ^(NSInteger countdown){
-           
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (safeBtn == 0) {
+                if (countdown == 0) {
                     [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:[UIColor redColor] Fount:TextFont] forState:UIControlStateNormal];
                     safeBtn.enabled = YES;
                 } else {
@@ -151,9 +150,7 @@
 - (void)getVerificationCodeBtnClick:(UIButton *)btn
 #warning 服务器获取验证码
 {
-    
     btn.enabled = NO;
-
     [self performSelectorInBackground:@selector(startCountdown) withObject:nil];
 }
 
