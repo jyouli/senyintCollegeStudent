@@ -64,6 +64,8 @@
 		BD5C2A911D51D6A20066762F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5C2A901D51D6A20066762F /* UIKit.framework */; };
 		BD5C2A9A1D51DBD00066762F /* GlobalSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2A991D51DBD00066762F /* GlobalSingle.m */; };
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
+		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
+		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
 		BDCAC5ED1D53142E00C66990 /* CourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5EC1D53142E00C66990 /* CourseCell.m */; };
 		BDCAC5F11D53146200C66990 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5F01D53146200C66990 /* TeacherCell.m */; };
 		BDCAC5F41D53148500C66990 /* ClassmateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5F31D53148500C66990 /* ClassmateCell.m */; };
@@ -231,6 +233,10 @@
 		BD5C2A991D51DBD00066762F /* GlobalSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSingle.m; sourceTree = "<group>"; };
 		BD5C2AA41D52058A0066762F /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
 		BD5C2AA51D52058A0066762F /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
+		BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
+		BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeCountdownSingle.m; sourceTree = "<group>"; };
 		BDCAC5EB1D53142E00C66990 /* CourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCell.h; sourceTree = "<group>"; };
 		BDCAC5EC1D53142E00C66990 /* CourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCell.m; sourceTree = "<group>"; };
 		BDCAC5EF1D53146200C66990 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
@@ -598,6 +604,8 @@
 				79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */,
 				797344F91D6FD5020083B5D6 /* PasswordLoginViewController.h */,
 				797344FA1D6FD5020083B5D6 /* PasswordLoginViewController.m */,
+				BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */,
+				BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */,
 				BD5C2A1B1D519CCC0066762F /* LoginViewController.h */,
 				BD5C2A1C1D519CCC0066762F /* LoginViewController.m */,
 				79FDED2D1D6ED1E200F32B14 /* VerificationCodeLoginViewController.h */,
@@ -621,6 +629,8 @@
 				ED33F5A41D65B02900A64DC7 /* SCProgressHUD.m */,
 				F7B383A21D703EA800464E35 /* DatabaseManager.h */,
 				F7B383A31D703EA800464E35 /* DatabaseManager.m */,
+				BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */,
+				BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */,
 			);
 			path = signle;
 			sourceTree = "<group>";
@@ -1045,6 +1055,7 @@
 				79FDED231D6EC71900F32B14 /* CellModel.m in Sources */,
 				ED33F58D1D6584EB00A64DC7 /* MJRefreshHeader.m in Sources */,
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
+				BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */,
 				ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */,
 				ED1E9FAB1D6BF739000BE638 /* NSString+Size.m in Sources */,
 				F7B383A11D703E9800464E35 /* NSFileManager+util.m in Sources */,
@@ -1064,6 +1075,7 @@
 				ED33F59B1D6584EB00A64DC7 /* UIScrollView+MJRefresh.m in Sources */,
 				ED33F5911D6584EB00A64DC7 /* MJRefreshBackGifFooter.m in Sources */,
 				BD57F1AE1D4F3D4A00BAB291 /* AFHTTPSessionManager.m in Sources */,
+				BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */,
 				EDD290A01D6D6B580081FBAF /* SCRefreshViewController.m in Sources */,
 				BD5C2A111D51954A0066762F /* SVIndefiniteAnimatedView.m in Sources */,
 				F7B383981D703E8500464E35 /* FMDatabase.m in Sources */,
@@ -1224,7 +1236,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cinyi.killtest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.killtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1250,7 +1262,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cinyi.killtest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.killtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

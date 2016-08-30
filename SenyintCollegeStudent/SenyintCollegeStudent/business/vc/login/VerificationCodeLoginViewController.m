@@ -26,6 +26,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.tableView reloadData];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillAppear:animated];
     
@@ -36,7 +38,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
+    [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillDisappear:animated];
     
@@ -152,6 +155,7 @@
         InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
         mode2.infoName = @"验证码";
         mode2.textFieldPlaceholder = @"请输入验证码";
+        mode2.verificationCodeCountdownKey = Countdown_VerificationCodeLogin;
         mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode2.cellClassName = NSStringFromClass([VerificationCodeCell class]);
         [_dataArray addObject:mode2];

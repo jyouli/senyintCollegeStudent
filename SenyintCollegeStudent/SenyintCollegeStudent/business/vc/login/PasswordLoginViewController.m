@@ -10,9 +10,10 @@
 #import "RegistInfoInputCell.h"
 #import "YLRegularCheck.h"
 #import "VerificationCodeLoginViewController.h"
+#import "ForgetPasswordViewController.h"
 #import "RegisterViewController.h"
 
-@interface PasswordLoginViewController ()<UITextFieldDelegate>
+@interface PasswordLoginViewController ()
 {
     __weak UIButton *_loginBtn;
 }
@@ -67,7 +68,11 @@
 
 - (void)forgetPasswordBtnClick
 {
-    [SCProgressHUD showInfoWithStatus:@"忘记密码"];
+    
+    ForgetPasswordViewController *verLoginvc = [[ForgetPasswordViewController alloc] init];
+    verLoginvc.userPhone = self.userTF.text;
+    [self.navigationController pushViewController:verLoginvc animated:YES];
+    
     
 }
 

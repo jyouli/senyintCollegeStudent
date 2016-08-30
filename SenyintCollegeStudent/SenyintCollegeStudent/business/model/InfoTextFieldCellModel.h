@@ -7,6 +7,7 @@
 //
 
 #import "CellModel.h"
+#import "VerificationCodeCountdownSingle.h"
 
 @interface InfoTextFieldCellModel : CellModel
 @property (nonatomic, copy) NSString *infoName;       //infoLabel text
@@ -22,5 +23,6 @@
 @property (nonatomic, assign) UITextFieldViewMode textFieldClearBtnMode; //clearBtn展示的ViewMode 默认UITextFieldViewModeWhileEditing
 @property (nonatomic, assign) UITextFieldViewMode textFieldRightviewMode;//rightvie展示的ViewMode 默认UITextFieldViewModeUnlessEditing
 @property (nonatomic, assign) BOOL textFieldSetSecureRightView;//是否展示明密文切换view 默认为NO不展示
+@property (nonatomic, copy) NSString *verificationCodeCountdownKey;//用于验证码倒计时标记
 
 @end
