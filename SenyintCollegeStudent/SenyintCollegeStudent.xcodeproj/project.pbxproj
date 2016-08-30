@@ -85,7 +85,6 @@
 		ED1E9FB71D6BF801000BE638 /* YLScrollerImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FB11D6BF801000BE638 /* YLScrollerImagesController.m */; };
 		ED1E9FB91D6BF801000BE638 /* YLShowImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FB51D6BF801000BE638 /* YLShowImagesViewController.m */; };
 		ED1E9FC01D6C2F45000BE638 /* URLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FBF1D6C2F45000BE638 /* URLImageView.m */; };
-		ED1E9FC61D6C49B2000BE638 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FC51D6C49B2000BE638 /* NetWorkManager.m */; };
 		ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = ED33F55D1D6584EB00A64DC7 /* MJRefreshAutoFooter.m */; };
 		ED33F58A1D6584EB00A64DC7 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = ED33F55F1D6584EB00A64DC7 /* MJRefreshBackFooter.m */; };
 		ED33F58B1D6584EB00A64DC7 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = ED33F5611D6584EB00A64DC7 /* MJRefreshComponent.m */; };
@@ -275,8 +274,6 @@
 		ED1E9FB51D6BF801000BE638 /* YLShowImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShowImagesViewController.m; sourceTree = "<group>"; };
 		ED1E9FBE1D6C2F45000BE638 /* URLImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLImageView.h; sourceTree = "<group>"; };
 		ED1E9FBF1D6C2F45000BE638 /* URLImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLImageView.m; sourceTree = "<group>"; };
-		ED1E9FC41D6C49B2000BE638 /* NetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
-		ED1E9FC51D6C49B2000BE638 /* NetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
 		ED33F55C1D6584EB00A64DC7 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		ED33F55D1D6584EB00A64DC7 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		ED33F55E1D6584EB00A64DC7 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -751,8 +748,6 @@
 		ED1E9FBD1D6C2EAB000BE638 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				ED1E9FC41D6C49B2000BE638 /* NetWorkManager.h */,
-				ED1E9FC51D6C49B2000BE638 /* NetWorkManager.m */,
 				ED1E9FBE1D6C2F45000BE638 /* URLImageView.h */,
 				ED1E9FBF1D6C2F45000BE638 /* URLImageView.m */,
 			);
@@ -1026,7 +1021,6 @@
 				ED33F59A1D6584EB00A64DC7 /* UIScrollView+MJExtension.m in Sources */,
 				ED33F5981D6584EB00A64DC7 /* MJRefreshConst.m in Sources */,
 				EDD290A11D6D6B580081FBAF /* SCTextTableViewController.m in Sources */,
-				ED1E9FC61D6C49B2000BE638 /* NetWorkManager.m in Sources */,
 				ED33F5A51D65B02900A64DC7 /* SCProgressHUD.m in Sources */,
 				F7B383851D703E4B00464E35 /* SCSpecialtyModel.m in Sources */,
 				ED33F5931D6584EB00A64DC7 /* MJRefreshBackStateFooter.m in Sources */,
