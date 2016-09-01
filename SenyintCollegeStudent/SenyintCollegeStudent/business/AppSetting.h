@@ -77,4 +77,50 @@
 #define collectionViewWidth 135 //视频直播界面底部的item的宽
 
 
+
+#pragma mark  UI规范
+//正文距左距离
+#define  BodyContent_FlexibleLeft   12
+
+//颜色
+//内页背景颜色
+#define  View_bg_Color   COLOR_RGB_HEX(0xf0f0f0)
+//Cell等背景颜色
+#define  Cell_bg_Color   COLOR_RGB_HEX(0xffffff)
+//导航栏背景颜色
+#define  NavBar_bg_Color   COLOR_RGB_HEX(0x157082)
+//阴影颜色
+#define Shadow_Color  COLOR_RGB_HEX(0xcbcbcb)
+//分隔线颜色
+#define SeparationLine_Color  COLOR_RGB_HEX(0xf0f2f5)
+
+//文字颜色
+//导航栏上子控件字体颜色
+#define  NavBarSonControl_Font_Color  COLOR_RGB_HEX(0xffffff)
+//标题性文字字体颜色
+#define  BodyContentTitle_Font_Color  COLOR_RGB_HEX(0x000000)
+//提示性文字字体颜色
+#define  BodyContentPlaceholderText_Font_Color  COLOR_RGB_HEX(0xa9a9a9)
+//正文辅助性文字字体颜色
+#define  BodyContentAuxiliaryText_Font_Color  COLOR_RGB_HEX(0x787878)
+//正文重要性文字字体颜色
+#define  BodyContentImportantText_Font_Color  COLOR_RGB_HEX(0x157082)
+//价格字体颜色
+#define  BodyContentPrice_Font_Color  COLOR_RGB_HEX(0xff3333)
+//体验一下按钮字体颜色
+#define  _Font_Color  COLOR_RGB_HEX(0x089300)
+
+//文字大小
+//登录提交类按钮文字字体大小
+#define  SubmitButtonText_Font_Size  [UIFont systemFontOfSize:18]
+//导航栏上子控件字体大小
+#define  NavBarSonControl_Font_Size [UIFont boldSystemFontOfSize:17]
+//标题性文字字体大小
+#define  BodyContentTitle_Font_Size [UIFont boldSystemFontOfSize:15]
+//正文常规文字字体大小
+#define  BodyContentText_Font_Size  [UIFont systemFontOfSize:14]
+//正文辅助文字字体大小
+#define  BodyContentAuxiliaryText_Font_Size  [UIFont systemFontOfSize:12]
+
+
 #endif

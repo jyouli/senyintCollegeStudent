@@ -38,10 +38,24 @@
 #define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) && CGSizeEqualToSize(CGSizeMake(414, 736), [[UIScreen mainScreen] bounds].size)) : NO)
 
 
-//RGB三元色简写
-#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-//RGB三元色十六进制数简写
+/**
+ * 根据RGBA各自的值来获取颜色对象
+ */
+#define COLOR_RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define COLOR_RGB(r, g, b) COLOR_RGBA((r), (g), (b), 1)
+/**
+ * 根据RGBA的值来获取颜色对象
+ *usage:
+ *      COLOR_RGB_HEX(0xa1a1a1)
+ *      COLOR_RGB-HEX(0Xa1a1a1FF)
+ */
+
+//RGB三元色十六进制数简写带透明度
 #define COLOR_RGBA_HEX(rgbValue) COLOR_RGBA((((rgbValue) & 0xFF000000) >> 24), (((rgbValue) & 0xFF0000) >> 16), (((rgbValue) & 0xFF00) >> 8), (((rgbValue) & 0xFF)/255.0f))
 
+//RGB三元色十六进制数简写不带透明度
+#define COLOR_RGB_HEX(rgbValue) COLOR_RGB((((rgbValue) & 0xFF0000) >> 16), (((rgbValue) & 0xFF00) >> 8), (((rgbValue) & 0xFF)))
+
+#define COLOR_CLEAR [UIColor clearColor]
 
 #endif
