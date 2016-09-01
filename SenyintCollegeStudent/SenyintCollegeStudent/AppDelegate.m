@@ -40,6 +40,8 @@
     self.window.rootViewController = nc;
 
     
+    [NetworkManager testNetwork];
+    
     return YES;
 }
 

@@ -12,11 +12,15 @@
 #import "CommonMacroDefinition.h"
 #import "GlobalSingle.h"
 #import "SCProgressHUD.h"
+#import "NetworkManager.h"
+
 
 #import "AFHTTPSessionManager.h"
 
 
 #import "YLStringTool.h"
+
+
 
 
 

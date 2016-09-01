@@ -220,7 +220,7 @@
     static NSString * cellIdentifier = @"LoginCell";
     LoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.tf.font = [UIFont systemFontOfSize:13];
-    cell.tf.textColor = RGBACOLOR(17, 83, 146, 1);
+    cell.tf.textColor = COLOR_RGB(17, 83, 146);
     cell.tf.clearButtonMode = UITextFieldViewModeWhileEditing;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!(indexPath.row % 2)) {

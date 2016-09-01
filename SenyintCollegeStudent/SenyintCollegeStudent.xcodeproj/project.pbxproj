@@ -66,6 +66,8 @@
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
 		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
 		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
+		BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497661D757F8A00FC89FE /* NetworkManager.m */; };
+		BDB497AA1D78420700FC89FE /* Networktools.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497A91D78420700FC89FE /* Networktools.m */; };
 		BDCAC5ED1D53142E00C66990 /* CourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5EC1D53142E00C66990 /* CourseCell.m */; };
 		BDCAC5F11D53146200C66990 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5F01D53146200C66990 /* TeacherCell.m */; };
 		BDCAC5F41D53148500C66990 /* ClassmateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCAC5F31D53148500C66990 /* ClassmateCell.m */; };
@@ -236,6 +238,10 @@
 		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
 		BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeCountdownSingle.m; sourceTree = "<group>"; };
+		BDB497651D757F8A00FC89FE /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		BDB497661D757F8A00FC89FE /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		BDB497A81D78420700FC89FE /* Networktools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networktools.h; sourceTree = "<group>"; };
+		BDB497A91D78420700FC89FE /* Networktools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Networktools.m; sourceTree = "<group>"; };
 		BDCAC5EB1D53142E00C66990 /* CourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCell.h; sourceTree = "<group>"; };
 		BDCAC5EC1D53142E00C66990 /* CourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCell.m; sourceTree = "<group>"; };
 		BDCAC5EF1D53146200C66990 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
@@ -748,6 +754,10 @@
 		ED1E9FBD1D6C2EAB000BE638 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				BDB497651D757F8A00FC89FE /* NetworkManager.h */,
+				BDB497661D757F8A00FC89FE /* NetworkManager.m */,
+				BDB497A81D78420700FC89FE /* Networktools.h */,
+				BDB497A91D78420700FC89FE /* Networktools.m */,
 				ED1E9FBE1D6C2F45000BE638 /* URLImageView.h */,
 				ED1E9FBF1D6C2F45000BE638 /* URLImageView.m */,
 			);
@@ -1062,6 +1072,7 @@
 				F7B3839C1D703E8500464E35 /* FMResultSet.m in Sources */,
 				ED33F5991D6584EB00A64DC7 /* NSBundle+MJRefresh.m in Sources */,
 				BD57F1B11D4F3D4A00BAB291 /* AFURLRequestSerialization.m in Sources */,
+				BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */,
 				BD57F1B61D4F3D4A00BAB291 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD57F1B21D4F3D4A00BAB291 /* AFURLResponseSerialization.m in Sources */,
 				BD5C2A131D51954A0066762F /* SVProgressHUD.m in Sources */,
@@ -1075,6 +1086,7 @@
 				F7B383981D703E8500464E35 /* FMDatabase.m in Sources */,
 				ED33F5951D6584EB00A64DC7 /* MJRefreshNormalHeader.m in Sources */,
 				BD57F1B51D4F3D4A00BAB291 /* AFImageDownloader.m in Sources */,
+				BDB497AA1D78420700FC89FE /* Networktools.m in Sources */,
 				BDCAC5F41D53148500C66990 /* ClassmateCell.m in Sources */,
 				79FDED201D6EC69200F32B14 /* RegistInfoInputCell.m in Sources */,
 				F7B383A71D703FF000464E35 /* NSString+Custom.m in Sources */,
