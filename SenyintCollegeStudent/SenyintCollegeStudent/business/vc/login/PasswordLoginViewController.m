@@ -32,10 +32,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillAppear:animated];
     
-    
 }
-
-
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -45,6 +42,11 @@
     
 }
 
+- (void)navback
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

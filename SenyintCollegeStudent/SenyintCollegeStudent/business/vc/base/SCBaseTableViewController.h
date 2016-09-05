@@ -19,4 +19,5 @@
 @interface SCBaseTableViewController : UITableViewController
 @property (nonatomic, copy) NSString *backImageStr;
 
+- (void)navback;
 @end
