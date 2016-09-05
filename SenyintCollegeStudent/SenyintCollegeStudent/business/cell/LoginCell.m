@@ -8,7 +8,7 @@
 
 #import "LoginCell.h"
 
-@interface LoginCell ()
+@interface LoginCell ()<UITextFieldDelegate>
 
 @property (nonatomic, weak) UITextField *tf;
 @property (nonatomic, weak) UIImageView *icon;
@@ -22,9 +22,8 @@
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = [UIColor clearColor];
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 50, 45)];
-//        iv.backgroundColor = [UIColor colorWithRed:224/255. green:224/255. blue:224/255. alpha:1];
         iv.contentMode = UIViewContentModeCenter;
-        iv.image = [UIImage imageNamed:@"phoneIcon"];
+        iv.image = [UIImage imageNamed:@"userIcon"];
         UITextField *tf = [[UITextField alloc] init];
         tf.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         tf.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -36,7 +35,9 @@
         tf.layer.borderWidth = 1;
         tf.layer.borderColor = [[UIColor colorWithRed:236/255. green:236/255. blue:236/255. alpha:1] CGColor];
         tf.returnKeyType = UIReturnKeyDone;
-//        [self.contentView addSubview:iv];
+        tf.textColor = BodyContentText_Font_Color;
+        tf.font = BodyContentText_Font_Size;
+        tf.delegate = self;
         [self.contentView addSubview:tf];
         self.tf = tf;
         self.icon = iv;
@@ -45,19 +46,41 @@
     return self;
 }
 
+- (void)setModel:(LoginCellModel *)model
+{
+    _model = model;
+    
+    self.accessoryType = self.model.cellAccessoryType;
+    self.selectionStyle = self.model.cellSelectionStyle;
+    
+    self.tf.placeholder = self.model.textFieldPlaceholder;
+    self.tf.text = self.model.textFieldinfo;
+    self.tf.keyboardType = self.model.textFieldKeyboardType;
+    self.tf.returnKeyType = self.model.textFieldReturnKeyType;
+    self.tf.clearButtonMode = self.model.textFieldClearBtnMode;
+    self.tf.secureTextEntry = self.model.textFieldSecureTextEntry;
+    
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.tf.frame = CGRectMake(50, 15, self.bounds.size.width - 100 , self.bounds.size.height - 30);
+    self.tf.frame = CGRectMake(30, 0, self.bounds.size.width - 60 , 45);
     
 }
-- (void)awakeFromNib {
-    [super awakeFromNib];
+
+
+#pragma mark UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    return YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.model.textFieldinfo = textField.text;
+    
 }
 
 @end

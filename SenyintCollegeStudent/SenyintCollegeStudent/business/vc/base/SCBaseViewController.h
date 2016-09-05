@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseNavigationController.h"
+
 #import "AppSetting.h"
 /**
  继承自UIViewController
@@ -14,4 +16,6 @@
  设置屏幕方向（竖屏 不允许旋转）
  */
 @interface SCBaseViewController : UIViewController
+@property (nonatomic, copy) NSString *backImageStr;
+
 @end

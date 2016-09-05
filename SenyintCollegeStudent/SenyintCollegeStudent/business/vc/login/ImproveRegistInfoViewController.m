@@ -15,6 +15,7 @@
 #import "YLStringTool.h"
 #import "SCSpecialtyModel.h"
 #import "SCTitleModel.h"
+#import "UIImage+Rend.h"
 @interface ImproveRegistInfoViewController ()
 {
     SCTitleModel *titleModel;
@@ -37,6 +38,18 @@
     [super viewDidLoad];
     self.title = @"完善信息";
     
+    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"green_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage createImageWithColor:Shadow_Color]];
+    
+    UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 70, 30)];
+    [sureBtn setBackgroundImage:[UIImage imageNamed:@"surebtn_bg"] forState:UIControlStateNormal];
+    
+    [sureBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBarSonControl_Font_Color, NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [sureBtn addTarget:self action:@selector(commitBtnClick)forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:sureBtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
     [self.tableView registerClass:[RegistInfoInputCell class] forCellReuseIdentifier:@"RegistInfoInputCell"];
     
     [self createFooterView];
@@ -50,18 +63,15 @@
     UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 100)];
     footer.backgroundColor = [UIColor clearColor];
     
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width - 55 * 2, .5)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width - BodyContent_FlexibleLeft * 2, .5)];
     line.backgroundColor = self.tableView.separatorColor;
     [footer addSubview:line];
     
     UIButton *commitBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 30, Screen_Width - 50 * 2, 45)];
-    commitBtn.backgroundColor = [UIColor colorWithRed:22 / 255. green:92 / 255. blue:111 / 255. alpha:1];
-    commitBtn.layer.masksToBounds = YES;
-    commitBtn.layer.cornerRadius = 5;
-    //    UIImage *image = [UIImage imageNamed:@"Button_graybg"];
-    //    [loginBtn setBackgroundImage:[[UIImage imageNamed:@"Button_graybg"] stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateSelected];
+    UIImage *image = [UIImage imageNamed:@"login"];
+    [commitBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
     
-    [commitBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:15], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [commitBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"确认" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [commitBtn addTarget:self action:@selector(commitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:commitBtn];
     
@@ -176,10 +186,6 @@
 
 #pragma mark ==UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
@@ -199,7 +205,10 @@
 
 
 #pragma mark ==UITableViewDelegate
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 45;

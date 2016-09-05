@@ -18,8 +18,8 @@
         UIButton *btn = (UIButton *)self.infoTextField.rightView;
         if (!btn) {
             btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-            [btn setImage:[UIImage imageNamed:@"time"] forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"endicon"] forState:UIControlStateSelected];
+            [btn setImage:[UIImage imageNamed:@"eye"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"eye_gray"] forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(secureTextRightViewClick:) forControlEvents:UIControlEventTouchUpInside];
             self.infoTextField.rightView = btn;
         }

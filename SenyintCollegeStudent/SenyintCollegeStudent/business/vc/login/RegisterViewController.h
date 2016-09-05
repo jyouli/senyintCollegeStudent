@@ -9,5 +9,6 @@
 #import "SCTextTableViewController.h"
 
 @interface RegisterViewController : SCTextTableViewController
+@property (nonatomic, strong) NSString *userPhone;
 
 @end

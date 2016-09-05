@@ -15,6 +15,8 @@
 
 #import "ImproveRegistInfoViewController.h"
 
+#import "UIImage+Rend.h"
+
 @interface EnterViewController ()
 
 @end
@@ -23,11 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [UIImage createAndSaveImageColor:[UIColor whiteColor] WithSize:CGSizeMake(300, 64 * 3)];
+    [UIImage createAndSaveImageColor:[UIColor whiteColor] WithSize:CGSizeMake(200, 64 * 2)];
+
+    
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationItem.leftBarButtonItem = nil;
 
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"开启新的教与学体验之旅";
-   
+
+
     self.tableView.tableHeaderView = label;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
@@ -78,14 +88,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     switch (indexPath.row) {
         case 0:
-            [self.navigationController pushViewController:[[PasswordLoginViewController alloc] init] animated:YES];
-
+        {
+            
+            PasswordLoginViewController *vc = [[PasswordLoginViewController alloc] init];
+            vc.backImageStr = @"nav_back_gray";
+            [self.navigationController pushViewController:vc animated:YES];
             break;
+        
+        }
+
         case 1:
         {
             RegisterViewController *vc = [[RegisterViewController alloc] init];
+            vc.backImageStr = @"nav_back_gray";
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
