@@ -20,6 +20,7 @@
 		79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED341D6ED2C800F32B14 /* VerificationCodeCell.m */; };
 		79FDED381D6EE9A200F32B14 /* InfoTextFieldCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */; };
 		79FDED3B1D6EF96F00F32B14 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FDED3A1D6EF96F00F32B14 /* RegisterViewController.m */; };
+		BD1C5FF91D7975760000939C /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1C5FF81D7975760000939C /* BaseNavigationController.m */; };
 		BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD30021A1D55FC6E0086E7F5 /* StudentView.m */; };
 		BD57F1AE1D4F3D4A00BAB291 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F18D1D4F3D4A00BAB291 /* AFHTTPSessionManager.m */; };
 		BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD57F1901D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m */; };
@@ -79,6 +80,10 @@
 		BDD426AC1D4EFF6000A1C9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD426AA1D4EFF6000A1C9C9 /* Main.storyboard */; };
 		BDD426AE1D4EFF6000A1C9C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD426AD1D4EFF6000A1C9C9 /* Assets.xcassets */; };
 		BDD426B11D4EFF6000A1C9C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD426AF1D4EFF6000A1C9C9 /* LaunchScreen.storyboard */; };
+		BDF6F4FE1D79292C00ACA07C /* UIImage+Rend.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF6F4FD1D79292C00ACA07C /* UIImage+Rend.m */; };
+		BDFCFD691D7D1BFC00F47291 /* LoginCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD681D7D1BFC00F47291 /* LoginCellModel.m */; };
+		BDFCFD6C1D7D219400F47291 /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */; };
+		BDFCFD6F1D7D21A700F47291 /* LoginVerificationCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */; };
 		ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9F9A1D6BF739000BE638 /* YLRegularCheck.m */; };
 		ED1E9FA91D6BF739000BE638 /* YLDateTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9F9D1D6BF739000BE638 /* YLDateTimeTool.m */; };
 		ED1E9FAA1D6BF739000BE638 /* NSString+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FA01D6BF739000BE638 /* NSString+Attribute.m */; };
@@ -164,6 +169,8 @@
 		79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTextFieldCellModel.m; sourceTree = "<group>"; };
 		79FDED391D6EF96F00F32B14 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		79FDED3A1D6EF96F00F32B14 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		BD1C5FF71D7975760000939C /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		BD1C5FF81D7975760000939C /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		BD3002191D55FC6E0086E7F5 /* StudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentView.h; sourceTree = "<group>"; };
 		BD30021A1D55FC6E0086E7F5 /* StudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentView.m; sourceTree = "<group>"; };
 		BD57F18C1D4F3D4A00BAB291 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -263,6 +270,14 @@
 		BDD426B01D4EFF6000A1C9C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD426B21D4EFF6000A1C9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD426B81D4F1A5D00A1C9C9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BDF6F4FC1D79292C00ACA07C /* UIImage+Rend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rend.h"; sourceTree = "<group>"; };
+		BDF6F4FD1D79292C00ACA07C /* UIImage+Rend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rend.m"; sourceTree = "<group>"; };
+		BDFCFD671D7D1BFC00F47291 /* LoginCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCellModel.h; sourceTree = "<group>"; };
+		BDFCFD681D7D1BFC00F47291 /* LoginCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCellModel.m; sourceTree = "<group>"; };
+		BDFCFD6A1D7D219400F47291 /* LoginPasswordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPasswordCell.h; sourceTree = "<group>"; };
+		BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordCell.m; sourceTree = "<group>"; };
+		BDFCFD6D1D7D21A700F47291 /* LoginVerificationCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVerificationCodeCell.h; sourceTree = "<group>"; };
+		BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVerificationCodeCell.m; sourceTree = "<group>"; };
 		ED1E9F961D6BF739000BE638 /* CommonMacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacroDefinition.h; sourceTree = "<group>"; };
 		ED1E9F991D6BF739000BE638 /* YLRegularCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRegularCheck.h; sourceTree = "<group>"; };
 		ED1E9F9A1D6BF739000BE638 /* YLRegularCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRegularCheck.m; sourceTree = "<group>"; };
@@ -551,6 +566,10 @@
 				79FDED341D6ED2C800F32B14 /* VerificationCodeCell.m */,
 				BD5C2A2B1D51ADC60066762F /* LoginCell.h */,
 				BD5C2A2C1D51ADC60066762F /* LoginCell.m */,
+				BDFCFD6A1D7D219400F47291 /* LoginPasswordCell.h */,
+				BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */,
+				BDFCFD6D1D7D21A700F47291 /* LoginVerificationCodeCell.h */,
+				BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */,
 				BDCAC5EB1D53142E00C66990 /* CourseCell.h */,
 				BDCAC5EC1D53142E00C66990 /* CourseCell.m */,
 				BDCAC5EF1D53146200C66990 /* TeacherCell.h */,
@@ -573,6 +592,8 @@
 				79FDED221D6EC71900F32B14 /* CellModel.m */,
 				79FDED361D6EE9A200F32B14 /* InfoTextFieldCellModel.h */,
 				79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */,
+				BDFCFD671D7D1BFC00F47291 /* LoginCellModel.h */,
+				BDFCFD681D7D1BFC00F47291 /* LoginCellModel.m */,
 				BDCAC5F81D53156600C66990 /* CourseModel.h */,
 				BDCAC5F91D53156600C66990 /* CourseModel.m */,
 				BDCAC5F51D53154A00C66990 /* StudentModel.h */,
@@ -687,6 +708,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BDF6F4FB1D7928E700ACA07C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				BDF6F4FC1D79292C00ACA07C /* UIImage+Rend.h */,
+				BDF6F4FD1D79292C00ACA07C /* UIImage+Rend.m */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		ED1E9F8E1D6BF643000BE638 /* customcontrols */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +729,7 @@
 		ED1E9F971D6BF739000BE638 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				BDF6F4FB1D7928E700ACA07C /* image */,
 				F7B3839E1D703E9800464E35 /* file */,
 				ED1E9F981D6BF739000BE638 /* check */,
 				ED1E9F9B1D6BF739000BE638 /* date&time */,
@@ -874,6 +905,8 @@
 				EDD290AD1D6D75340081FBAF /* SCTextViewController.m */,
 				EDD2909B1D6D6B580081FBAF /* SCTextTableViewController.h */,
 				EDD2909C1D6D6B580081FBAF /* SCTextTableViewController.m */,
+				BD1C5FF71D7975760000939C /* BaseNavigationController.h */,
+				BD1C5FF81D7975760000939C /* BaseNavigationController.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1014,6 +1047,7 @@
 				BD5C2A2D1D51ADC60066762F /* LoginCell.m in Sources */,
 				79FDED381D6EE9A200F32B14 /* InfoTextFieldCellModel.m in Sources */,
 				BDCAC5ED1D53142E00C66990 /* CourseCell.m in Sources */,
+				BD1C5FF91D7975760000939C /* BaseNavigationController.m in Sources */,
 				BDCAC5FA1D53156600C66990 /* CourseModel.m in Sources */,
 				ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */,
 				F7B383991D703E8500464E35 /* FMDatabaseAdditions.m in Sources */,
@@ -1045,6 +1079,7 @@
 				BDD426A61D4EFF6000A1C9C9 /* AppDelegate.m in Sources */,
 				F7B3839B1D703E8500464E35 /* FMDatabaseQueue.m in Sources */,
 				F7B383841D703E4B00464E35 /* SCCityModel.m in Sources */,
+				BDFCFD691D7D1BFC00F47291 /* LoginCellModel.m in Sources */,
 				ED1E9FB71D6BF801000BE638 /* YLScrollerImagesController.m in Sources */,
 				EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */,
 				BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */,
@@ -1054,6 +1089,7 @@
 				ED33F5961D6584EB00A64DC7 /* MJRefreshStateHeader.m in Sources */,
 				BD57F1AF1D4F3D4A00BAB291 /* AFNetworkReachabilityManager.m in Sources */,
 				BDCAC5F71D53154A00C66990 /* StudentModel.m in Sources */,
+				BDFCFD6F1D7D21A700F47291 /* LoginVerificationCodeCell.m in Sources */,
 				BD57F1BB1D4F3D4A00BAB291 /* UIRefreshControl+AFNetworking.m in Sources */,
 				F786C3B61D740A5C0015C16E /* SCCourseTableViewCell.m in Sources */,
 				79FDED231D6EC71900F32B14 /* CellModel.m in Sources */,
@@ -1061,6 +1097,7 @@
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
 				BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */,
 				ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */,
+				BDF6F4FE1D79292C00ACA07C /* UIImage+Rend.m in Sources */,
 				ED1E9FAB1D6BF739000BE638 /* NSString+Size.m in Sources */,
 				F7B383A11D703E9800464E35 /* NSFileManager+util.m in Sources */,
 				BDD426A31D4EFF6000A1C9C9 /* main.m in Sources */,
@@ -1069,6 +1106,7 @@
 				EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */,
 				79FDED1D1D6EC64000F32B14 /* InfoTextFieldCell.m in Sources */,
 				BD57F1B01D4F3D4A00BAB291 /* AFSecurityPolicy.m in Sources */,
+				BDFCFD6C1D7D219400F47291 /* LoginPasswordCell.m in Sources */,
 				F7B3839C1D703E8500464E35 /* FMResultSet.m in Sources */,
 				ED33F5991D6584EB00A64DC7 /* NSBundle+MJRefresh.m in Sources */,
 				BD57F1B11D4F3D4A00BAB291 /* AFURLRequestSerialization.m in Sources */,

@@ -13,95 +13,90 @@
 #import "RegisterViewController.h"
 #import "SCVisitViewController.h"
 
-#import "ImproveRegistInfoViewController.h"
-
 @interface EnterViewController ()
 
 @end
 
 @implementation EnterViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [super viewWillAppear:animated];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"开启新的教与学体验之旅";
-   
-    self.tableView.tableHeaderView = label;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-}
-
-#pragma mark ==UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationItem.leftBarButtonItem = nil;
     
-    NSString * cellIdentifier = @"UITableViewCell";
-    UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    cell.backgroundColor = [UIColor lightGrayColor];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"登录";
-            break;
-        case 1:
-            cell.textLabel.text = @"注册";
-            
-            
-            break;
-        case 2:
-            cell.textLabel.text = @"体验一下";
-            break;
-        default:
-            break;
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    iv.contentMode = UIViewContentModeScaleAspectFill;
+    iv.image = [UIImage imageNamed:@"loading"];
+    if (iPhone4_4S) {
+        iv.contentMode = UIViewContentModeTop;
+        iv.image = [UIImage imageNamed:@"loading4"];
     }
-    return cell;
+    [self.view addSubview:iv];
+
+    CGFloat leftspace = 30;
+    CGFloat bottomspace = 30;
+    CGFloat space = 15;
+    CGFloat width = Screen_Width - leftspace * 2;
+    CGFloat height = 45;
+    CGFloat top = Screen_Height - height * 3 - bottomspace - space * 2;
+
+    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top, width, height)];
+    UIImage *image = [UIImage imageNamed:@"login"];
+    [loginBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
+    [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    loginBtn.alpha = .8;
+    [self.view addSubview:loginBtn];
+
+    UIButton *registBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top + height + space, width, height)];
+    [registBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
+    [registBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"注册" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [registBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    registBtn.alpha = .8;
+    [self.view addSubview:registBtn];
+    
+    UIButton *experienceBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top + (height + space) * 2, width, height)];
+    UIImage *img = [UIImage imageNamed:@"experience_bg"];
+    [experienceBtn setBackgroundImage:[img stretchableImageWithLeftCapWidth:img.size.width / 2 topCapHeight:img.size.height / 2] forState:UIControlStateNormal];
+    [experienceBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"体验一下" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBar_bg_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [experienceBtn addTarget:self action:@selector(experienceBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    experienceBtn.alpha = .8;
+    [self.view addSubview:experienceBtn];
+    
+
+
+    
 }
 
-
-#pragma mark ==UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)loginBtnClick
 {
-    return 50;
+    PasswordLoginViewController *vc = [[PasswordLoginViewController alloc] init];
+    vc.backImageStr = @"nav_back_gray";
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)registBtnClick
 {
-    switch (indexPath.row) {
-        case 0:
-            [self.navigationController pushViewController:[[PasswordLoginViewController alloc] init] animated:YES];
-
-            break;
-        case 1:
-        {
-            RegisterViewController *vc = [[RegisterViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-            
-        case 2:
-            [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
-
-            break;
-        default:
-            break;
-    }
-
-
+    RegisterViewController *vc = [[RegisterViewController alloc] init];
+    vc.backImageStr = @"nav_back_gray";
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 
+- (void)experienceBtnClick
+{
+    [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
+
+}
 
 
 @end

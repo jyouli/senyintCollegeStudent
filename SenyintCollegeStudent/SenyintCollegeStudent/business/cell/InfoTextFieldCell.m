@@ -60,15 +60,15 @@
 
 - (void)setSubviews
 {
-    [self setView:self.infoLabel FrameToSuperviewWithLeft:10 Width:45 Top:0 Bottom:0];
+    [self setView:self.infoLabel FrameToSuperviewWithLeft:BodyContent_FlexibleLeft Width:40 Top:5 Bottom:5];
     
-    [self setView:self.infoTextField FrameToSuperviewWithLeft:60 Right:10 Top:0 Bottom:0];
-    self.infoLabel.textColor = TextColor;
-    self.infoLabel.font = TextFont;
+    [self setView:self.infoTextField FrameToSuperviewWithLeft:65 Right:10 Top:0 Bottom:0];
+    self.infoLabel.textColor = BodyContentText_Font_Color;
+    self.infoLabel.font = BodyContentText_Font_Size;
     self.infoLabel.textAlignment = NSTextAlignmentLeft;
     
-    self.infoTextField.textColor = TextColor;
-    self.infoTextField.font = TextFont;
+    self.infoTextField.textColor = BodyContentText_Font_Color;
+    self.infoTextField.font = BodyContentText_Font_Size;
     self.infoTextField.textAlignment = NSTextAlignmentLeft;
     
 }

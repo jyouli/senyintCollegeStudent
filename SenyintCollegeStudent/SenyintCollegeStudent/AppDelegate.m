@@ -11,6 +11,8 @@
 #import "LoginViewController.h"
 #import "TeskViewController.h"
 #import "EnterViewController.h"
+
+#import "UIImage+Rend.h"
 @interface AppDelegate ()
 
 @end
@@ -39,8 +41,8 @@
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tc];
     self.window.rootViewController = nc;
 
-    
-    [NetworkManager testNetwork];
+    //全局ui设置
+    [self customizeAppearance];
     
     return YES;
 }
@@ -61,50 +63,89 @@
 }
 
 
-#pragma mark 远程通知
-- (void)registRemoteNotification:(UIApplication *)application
+#pragma mark --自定义全皮肤设置
+- (void)customizeAppearance
 {
-    //注册推送
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0 ) {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
-        [application registerForRemoteNotifications];
-        
-    } else {
-        
-        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
-    }
+    
+    //设置导航条背景
+    //[[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];//通过颜色设置的背景色去不掉下边的线（阴影）
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"green_nav_bg"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTranslucent:NO];
 
+    //设置阴影颜色
+    [[UINavigationBar appearance] setShadowImage:[UIImage createImageWithColor:Shadow_Color]];
+//
+//    //隐藏阴影
+//    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+//    //自已给UINavigationBar添加阴影
+//    [UINavigationBar appearance].layer.shadowColor = [Shadow_Color CGColor];
+//    [UINavigationBar appearance].layer.shadowOffset = CGSizeMake(0, 1);
+//    [UINavigationBar appearance].layer.shadowRadius = 2;
+//    [UINavigationBar appearance].layer.shadowOpacity = .9;
+//    
+    
+    // 设置title
+    [[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarTitle_Font_Size,NSFontAttributeName ,nil]];
+    
+     //设置按钮
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setBackgroundImage:[UIImage imageNamed:@"navBarItem_clearbg"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault ];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarSonControl_Font_Size,NSFontAttributeName ,nil] forState:UIControlStateNormal];
+    
+//    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"nav_back"] ];
+//    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"nav_back"] ];//不起作用
 
+    
+    [[UITabBarItem appearanceWhenContainedIn:[UINavigationController class], nil] setTitlePositionAdjustment:UIOffsetMake(80, 30)];
+    [[UITabBarItem appearanceWhenContainedIn:[UINavigationController class], nil] setImageInsets:UIEdgeInsetsMake(0, -50, 0, 50)];
+
+    
 }
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
 
+//
+//#pragma mark 远程通知
+//- (void)registRemoteNotification:(UIApplication *)application
+//{
+//    //注册推送
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0 ) {
+//        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+//        [application registerForRemoteNotifications];
+//        
+//    } else {
+//        
+//        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+//    }
+//
+//
+//}
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+//{
+//
 //    NSString *tokenStr = [[deviceToken description]
 //                          stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]; //测试只能去掉字符串两端的"<>"
 //    tokenStr = [tokenStr stringByReplacingOccurrencesOfString:@" " withString:@""];//去掉中间空格
 ////    NSLog(@"获取DeviceToken成功:%@",tokenStr);
 //
-//    NSString *tokenStr = [[[[deviceToken description]
+////    NSString *tokenStr = [[[[deviceToken description]
 //                             stringByReplacingOccurrencesOfString:@"<" withString:@""]
 //                            stringByReplacingOccurrencesOfString:@">" withString:@""]
 //                           stringByReplacingOccurrencesOfString:@" " withString:@""];
 //    
 ////    NSLog(@"获取DeviceToken成功:%@",pushToken);
-    
-}
--(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
+//    
+//}
+//-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+//{
 //    NSLog(@"获得deviceToken失败:%@",[error description]);
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo
-{
+//}
+//
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo
+//{
 //    NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"]; //自己展示
 //    NSString *sound = [[userInfo objectForKey:@"aps"] objectForKey:@"sound"];   //系统自动播放
 //    NSString *badge = [[userInfo objectForKey:@"aps"] objectForKey:@"badge"];   //自己展示
 //    NSLog(@"收到推送消息: \n message = %@\n sound=%@\n badge=%@", message, sound, badge);
 //    NSLog(@"%ld",application.applicationIconBadgeNumber);
-}
+//}
 
 #pragma mark - 设置所有界面（包括启动图  不包括LaunchScreen）只竖屏显示 以下两种方法都可实现
 //用此方法设置支持方向 界面仍然可以旋转

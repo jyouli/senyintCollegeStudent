@@ -7,7 +7,8 @@
 //
 
 #import "PasswordLoginViewController.h"
-#import "RegistInfoInputCell.h"
+#import "LoginCell.h"
+#import "LoginPasswordCell.h"
 #import "YLRegularCheck.h"
 #import "VerificationCodeLoginViewController.h"
 #import "ForgetPasswordViewController.h"
@@ -31,10 +32,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillAppear:animated];
     
-    
 }
-
-
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -44,13 +42,33 @@
     
 }
 
+- (void)navback
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
     
-    [self.tableView registerClass:[RegistInfoInputCell class] forCellReuseIdentifier:NSStringFromClass([RegistInfoInputCell class])];
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+   
+    UIButton *verloginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 70, 30)];
+    [verloginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"验证码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBar_bg_Color, NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [verloginBtn addTarget:self action:@selector(loginUsedVerificationCode)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:verloginBtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
+
     
+    [self.tableView registerClass:[LoginCell class] forCellReuseIdentifier:NSStringFromClass([LoginCell class])];
+    [self.tableView registerClass:[LoginPasswordCell class] forCellReuseIdentifier:NSStringFromClass([LoginPasswordCell class])];
+
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    
+    [self creatHeaderView];
     [self creatFooterView];
     
     
@@ -62,6 +80,8 @@
 {
     VerificationCodeLoginViewController *verLoginvc = [[VerificationCodeLoginViewController alloc] init];
     verLoginvc.userPhone = self.userTF.text;
+    verLoginvc.backImageStr = @"nav_back_gray";
+
     [self.navigationController pushViewController:verLoginvc animated:YES];
     
 }
@@ -71,6 +91,7 @@
     
     ForgetPasswordViewController *verLoginvc = [[ForgetPasswordViewController alloc] init];
     verLoginvc.userPhone = self.userTF.text;
+    verLoginvc.backImageStr = @"nav_back_gray";
     [self.navigationController pushViewController:verLoginvc animated:YES];
     
     
@@ -79,7 +100,10 @@
 
 - (void)registBtnClick
 {
-    [self.navigationController pushViewController:[[RegisterViewController alloc] init] animated:YES];
+    RegisterViewController *registvc = [[RegisterViewController alloc] init];
+    registvc.userPhone = self.userTF.text;
+    registvc.backImageStr = @"nav_back_gray";
+    [self.navigationController pushViewController:registvc animated:YES];
 }
 
 
@@ -158,20 +182,17 @@
 {
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] initWithCapacity:5];
-        InfoTextFieldCellModel *mode1 = [[InfoTextFieldCellModel alloc] init];
-        mode1.infoName = @"手机号";
+        LoginCellModel *mode1 = [[LoginCellModel alloc] init];
         mode1.textFieldPlaceholder = @"请输入手机号";
         mode1.textFieldinfo = self.userPhone;
         mode1.textFieldKeyboardType = UIKeyboardTypePhonePad;
-        mode1.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
+        mode1.cellClassName = NSStringFromClass([LoginCell class]);
         [_dataArray addObject:mode1];
         
-        InfoTextFieldCellModel *mode2 = [[InfoTextFieldCellModel alloc] init];
-        mode2.infoName = @"密 码";
+        LoginCellModel *mode2 = [[LoginCellModel alloc] init];
         mode2.textFieldKeyboardType = UIKeyboardTypeASCIICapable;
         mode2.textFieldPlaceholder = @"请输入密码";
-        mode2.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
-        mode2.textFieldSetSecureRightView = YES;
+        mode2.cellClassName = NSStringFromClass([LoginPasswordCell class]);
         mode2.textFieldSecureTextEntry = YES;
         [_dataArray addObject:mode2];
 
@@ -182,71 +203,50 @@
     
 }
 
+//表头
+- (void)creatHeaderView
+{
+    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, (Screen_Height - 64)/2 )];
+    header.image = [UIImage imageNamed:@"logo_senyint"];
+    header.contentMode = UIViewContentModeCenter;
+    self.tableView.tableHeaderView = header;
+}
+
+//表尾
 - (void)creatFooterView
 {
     
-    //表尾
     UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 120)];
     footer.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = footer;
     
     
-    
-    UIButton *verloginBtn = [[UIButton alloc] initWithFrame:CGRectMake(20,5, 70, 30)];
-    [verloginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"验证码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
-    [verloginBtn addTarget:self action:@selector(loginUsedVerificationCode) forControlEvents:UIControlEventTouchUpInside];
-    [footer addSubview:verloginBtn];
-    
-    UIButton *forgetPwBtn = [[UIButton alloc] initWithFrame:CGRectMake(Screen_Width - 90,5, 70, 30)];
-    [forgetPwBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"忘记密码" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    UIButton *forgetPwBtn = [[UIButton alloc] initWithFrame:CGRectMake(25,0, 70, 30)];
+    [forgetPwBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"忘记密码?" attributes:[NSDictionary dictionaryWithObjectsAndKeys: COLOR_RGB_HEX(0xff9c00), NSForegroundColorAttributeName,[UIFont systemFontOfSize:12], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [forgetPwBtn addTarget:self action:@selector(forgetPasswordBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:forgetPwBtn];
     
-    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 40, Screen_Width - 40, 45)];
-    loginBtn.backgroundColor = [UIColor colorWithRed:22 / 255. green:92 / 255. blue:111 / 255. alpha:1];
-    loginBtn.layer.masksToBounds = YES;
-    loginBtn.layer.cornerRadius = 5;
-    //    UIImage *image = [UIImage imageNamed:@"Button_graybg"];
-    //    [loginBtn setBackgroundImage:[[UIImage imageNamed:@"Button_graybg"] stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateSelected];
     
-    [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    UIButton *rigistBtn = [[UIButton alloc] initWithFrame:CGRectMake(Screen_Width - 60, 0, 30, 30)];
+    [rigistBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"注册" attributes:[NSDictionary dictionaryWithObjectsAndKeys: COLOR_RGB_HEX(0xff9c00), NSForegroundColorAttributeName,[UIFont systemFontOfSize:12], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
+    [rigistBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [footer addSubview:rigistBtn];
+    
+
+    
+    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, Screen_Width - 60, 45)];
+    UIImage *image = [UIImage imageNamed:@"login"];
+    [loginBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
+    [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:loginBtn];
     _loginBtn = loginBtn;
     _loginBtn.enabled = NO;
     
     
-    UIButton *rigistBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    rigistBtn.center = CGPointMake(footer.center.x, 105);
-    [rigistBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"注册" attributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor redColor], NSForegroundColorAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName ,nil]] forState:UIControlStateNormal];
-    [rigistBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [footer addSubview:rigistBtn];
-
-    
-    
 }
 
-- (UITextField *)userTF
-{
-    ;
-    if (!_userTF) {
-        InfoTextFieldCell *cell = [self.tableView  cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        _userTF = cell.infoTextField;
-    }
-    
-    return _userTF;
-}
-
-- (UITextField *)pwTF
-{
-    if (!_pwTF) {
-        InfoTextFieldCell *cell = [self.tableView  cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-        _pwTF = cell.infoTextField;
-        
-    }
-    return _pwTF;
-}
-
+#pragma mark ==通知回调
 - (void)textFieldChange:(NSNotification *)noti
 {
     if ([self.userTF.text length] && [self.pwTF.text length]) {
@@ -269,14 +269,20 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    InfoTextFieldCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
+
+    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
     NSString * cellIdentifier = model.cellClassName;
-    InfoTextFieldCell *cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    LoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.model = model;
+    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
+        self.userTF = cell.tf;
+    } else {
     
+        self.pwTF = cell.tf;
+    }
     
     return cell;
+
 }
 
 
@@ -284,7 +290,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
+        return 45;
+    }
+
+    return 65;
 }
 
 @end

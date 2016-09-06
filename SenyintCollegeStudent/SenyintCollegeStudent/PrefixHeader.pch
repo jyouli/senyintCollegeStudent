@@ -14,10 +14,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-
-#define  TextColor  [UIColor darkGrayColor]
-#define  TextFont   [UIFont systemFontOfSize:14]
-#define ViewBGColor [UIColor whiteColor]
-
+//设置宏 及常用头文件
+#import "AppSetting.h"
 
 #endif 

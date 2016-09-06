@@ -6,8 +6,8 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "SCBaseTableViewController.h"
+#import "SCBaseViewController.h"
 
-@interface EnterViewController : SCBaseTableViewController
+@interface EnterViewController : SCBaseViewController
 
 @end

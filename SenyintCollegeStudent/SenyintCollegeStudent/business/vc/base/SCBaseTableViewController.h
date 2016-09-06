@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseNavigationController.h"
+
 #import "AppSetting.h"
 /**
  继承自UITableViewController
@@ -15,5 +17,7 @@
  */
 
 @interface SCBaseTableViewController : UITableViewController
+@property (nonatomic, copy) NSString *backImageStr;
 
+- (void)navback;
 @end
