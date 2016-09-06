@@ -959,7 +959,7 @@
 				TargetAttributes = {
 					BDD4269D1D4EFF6000A1C9C9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 4JWB3X6DSB;
+						DevelopmentTeam = K2V53K5849;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1242,7 +1242,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.killtest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.senyintcollege.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1268,7 +1268,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SenyintCollegeStudent/3rdparty/justalk/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.senyint.killtest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.senyintcollege.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
