@@ -84,6 +84,12 @@
 		BDFCFD691D7D1BFC00F47291 /* LoginCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD681D7D1BFC00F47291 /* LoginCellModel.m */; };
 		BDFCFD6C1D7D219400F47291 /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */; };
 		BDFCFD6F1D7D21A700F47291 /* LoginVerificationCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */; };
+		BDFCFD721D7EA2AA00F47291 /* HospitalSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD711D7EA2AA00F47291 /* HospitalSearchCell.m */; };
+		BDFCFD781D7EA33B00F47291 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD771D7EA33B00F47291 /* HospitalModel.m */; };
+		BDFCFD7B1D7EA67300F47291 /* HosPitalSearchPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD7A1D7EA67300F47291 /* HosPitalSearchPromptCell.m */; };
+		BDFCFD7D1D7EA6A100F47291 /* HospitalSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDFCFD7C1D7EA6A100F47291 /* HospitalSearchCell.xib */; };
+		BDFCFD7F1D7EA9DC00F47291 /* HosPitalSearchPromptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDFCFD7E1D7EA9DC00F47291 /* HosPitalSearchPromptCell.xib */; };
+		BDFCFD821D7EB9F300F47291 /* AddHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFCFD811D7EB9F300F47291 /* AddHospitalViewController.m */; };
 		ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9F9A1D6BF739000BE638 /* YLRegularCheck.m */; };
 		ED1E9FA91D6BF739000BE638 /* YLDateTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9F9D1D6BF739000BE638 /* YLDateTimeTool.m */; };
 		ED1E9FAA1D6BF739000BE638 /* NSString+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1E9FA01D6BF739000BE638 /* NSString+Attribute.m */; };
@@ -278,6 +284,16 @@
 		BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordCell.m; sourceTree = "<group>"; };
 		BDFCFD6D1D7D21A700F47291 /* LoginVerificationCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVerificationCodeCell.h; sourceTree = "<group>"; };
 		BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVerificationCodeCell.m; sourceTree = "<group>"; };
+		BDFCFD701D7EA2AA00F47291 /* HospitalSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalSearchCell.h; sourceTree = "<group>"; };
+		BDFCFD711D7EA2AA00F47291 /* HospitalSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalSearchCell.m; sourceTree = "<group>"; };
+		BDFCFD761D7EA33B00F47291 /* HospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
+		BDFCFD771D7EA33B00F47291 /* HospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalModel.m; sourceTree = "<group>"; };
+		BDFCFD791D7EA67300F47291 /* HosPitalSearchPromptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HosPitalSearchPromptCell.h; sourceTree = "<group>"; };
+		BDFCFD7A1D7EA67300F47291 /* HosPitalSearchPromptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HosPitalSearchPromptCell.m; sourceTree = "<group>"; };
+		BDFCFD7C1D7EA6A100F47291 /* HospitalSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HospitalSearchCell.xib; sourceTree = "<group>"; };
+		BDFCFD7E1D7EA9DC00F47291 /* HosPitalSearchPromptCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HosPitalSearchPromptCell.xib; sourceTree = "<group>"; };
+		BDFCFD801D7EB9F300F47291 /* AddHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHospitalViewController.h; sourceTree = "<group>"; };
+		BDFCFD811D7EB9F300F47291 /* AddHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHospitalViewController.m; sourceTree = "<group>"; };
 		ED1E9F961D6BF739000BE638 /* CommonMacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacroDefinition.h; sourceTree = "<group>"; };
 		ED1E9F991D6BF739000BE638 /* YLRegularCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRegularCheck.h; sourceTree = "<group>"; };
 		ED1E9F9A1D6BF739000BE638 /* YLRegularCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRegularCheck.m; sourceTree = "<group>"; };
@@ -427,6 +443,8 @@
 			children = (
 				797345051D7019E30083B5D6 /* SelectHospitalViewController.h */,
 				797345061D7019E30083B5D6 /* SelectHospitalViewController.m */,
+				BDFCFD801D7EB9F300F47291 /* AddHospitalViewController.h */,
+				BDFCFD811D7EB9F300F47291 /* AddHospitalViewController.m */,
 				797345081D701A830083B5D6 /* SelectDepartmentViewController.h */,
 				797345091D701A830083B5D6 /* SelectDepartmentViewController.m */,
 				7973450B1D701AAE0083B5D6 /* SelectTitleViewController.h */,
@@ -570,6 +588,12 @@
 				BDFCFD6B1D7D219400F47291 /* LoginPasswordCell.m */,
 				BDFCFD6D1D7D21A700F47291 /* LoginVerificationCodeCell.h */,
 				BDFCFD6E1D7D21A700F47291 /* LoginVerificationCodeCell.m */,
+				BDFCFD701D7EA2AA00F47291 /* HospitalSearchCell.h */,
+				BDFCFD711D7EA2AA00F47291 /* HospitalSearchCell.m */,
+				BDFCFD7C1D7EA6A100F47291 /* HospitalSearchCell.xib */,
+				BDFCFD791D7EA67300F47291 /* HosPitalSearchPromptCell.h */,
+				BDFCFD7A1D7EA67300F47291 /* HosPitalSearchPromptCell.m */,
+				BDFCFD7E1D7EA9DC00F47291 /* HosPitalSearchPromptCell.xib */,
 				BDCAC5EB1D53142E00C66990 /* CourseCell.h */,
 				BDCAC5EC1D53142E00C66990 /* CourseCell.m */,
 				BDCAC5EF1D53146200C66990 /* TeacherCell.h */,
@@ -594,6 +618,8 @@
 				79FDED371D6EE9A200F32B14 /* InfoTextFieldCellModel.m */,
 				BDFCFD671D7D1BFC00F47291 /* LoginCellModel.h */,
 				BDFCFD681D7D1BFC00F47291 /* LoginCellModel.m */,
+				BDFCFD761D7EA33B00F47291 /* HospitalModel.h */,
+				BDFCFD771D7EA33B00F47291 /* HospitalModel.m */,
 				BDCAC5F81D53156600C66990 /* CourseModel.h */,
 				BDCAC5F91D53156600C66990 /* CourseModel.m */,
 				BDCAC5F51D53154A00C66990 /* StudentModel.h */,
@@ -1025,6 +1051,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B3839D1D703E8500464E35 /* Info.plist in Resources */,
+				BDFCFD7F1D7EA9DC00F47291 /* HosPitalSearchPromptCell.xib in Resources */,
 				F7B383881D703E6800464E35 /* database.sqlite in Resources */,
 				F7B3838A1D703E6D00464E35 /* 建表sql语句.rtf in Resources */,
 				F786C3B71D740A5C0015C16E /* SCCourseTableViewCell.xib in Resources */,
@@ -1033,6 +1060,7 @@
 				BDD426AE1D4EFF6000A1C9C9 /* Assets.xcassets in Resources */,
 				BDD426AC1D4EFF6000A1C9C9 /* Main.storyboard in Resources */,
 				ED33F5971D6584EB00A64DC7 /* MJRefresh.bundle in Resources */,
+				BDFCFD7D1D7EA6A100F47291 /* HospitalSearchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,6 +1080,7 @@
 				ED1E9FA81D6BF739000BE638 /* YLRegularCheck.m in Sources */,
 				F7B383991D703E8500464E35 /* FMDatabaseAdditions.m in Sources */,
 				F786C3B21D7400700015C16E /* SCVisitViewController.m in Sources */,
+				BDFCFD7B1D7EA67300F47291 /* HosPitalSearchPromptCell.m in Sources */,
 				BD57F1BA1D4F3D4A00BAB291 /* UIProgressView+AFNetworking.m in Sources */,
 				79FDED291D6EC7E100F32B14 /* ImproveRegistInfoViewController.m in Sources */,
 				79FDED351D6ED2C800F32B14 /* VerificationCodeCell.m in Sources */,
@@ -1068,6 +1097,7 @@
 				ED33F5A51D65B02900A64DC7 /* SCProgressHUD.m in Sources */,
 				F7B383851D703E4B00464E35 /* SCSpecialtyModel.m in Sources */,
 				ED33F5931D6584EB00A64DC7 /* MJRefreshBackStateFooter.m in Sources */,
+				BDFCFD821D7EB9F300F47291 /* AddHospitalViewController.m in Sources */,
 				ED1E9FB91D6BF801000BE638 /* YLShowImagesViewController.m in Sources */,
 				BD57F1BC1D4F3D4A00BAB291 /* UIWebView+AFNetworking.m in Sources */,
 				BD57F1B91D4F3D4A00BAB291 /* UIImageView+AFNetworking.m in Sources */,
@@ -1100,6 +1130,7 @@
 				BDF6F4FE1D79292C00ACA07C /* UIImage+Rend.m in Sources */,
 				ED1E9FAB1D6BF739000BE638 /* NSString+Size.m in Sources */,
 				F7B383A11D703E9800464E35 /* NSFileManager+util.m in Sources */,
+				BDFCFD721D7EA2AA00F47291 /* HospitalSearchCell.m in Sources */,
 				BDD426A31D4EFF6000A1C9C9 /* main.m in Sources */,
 				7973450A1D701A830083B5D6 /* SelectDepartmentViewController.m in Sources */,
 				BD57F1B41D4F3D4A00BAB291 /* AFAutoPurgingImageCache.m in Sources */,
@@ -1144,6 +1175,7 @@
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ED33F58B1D6584EB00A64DC7 /* MJRefreshComponent.m in Sources */,
 				ED33F59C1D6584EB00A64DC7 /* UIView+MJExtension.m in Sources */,
+				BDFCFD781D7EA33B00F47291 /* HospitalModel.m in Sources */,
 				F7B383A41D703EA800464E35 /* DatabaseManager.m in Sources */,
 				ED33F58C1D6584EB00A64DC7 /* MJRefreshFooter.m in Sources */,
 			);

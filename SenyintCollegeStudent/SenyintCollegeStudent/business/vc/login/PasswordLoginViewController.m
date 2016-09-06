@@ -44,8 +44,14 @@
 
 - (void)navback
 {
-    self.navigationController.navigationBar.hidden = YES;
-    [self.navigationController popViewControllerAnimated:NO];
+    if (self.navigationController.viewControllers.count == 2) {
+        self.navigationController.navigationBar.hidden = YES;
+        [self.navigationController popViewControllerAnimated:NO];
+    } else {
+    
+        [super navback];
+    }
+
 }
 
 - (void)viewDidLoad {

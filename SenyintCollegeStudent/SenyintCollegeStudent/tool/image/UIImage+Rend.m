@@ -47,6 +47,7 @@
     
 }
 
+
 // 创建指定大小，指定颜色的image
 + (UIImage *)createImageColor:(UIColor *)color WithSize:(CGSize) size
 {
@@ -76,6 +77,17 @@
     UIImage *img = [self createImageColor:color WithSize:size];
     UIImageWriteToSavedPhotosAlbum(img,nil, nil, nil);
 
+}
+
+// 载取view指定范围的Image并存到相册
++ (instancetype) captureViewAndSaveImage:(UIView *)view withFrame:(CGRect)rect
+{
+    UIImage *newImage = [self captureView:view withFrame:rect];
+    UIImageWriteToSavedPhotosAlbum(newImage,nil, nil, nil);
+    
+    
+    return newImage;
+    
 }
 
 

@@ -21,4 +21,8 @@
 
 // 创建指定大小，指定颜色的image 并写入相册
 + (void )createAndSaveImageColor:(UIColor *)color WithSize:(CGSize) size;
+
+// 载取view指定范围的Image并存到相册
++ (instancetype) captureViewAndSaveImage:(UIView *)view withFrame:(CGRect)rect;
+
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HospitalModel.h"
 @interface HospitalSearchCell : UITableViewCell
 
+@property (nonatomic, strong) HospitalModel *model;
 @end
