@@ -15,5 +15,9 @@
 @property (nonatomic , strong) NSString * cityId;//市id  为省model时，此字段无效
 @property (nonatomic , strong) NSString * name;//省/市名字
 
+/**
+ 设置参数
+ */
+- (void)setModel:(SCCityModel *)model;
 
 @end

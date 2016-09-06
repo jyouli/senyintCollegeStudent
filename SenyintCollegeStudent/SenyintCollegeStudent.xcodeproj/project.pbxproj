@@ -65,6 +65,7 @@
 		BD5C2A911D51D6A20066762F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5C2A901D51D6A20066762F /* UIKit.framework */; };
 		BD5C2A9A1D51DBD00066762F /* GlobalSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2A991D51DBD00066762F /* GlobalSingle.m */; };
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
+		BD6236C11D7EC66C00E8418C /* SelectProvincesCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */; };
 		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
 		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
 		BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497661D757F8A00FC89FE /* NetworkManager.m */; };
@@ -247,6 +248,8 @@
 		BD5C2A991D51DBD00066762F /* GlobalSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSingle.m; sourceTree = "<group>"; };
 		BD5C2AA41D52058A0066762F /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
 		BD5C2AA51D52058A0066762F /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
+		BD6236BF1D7EC66C00E8418C /* SelectProvincesCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectProvincesCitiesViewController.h; sourceTree = "<group>"; };
+		BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectProvincesCitiesViewController.m; sourceTree = "<group>"; };
 		BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 				797345061D7019E30083B5D6 /* SelectHospitalViewController.m */,
 				BDFCFD801D7EB9F300F47291 /* AddHospitalViewController.h */,
 				BDFCFD811D7EB9F300F47291 /* AddHospitalViewController.m */,
+				BD6236BF1D7EC66C00E8418C /* SelectProvincesCitiesViewController.h */,
+				BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */,
 				797345081D701A830083B5D6 /* SelectDepartmentViewController.h */,
 				797345091D701A830083B5D6 /* SelectDepartmentViewController.m */,
 				7973450B1D701AAE0083B5D6 /* SelectTitleViewController.h */,
@@ -1127,6 +1132,7 @@
 				ED33F5921D6584EB00A64DC7 /* MJRefreshBackNormalFooter.m in Sources */,
 				BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */,
 				ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */,
+				BD6236C11D7EC66C00E8418C /* SelectProvincesCitiesViewController.m in Sources */,
 				BDF6F4FE1D79292C00ACA07C /* UIImage+Rend.m in Sources */,
 				ED1E9FAB1D6BF739000BE638 /* NSString+Size.m in Sources */,
 				F7B383A11D703E9800464E35 /* NSFileManager+util.m in Sources */,

@@ -9,5 +9,12 @@
 #import "SCCityModel.h"
 
 @implementation SCCityModel
+- (void)setModel:(SCCityModel *)model
+{
+    self.severId = model.severId;
+    self.provId = model.provId;
+    self.cityId = model.cityId;
+    self.name = model.name;
+}
 
 @end
