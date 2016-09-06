@@ -54,7 +54,8 @@
     static NSString *identifier = @"UITableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row];
-    
+    cell.textLabel.font = TextFieldInputText_Font_Size;
+    cell.textLabel.textColor = BlackText_Font_Color;
     return cell;
     
 }

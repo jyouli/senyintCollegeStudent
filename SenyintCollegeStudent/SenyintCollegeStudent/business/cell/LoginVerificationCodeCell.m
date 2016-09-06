@@ -31,7 +31,7 @@
         [btn setBackgroundImage:[[UIImage imageNamed:@"yzm_bg_gray"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateDisabled];
 
         [btn addTarget:self action:@selector(getVerificationCodeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:BodyContentText_Font_Size] forState:UIControlStateNormal];
+        [btn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateNormal];
         self.tf.rightView = view;
         self.tf.rightViewMode = UITextFieldViewModeAlways;
         
@@ -47,7 +47,7 @@
     [super setModel:model];
     NSInteger  countdown = [VerificationCodeCountdownSingle getCurrentRemainingsecondSWithKey:model.verificationCodeCountdownKey AndCountdown_Second:0];
     if (countdown == Countdown_Second) {
-        [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:BodyContentText_Font_Size] forState:UIControlStateNormal];
+        [countdownBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateNormal];
         countdownBtn.enabled = YES;
         
     } else {
@@ -62,10 +62,10 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (countdown == 0) {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:BodyContentText_Font_Size] forState:UIControlStateNormal];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateNormal];
                     safeBtn.enabled = YES;
                 } else {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:BodyContentText_Font_Size] forState:UIControlStateDisabled];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateDisabled];
                     
                 }
                 
@@ -82,10 +82,10 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (countdown == 0) {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:BodyContentText_Font_Size] forState:UIControlStateNormal];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateNormal];
                     safeBtn.enabled = YES;
                 } else {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:BodyContentText_Font_Size] forState:UIControlStateDisabled];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateDisabled];
                     
                 }
                 
@@ -101,10 +101,10 @@
         [VerificationCodeCountdownSingle sharedCodeCountdownSingle].verificationCodeLoginUpdateUI = ^(NSInteger countdown){
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (countdown == 0) {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:BodyContentText_Font_Size] forState:UIControlStateNormal];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:@"获取验证码" Color:BodyContentImportantText_Font_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateNormal];
                     safeBtn.enabled = YES;
                 } else {
-                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:BodyContentText_Font_Size] forState:UIControlStateDisabled];
+                    [safeBtn setAttributedTitle:[NSString getAttributedStringFromString:[NSString stringWithFormat:@"%lds后重发",countdown] Color:Disabledgray_Color Fount:LoginTextFieldInputText_Font_Size] forState:UIControlStateDisabled];
                     
                 }
                 

@@ -51,6 +51,12 @@
     static NSString *identifier = @"UITableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     cell.textLabel.text = [[self.dataArray objectAtIndex:indexPath.row] name];
+    cell.textLabel.font = TextFieldInputText_Font_Size;
+    cell.textLabel.textColor = BlackText_Font_Color;
+    if (self.parentId == 0) {//当前是一级科室
+
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
     

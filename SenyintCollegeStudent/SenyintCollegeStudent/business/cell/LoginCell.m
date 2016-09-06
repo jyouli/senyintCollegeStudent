@@ -35,8 +35,8 @@
         tf.layer.borderWidth = 1;
         tf.layer.borderColor = [[UIColor colorWithRed:236/255. green:236/255. blue:236/255. alpha:1] CGColor];
         tf.returnKeyType = UIReturnKeyDone;
-        tf.textColor = BodyContentText_Font_Color;
-        tf.font = BodyContentText_Font_Size;
+        tf.textColor = BlackText_Font_Color;
+        tf.font = LoginTextFieldInputText_Font_Size;
         tf.delegate = self;
         [self.contentView addSubview:tf];
         self.tf = tf;

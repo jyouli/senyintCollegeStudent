@@ -63,12 +63,12 @@
     [self setView:self.infoLabel FrameToSuperviewWithLeft:BodyContent_FlexibleLeft Width:40 Top:5 Bottom:5];
     
     [self setView:self.infoTextField FrameToSuperviewWithLeft:65 Right:10 Top:0 Bottom:0];
-    self.infoLabel.textColor = BodyContentText_Font_Color;
-    self.infoLabel.font = BodyContentText_Font_Size;
+    self.infoLabel.textColor = BlackText_Font_Color;
+    self.infoLabel.font = InfoNameText_Font_Size;
     self.infoLabel.textAlignment = NSTextAlignmentLeft;
     
-    self.infoTextField.textColor = BodyContentText_Font_Color;
-    self.infoTextField.font = BodyContentText_Font_Size;
+    self.infoTextField.textColor = BlackText_Font_Color;
+    self.infoTextField.font = TextFieldInputText_Font_Size;
     self.infoTextField.textAlignment = NSTextAlignmentLeft;
     
 }

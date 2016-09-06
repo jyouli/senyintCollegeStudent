@@ -103,14 +103,14 @@
         LoginCellModel *mode1 = [[LoginCellModel alloc] init];
         mode1.textFieldPlaceholder = @"请输入手机号";
         mode1.textFieldinfo = self.userPhone;
-        mode1.textFieldKeyboardType = UIKeyboardTypePhonePad;
+        mode1.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode1.cellClassName = NSStringFromClass([LoginCell class]);
         [_dataArray addObject:mode1];
         
         
         LoginCellModel *mode2 = [[LoginCellModel alloc] init];
         mode2.textFieldPlaceholder = @"请输入验证码";
-        mode2.textFieldKeyboardType = UIKeyboardTypePhonePad;
+        mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
         mode2.verificationCodeCountdownKey = Countdown_ForgetPassWord;
         mode2.cellClassName = NSStringFromClass([LoginVerificationCodeCell class]);
         [_dataArray addObject:mode2];

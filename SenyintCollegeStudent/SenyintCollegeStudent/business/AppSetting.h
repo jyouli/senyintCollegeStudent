@@ -109,8 +109,8 @@
 #define  BodyContentTitle_Font_Color  COLOR_RGB_HEX(0x000000)
 //提示性文字字体颜色
 #define  BodyContentPlaceholderText_Font_Color  COLOR_RGB_HEX(0xa9a9a9)
-//正文常规文字字体颜色
-#define  BodyContentText_Font_Color  [UIColor darkTextColor]
+//纯黑文字颜色
+#define  BlackText_Font_Color  COLOR_RGB_HEX(0x000000)
 //正文辅助性文字字体颜色
 #define  BodyContentAuxiliaryText_Font_Color  COLOR_RGB_HEX(0x787878)
 //正文重要性文字字体颜色
@@ -129,10 +129,16 @@
 #define  NavBarSonControl_Font_Size [UIFont boldSystemFontOfSize:14]
 //标题性文字字体大小
 #define  BodyContentTitle_Font_Size [UIFont boldSystemFontOfSize:15]
-//正文常规文字字体大小
-#define  BodyContentText_Font_Size  [UIFont systemFontOfSize:14]
+////正文常规文字字体大小
+//#define  BodyContentText_Font_Size  [UIFont systemFontOfSize:14]
 //正文辅助文字字体大小
 #define  BodyContentAuxiliaryText_Font_Size  [UIFont systemFontOfSize:12]
+//输入框文字字体大小
+#define  TextFieldInputText_Font_Size  [UIFont systemFontOfSize:15]
+//登录相关输入框文字字体大小
+#define  LoginTextFieldInputText_Font_Size  [UIFont systemFontOfSize:12]
+//Infocell分类名称文字字体大小
+#define  InfoNameText_Font_Size  [UIFont boldSystemFontOfSize:15]
 
 
 #endif
