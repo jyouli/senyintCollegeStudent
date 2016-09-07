@@ -11,7 +11,7 @@
 
 #import "AppSetting.h"
 /**
- 继承自UITableViewController
+ 继承自UITableViewController 系统处理了键盘遮挡问题 但是没有键盘消失处理
  处理edgesForExtendedLayout
  设置屏幕方向（竖屏 不允许旋转）
  */

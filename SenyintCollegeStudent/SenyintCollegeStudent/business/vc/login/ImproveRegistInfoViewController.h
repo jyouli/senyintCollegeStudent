@@ -8,6 +8,6 @@
 
 #import "SCTextTableViewController.h"
 #import "SCBaseTableViewController.h"
-@interface ImproveRegistInfoViewController : SCBaseTableViewController
+@interface ImproveRegistInfoViewController : SCTextTableViewController
 
 @end

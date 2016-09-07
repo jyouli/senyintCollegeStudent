@@ -22,8 +22,9 @@
     CGRect _keyboardRect;//保存键盘的Rect
     __weak UIView *_firstResponder;//保存键盘的Rect
     
-    
 }
+
+@property (nonatomic, weak) UIView *bgview;
 @end
 
 @implementation YLBaseTableView
@@ -50,6 +51,12 @@
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    UIView *v = [[UIView alloc] init];
+    self.backgroundView = v;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgviewTap)];
+    [v addGestureRecognizer:tap];
+    self.bgview = v;
     
 }
 
@@ -205,8 +212,11 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+
+
+- (void)bgviewTap
 {
+    NSLog(@"bgviewTap");
     if (_firstResponder) {
         [_firstResponder resignFirstResponder];
         _firstResponder = nil;
@@ -217,4 +227,16 @@
         
     }
 }
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    if (_firstResponder) {
+//        [_firstResponder resignFirstResponder];
+//        _firstResponder = nil;
+//    } else {
+//        if (_keyboardVisible) {
+//            [self endEditing:YES];
+//        }
+//        
+//    }
+//}
 @end

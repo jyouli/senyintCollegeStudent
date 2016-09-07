@@ -8,6 +8,6 @@
 
 #import "SCTextTableViewController.h"
 
-@interface AddHospitalViewController : SCBaseTableViewController
+@interface AddHospitalViewController : SCTextTableViewController
 
 @end
