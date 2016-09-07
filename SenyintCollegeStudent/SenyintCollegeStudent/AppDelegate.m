@@ -38,9 +38,9 @@
 //    [self setRootViewcontroller:vcClass];
     
 
-    EnterViewController *tc = [[EnterViewController alloc] init];
-    BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:tc];
-    self.window.rootViewController = nc;
+    EnterViewController *entervc = [[EnterViewController alloc] init];
+//    BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:entervc];
+    self.window.rootViewController = entervc;
 
     //全局ui设置
     [self customizeAppearance];

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YLPresentPushViewController.h"
 #import "BaseNavigationController.h"
 
 #import "GlobalSingle.h"
@@ -18,7 +18,7 @@
  处理edgesForExtendedLayout
  设置屏幕方向（竖屏 不允许旋转）
  */
-@interface SCBaseViewController : UIViewController
+@interface SCBaseViewController :YLPresentPushViewController
 @property (nonatomic, copy) NSString *backImageStr;
 
 @end

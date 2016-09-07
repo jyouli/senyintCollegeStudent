@@ -66,6 +66,7 @@
 		BD5C2A9A1D51DBD00066762F /* GlobalSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2A991D51DBD00066762F /* GlobalSingle.m */; };
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
 		BD6236C11D7EC66C00E8418C /* SelectProvincesCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */; };
+		BD6236D31D7FC08900E8418C /* YLPresentPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */; };
 		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
 		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
 		BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497661D757F8A00FC89FE /* NetworkManager.m */; };
@@ -250,6 +251,8 @@
 		BD5C2AA51D52058A0066762F /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
 		BD6236BF1D7EC66C00E8418C /* SelectProvincesCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectProvincesCitiesViewController.h; sourceTree = "<group>"; };
 		BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectProvincesCitiesViewController.m; sourceTree = "<group>"; };
+		BD6236D11D7FC08900E8418C /* YLPresentPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPresentPushViewController.h; sourceTree = "<group>"; };
+		BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPresentPushViewController.m; sourceTree = "<group>"; };
 		BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
@@ -949,6 +952,8 @@
 				EDD290A41D6D6EDB0081FBAF /* YLBaseTableView.m */,
 				EDD290A51D6D6EDB0081FBAF /* YLBaseView.h */,
 				EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */,
+				BD6236D11D7FC08900E8418C /* YLPresentPushViewController.h */,
+				BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */,
 			);
 			path = baseview;
 			sourceTree = "<group>";
@@ -1077,6 +1082,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCAC5FD1D53158100C66990 /* TeacherModel.m in Sources */,
+				BD6236D31D7FC08900E8418C /* YLPresentPushViewController.m in Sources */,
 				BD5C2A2D1D51ADC60066762F /* LoginCell.m in Sources */,
 				79FDED381D6EE9A200F32B14 /* InfoTextFieldCellModel.m in Sources */,
 				BDCAC5ED1D53142E00C66990 /* CourseCell.m in Sources */,

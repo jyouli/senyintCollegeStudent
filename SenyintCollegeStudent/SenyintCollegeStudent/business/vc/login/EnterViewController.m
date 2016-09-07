@@ -80,7 +80,7 @@
 {
     PasswordLoginViewController *vc = [[PasswordLoginViewController alloc] init];
     vc.backImageStr = @"nav_back_gray";
-    [self.navigationController pushViewController:vc animated:YES];
+    [self pushPresentViewController:vc isWithNavigationController:YES Animated:YES completion:nil];
 
 }
 
@@ -88,13 +88,15 @@
 {
     RegisterViewController *vc = [[RegisterViewController alloc] init];
     vc.backImageStr = @"nav_back_gray";
-    [self.navigationController pushViewController:vc animated:YES];
+    [self pushPresentViewController:vc isWithNavigationController:YES Animated:YES completion:nil];
 
 }
 
 - (void)experienceBtnClick
 {
-    [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
+    [self pushPresentViewController:[[SCVisitViewController alloc] init] isWithNavigationController:YES Animated:YES completion:nil];
+
+//    [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
 
 }
 

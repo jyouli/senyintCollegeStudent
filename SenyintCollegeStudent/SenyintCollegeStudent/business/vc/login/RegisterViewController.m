@@ -23,13 +23,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //从完善资料返回的时候 需重新设置navigationBar颜色
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-
-    
     [self.tableView reloadData];
 
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
     [super viewWillAppear:animated];
     
@@ -54,12 +53,8 @@
     [super viewDidLoad];
     self.title = @"注册";
    
-    if (self.navigationController.navigationBar.hidden) {
-        self.navigationController.navigationBar.hidden = NO;
-        [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-        [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-
-    }
+    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
     [self.tableView registerClass:[LoginCell class] forCellReuseIdentifier:NSStringFromClass([LoginCell class])];
     [self.tableView registerClass:[LoginVerificationCodeCell class] forCellReuseIdentifier:NSStringFromClass([LoginVerificationCodeCell class])];

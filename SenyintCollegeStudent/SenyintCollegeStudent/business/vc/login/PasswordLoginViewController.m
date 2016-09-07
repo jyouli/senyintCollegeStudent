@@ -42,25 +42,12 @@
     
 }
 
-- (void)navback
-{
-    if (self.navigationController.viewControllers.count == 2) {
-        self.navigationController.navigationBar.hidden = YES;
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-    
-        [super navback];
-    }
-
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
     
-    self.navigationController.navigationBar.hidden = NO;
-//    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
    
     UIButton *verloginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 70, 30)];
     [verloginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"验证码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBar_bg_Color, NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];

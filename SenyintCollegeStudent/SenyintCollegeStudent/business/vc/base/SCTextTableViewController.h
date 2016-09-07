@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "SCBaseTableViewController.h"
+#import "SCBaseViewController.h"
 
 /**
  继承自SCBaseTableViewController
@@ -14,6 +14,9 @@
  处理了键盘遮挡问题
  点击空白处键盘会消失
  */
-@interface SCTextTableViewController : SCBaseTableViewController
+@interface SCTextTableViewController : SCBaseViewController
 
+@property (nonatomic, assign)UITableViewStyle style;
+
+@property (nonatomic, weak, readonly)UITableView *tableView;
 @end

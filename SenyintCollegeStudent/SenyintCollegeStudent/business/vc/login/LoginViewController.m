@@ -22,7 +22,7 @@
 
 + (void)setWindowRootViewController
 {
-    LoginViewController *loginvc = [[LoginViewController alloc] initWithStyle:UITableViewStylePlain];
+    LoginViewController *loginvc = [[LoginViewController alloc] init];
     
 //    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:loginvc];
     [UIApplication sharedApplication].keyWindow.rootViewController = loginvc;

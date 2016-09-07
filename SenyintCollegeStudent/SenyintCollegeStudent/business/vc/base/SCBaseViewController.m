@@ -21,11 +21,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ((floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_7_0) ) {
-        
-        //设置4周的都不拉伸
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+//    if ((floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_7_0) ) {
+//        
+//        //设置4周的都不拉伸
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    }
     
     if (!self.backImageStr) {
         self.backImageStr = @"nav_back";
@@ -33,7 +33,7 @@
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [btn setImage:[UIImage imageNamed:self.backImageStr] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(navback) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(backBarButtenClick) forControlEvents:UIControlEventTouchUpInside];
     [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
     btn.imageView.contentMode = UIViewContentModeLeft;
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -41,12 +41,6 @@
     self.navigationItem.leftBarButtonItem = back;
 
 }
-
-- (void)navback
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
