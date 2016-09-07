@@ -123,7 +123,7 @@
         if ([vc respondsToSelector:@selector(setCellModel:)]) {
             [vc performSelector:@selector(setCellModel:) withObject:model];
         }
-        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+        BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nc animated:YES completion:nil];
     }
     

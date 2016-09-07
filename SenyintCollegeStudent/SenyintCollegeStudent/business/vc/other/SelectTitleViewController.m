@@ -18,11 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     self.title = @"选择职称";
     
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn setImage:[UIImage imageNamed:@"nav_close"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(dismissback) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    self.navigationItem.leftBarButtonItem = back;
+
+    
 }
+
+- (void)dismissback
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (NSMutableArray *)dataArray
 {

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "YLStringTool.h"
+
 @interface GlobalSingle : NSObject
 +(instancetype)sharedGlobalSingle;
 

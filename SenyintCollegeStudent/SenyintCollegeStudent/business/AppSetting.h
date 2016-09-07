@@ -9,21 +9,6 @@
 #ifndef AppSetting_h
 #define AppSetting_h
 
-#import "CommonMacroDefinition.h"
-#import "GlobalSingle.h"
-#import "SCProgressHUD.h"
-#import "NetworkManager.h"
-
-
-#import "AFHTTPSessionManager.h"
-
-
-#import "YLStringTool.h"
-
-
-
-
-
 #define USERINFO_UID                     @"uid"             // x
 #define USERINFO_TOKEN                   @"token"           // x
 #define USERINFO_ROLE                    @"role"            //num x

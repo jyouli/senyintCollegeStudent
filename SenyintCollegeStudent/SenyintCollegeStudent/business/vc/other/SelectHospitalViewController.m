@@ -30,6 +30,13 @@
     [super viewDidLoad];
     
     self.title = @"选择医院";
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn setImage:[UIImage imageNamed:@"nav_close"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(dismissback) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    self.navigationItem.leftBarButtonItem = back;
+
     UIButton *addHosBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 60, 30)];
     [addHosBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"添加" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBarSonControl_Font_Color, NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [addHosBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"添加" attributes:[NSDictionary dictionaryWithObjectsAndKeys:COLOR_RGB_HEX(0xa9a9a9), NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateDisabled];
@@ -79,6 +86,12 @@
     self.dataArray = [[NSMutableArray alloc] init];
 }
 
+#pragma mark navBarButtonClick
+- (void)dismissback
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)addHosBtnClick
 {
@@ -92,7 +105,6 @@
     [searchBar resignFirstResponder];
     _addHosBtn.enabled = YES;
     
-    NSLog(@"searchBarSearchButtonClicked");
     [_dataArray removeAllObjects];
     for (int i = 0; i < arc4random() % 50; i ++) {
         HospitalModel *model = [[HospitalModel alloc] init];
@@ -154,14 +166,12 @@
 {
     static NSString *identifier = @"HosPitalSearchPromptCell";
     HosPitalSearchPromptCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    NSLog(@"%@",cell);
     return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    NSLog(@"%d",_addHosBtn.enabled);
     if (_addHosBtn.enabled) {
         return 55;
     }

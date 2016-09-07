@@ -216,7 +216,7 @@
 
 - (void)bgviewTap
 {
-    NSLog(@"bgviewTap");
+//    NSLog(@"bgviewTap");
     if (_firstResponder) {
         [_firstResponder resignFirstResponder];
         _firstResponder = nil;

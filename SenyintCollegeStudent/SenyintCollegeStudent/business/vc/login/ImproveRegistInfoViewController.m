@@ -153,7 +153,7 @@
 
         mode3.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         mode3.cellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        mode3.jumpType = 2;
+        mode3.jumpType = 3;
         mode3.jumpVCClassName = NSStringFromClass([SelectHospitalViewController class]);
         [_dataArray addObject:mode3];
         
@@ -163,7 +163,7 @@
         mode4.textFieldEnabled = NO;
         mode4.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         mode4.cellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        mode4.jumpType = 2;
+        mode4.jumpType = 3;
         mode4.jumpVCClassName = NSStringFromClass([SelectDepartmentViewController class]);
         [_dataArray addObject:mode4];
         
@@ -174,7 +174,7 @@
         mode5.textFieldEnabled = NO;
         mode5.cellClassName = NSStringFromClass([RegistInfoInputCell class]);
         mode5.cellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        mode5.jumpType = 2;
+        mode5.jumpType = 3;
         mode5.jumpVCClassName = NSStringFromClass([SelectTitleViewController class]);
         [_dataArray addObject:mode5];
         
@@ -219,7 +219,7 @@
     [tableView endEditing:YES];
     
     InfoTextFieldCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if (model.jumpType == 2) {
+    if (model.jumpType == 3) {
         UIViewController *vc = [[NSClassFromString(model.jumpVCClassName) alloc] init];
         if ([vc respondsToSelector:@selector(setCellModel:)]) {
             [vc performSelector:@selector(setCellModel:) withObject:model];
@@ -239,9 +239,8 @@
             }
         }
 
-        
-        
-        [self.navigationController pushViewController:vc animated:YES];
+        BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
     }
 
     

@@ -7,7 +7,6 @@
 //
 
 #import "GlobalSingle.h"
-#import "AppSetting.h"
 #import"sys/utsname.h"
 
 

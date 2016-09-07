@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "BaseNavigationController.h"
 
-#import "AppSetting.h"
+#import "GlobalSingle.h"
+#import "SCProgressHUD.h"
+#import "NetworkManager.h"
+
 /**
  继承自UIViewController
  处理edgesForExtendedLayout
