@@ -12,55 +12,28 @@
 #import "ImproveRegistInfoViewController.h"
 @interface RegisterViewController (){
     __weak UIButton *_registBtn;
+    __weak  NSMutableArray *_dataArray; //用来做dataArray懒加载
+
 }
 
-@property (nonatomic, strong)NSMutableArray *dataArray;
-@property (nonatomic, weak)  UITextField *userTF;
-@property (nonatomic, weak)  UITextField *vercodeTF;
 @end
 
 @implementation RegisterViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+
     //从完善资料返回的时候 需重新设置navigationBar颜色
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.tableView reloadData];
-
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
-    [super viewWillAppear:animated];
-    
 }
 
 
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
-    [super viewWillDisappear:animated];
-    
-}
-
-- (void)loadView
-{
-    [super loadView];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"注册";
    
-    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    
-    [self.tableView registerClass:[LoginCell class] forCellReuseIdentifier:NSStringFromClass([LoginCell class])];
-    [self.tableView registerClass:[LoginVerificationCodeCell class] forCellReuseIdentifier:NSStringFromClass([LoginVerificationCodeCell class])];
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    
-    [self creatHeaderView];
     [self creatFooterView];
 
         
@@ -90,14 +63,7 @@
 {
     if (!_dataArray) {
         
-        _dataArray = [[NSMutableArray alloc] initWithCapacity:3];
-        LoginCellModel *mode1 = [[LoginCellModel alloc] init];
-        mode1.textFieldPlaceholder = @"请输入手机号";
-        mode1.textFieldinfo = self.userPhone;
-        mode1.textFieldKeyboardType = UIKeyboardTypeNumberPad;
-        mode1.cellClassName = NSStringFromClass([LoginCell class]);
-        [_dataArray addObject:mode1];
-        
+        _dataArray = [super dataArray];
         
         LoginCellModel *mode2 = [[LoginCellModel alloc] init];
         mode2.textFieldPlaceholder = @"请输入验证码";
@@ -114,15 +80,7 @@
     
 }
 
-//表头
-- (void)creatHeaderView
-{
-    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, (Screen_Height - 64)/2 )];
-    header.image = [UIImage imageNamed:@"logo_senyint"];
-    header.contentMode = UIViewContentModeCenter;
-    self.tableView.tableHeaderView = header;
-    
-}
+
 
 //表尾
 - (void)creatFooterView
@@ -158,42 +116,4 @@
     }
     
 }
-
-#pragma mark ==UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    NSString * cellIdentifier = model.cellClassName;
-    LoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.model = model;
-    
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        self.userTF = cell.tf;
-    } else if ([model.cellClassName isEqualToString:NSStringFromClass([LoginVerificationCodeCell class])]) {
-        
-        self.vercodeTF = cell.tf;
-    }
-    return cell;
-    
-}
-
-
-#pragma mark ==UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        return 45;
-    }
-    
-    return 65;
-}
-
 @end

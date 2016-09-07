@@ -95,9 +95,7 @@
     } else {  //当前是二级科室
     
         self.cellModel.textFieldinfo = self.deptModel.name;
-
-        
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers indexOfObject:self] - 2] animated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     }
 

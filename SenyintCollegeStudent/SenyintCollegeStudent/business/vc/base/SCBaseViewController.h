@@ -19,6 +19,10 @@
  设置屏幕方向（竖屏 不允许旋转）
  */
 @interface SCBaseViewController :YLPresentPushViewController
-@property (nonatomic, copy) NSString *backImageStr;
+
+/**
+ *导航栏返回BarItem图片名称
+ */
+@property (nonatomic, copy) NSString *backImageName;
 
 @end

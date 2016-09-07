@@ -13,7 +13,7 @@
 #import "RegisterViewController.h"
 #import "SCVisitViewController.h"
 
-@interface EnterViewController ()
+@interface EnterViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -49,6 +49,7 @@
     CGFloat top = Screen_Height - height * 3 - bottomspace - space * 2;
 
     UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top, width, height)];
+    loginBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     UIImage *image = [UIImage imageNamed:@"login"];
     [loginBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
     [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
@@ -71,23 +72,19 @@
     experienceBtn.alpha = .8;
     [self.view addSubview:experienceBtn];
     
-
-
-    
 }
+
 
 - (void)loginBtnClick
 {
-    PasswordLoginViewController *vc = [[PasswordLoginViewController alloc] init];
-    vc.backImageStr = @"nav_back_gray";
-    [self pushPresentViewController:vc isWithNavigationController:YES Animated:YES completion:nil];
 
+    PasswordLoginViewController *vc = [[PasswordLoginViewController alloc] init];
+    [self pushPresentViewController:vc isWithNavigationController:YES Animated:YES completion:nil];
 }
 
 - (void)registBtnClick
 {
     RegisterViewController *vc = [[RegisterViewController alloc] init];
-    vc.backImageStr = @"nav_back_gray";
     [self pushPresentViewController:vc isWithNavigationController:YES Animated:YES completion:nil];
 
 }
@@ -99,6 +96,5 @@
 //    [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
 
 }
-
 
 @end

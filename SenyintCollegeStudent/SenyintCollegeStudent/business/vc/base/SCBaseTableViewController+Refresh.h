@@ -1,18 +1,19 @@
 //
-//  SCRefreshTableViewController.h
+//  SCBaseTableViewController+Refresh.h
 //  SenyintCollegeStudent
 //
-//  Created by fafangshuai on 16/8/18.
+//  Created by    任亚丽 on 16/9/7.
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
 #import "SCBaseTableViewController.h"
+#import "MJRefresh.h"
 
 /**
- 继承自SCBaseTableViewController
+ SCBaseTableViewController扩展
  方便给tableview添加下拉刷新 上拉加载功能
  */
-@interface SCRefreshTableViewController : SCBaseTableViewController
+@interface SCBaseTableViewController (Refresh)
 
 /**
  * 给self.tableview添加下拉刷新

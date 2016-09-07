@@ -6,10 +6,8 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "SCTextTableViewController.h"
+#import "BaseLoginViewController.h"
 
-@interface PasswordLoginViewController : SCTextTableViewController
-
-@property (nonatomic, strong) NSString *userPhone;
+@interface PasswordLoginViewController : BaseLoginViewController
 
 @end

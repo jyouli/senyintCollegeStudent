@@ -6,9 +6,7 @@
 //  Copyright © 2016年 YL. All rights reserved.
 //
 
-#import "SCBaseTableViewController.h"
+#import "BaseLoginViewController.h"
 
-@interface VerificationCodeLoginViewController : SCBaseTableViewController
-
-@property (nonatomic, strong) NSString *userPhone;
+@interface VerificationCodeLoginViewController : BaseLoginViewController
 @end

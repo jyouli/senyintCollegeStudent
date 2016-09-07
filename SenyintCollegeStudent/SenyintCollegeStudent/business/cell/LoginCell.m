@@ -76,6 +76,11 @@
     
     return YES;
 }
+//粘贴 剪切触发 程序写（tf.text=@""）不触发 清除按钮不触发
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return YES;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {

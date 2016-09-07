@@ -82,6 +82,6 @@
 {
     [self.titleModel  setModel:self.dataArray[indexPath.row]];
     self.cellModel.textFieldinfo = self.titleModel.name;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissback];
 }
 @end

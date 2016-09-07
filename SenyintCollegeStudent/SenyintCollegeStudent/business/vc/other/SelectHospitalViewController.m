@@ -157,9 +157,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.cellModel.textFieldinfo = self.dataArray[indexPath.row];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    self.cellModel.textFieldinfo = [self.dataArray[indexPath.row] hosName];
+    [self dismissback];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

@@ -67,6 +67,9 @@
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
 		BD6236C11D7EC66C00E8418C /* SelectProvincesCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */; };
 		BD6236D31D7FC08900E8418C /* YLPresentPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */; };
+		BD6236D61D7FE6D300E8418C /* SCBaseViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */; };
+		BD6236D91D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */; };
+		BD6236DC1D7FF0C400E8418C /* BaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236DB1D7FF0C400E8418C /* BaseLoginViewController.m */; };
 		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
 		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
 		BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497661D757F8A00FC89FE /* NetworkManager.m */; };
@@ -253,6 +256,12 @@
 		BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectProvincesCitiesViewController.m; sourceTree = "<group>"; };
 		BD6236D11D7FC08900E8418C /* YLPresentPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPresentPushViewController.h; sourceTree = "<group>"; };
 		BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPresentPushViewController.m; sourceTree = "<group>"; };
+		BD6236D41D7FE6D300E8418C /* SCBaseViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCBaseViewController+Refresh.h"; sourceTree = "<group>"; };
+		BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCBaseViewController+Refresh.m"; sourceTree = "<group>"; };
+		BD6236D71D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCBaseTableViewController+Refresh.h"; sourceTree = "<group>"; };
+		BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCBaseTableViewController+Refresh.m"; sourceTree = "<group>"; };
+		BD6236DA1D7FF0C400E8418C /* BaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoginViewController.h; sourceTree = "<group>"; };
+		BD6236DB1D7FF0C400E8418C /* BaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoginViewController.m; sourceTree = "<group>"; };
 		BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
@@ -660,6 +669,8 @@
 			children = (
 				79FDED2A1D6ECEFC00F32B14 /* EnterViewController.h */,
 				79FDED2B1D6ECEFC00F32B14 /* EnterViewController.m */,
+				BD6236DA1D7FF0C400E8418C /* BaseLoginViewController.h */,
+				BD6236DB1D7FF0C400E8418C /* BaseLoginViewController.m */,
 				797344F91D6FD5020083B5D6 /* PasswordLoginViewController.h */,
 				797344FA1D6FD5020083B5D6 /* PasswordLoginViewController.m */,
 				BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */,
@@ -929,8 +940,12 @@
 			children = (
 				EDD290951D6D6B580081FBAF /* SCBaseViewController.h */,
 				EDD290961D6D6B580081FBAF /* SCBaseViewController.m */,
+				BD6236D41D7FE6D300E8418C /* SCBaseViewController+Refresh.h */,
+				BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */,
 				EDD290931D6D6B580081FBAF /* SCBaseTableViewController.h */,
 				EDD290941D6D6B580081FBAF /* SCBaseTableViewController.m */,
+				BD6236D71D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.h */,
+				BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */,
 				EDD290971D6D6B580081FBAF /* SCRefreshTableViewController.h */,
 				EDD290981D6D6B580081FBAF /* SCRefreshTableViewController.m */,
 				EDD290991D6D6B580081FBAF /* SCRefreshViewController.h */,
@@ -1125,6 +1140,7 @@
 				EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */,
 				BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */,
 				EDD2909F1D6D6B580081FBAF /* SCRefreshTableViewController.m in Sources */,
+				BD6236D91D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m in Sources */,
 				F7B383861D703E4B00464E35 /* SCTitleModel.m in Sources */,
 				ED1E9FC01D6C2F45000BE638 /* URLImageView.m in Sources */,
 				ED33F5961D6584EB00A64DC7 /* MJRefreshStateHeader.m in Sources */,
@@ -1167,6 +1183,7 @@
 				F7B383981D703E8500464E35 /* FMDatabase.m in Sources */,
 				ED33F5951D6584EB00A64DC7 /* MJRefreshNormalHeader.m in Sources */,
 				BD57F1B51D4F3D4A00BAB291 /* AFImageDownloader.m in Sources */,
+				BD6236DC1D7FF0C400E8418C /* BaseLoginViewController.m in Sources */,
 				BDB497AA1D78420700FC89FE /* Networktools.m in Sources */,
 				BDCAC5F41D53148500C66990 /* ClassmateCell.m in Sources */,
 				79FDED201D6EC69200F32B14 /* RegistInfoInputCell.m in Sources */,
@@ -1184,6 +1201,7 @@
 				F786C3BD1D7421560015C16E /* SCCourseDetailViewController.m in Sources */,
 				BD57F1B71D4F3D4A00BAB291 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */,
+				BD6236D61D7FE6D300E8418C /* SCBaseViewController+Refresh.m in Sources */,
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ED33F58B1D6584EB00A64DC7 /* MJRefreshComponent.m in Sources */,
 				ED33F59C1D6584EB00A64DC7 /* UIView+MJExtension.m in Sources */,

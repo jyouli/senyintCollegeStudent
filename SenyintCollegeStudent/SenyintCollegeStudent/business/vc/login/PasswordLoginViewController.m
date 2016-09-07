@@ -7,73 +7,46 @@
 //
 
 #import "PasswordLoginViewController.h"
-#import "LoginCell.h"
 #import "LoginPasswordCell.h"
 #import "YLRegularCheck.h"
 #import "VerificationCodeLoginViewController.h"
 #import "ForgetPasswordViewController.h"
 #import "RegisterViewController.h"
 
+#import "SCBaseViewController+Refresh.h"
 @interface PasswordLoginViewController ()
 {
     __weak UIButton *_loginBtn;
+    
+    __weak  NSMutableArray *_dataArray; //用来做dataArray懒加载
 }
 
-@property (nonatomic, strong)NSMutableArray *dataArray;
-@property (nonatomic, weak)  UITextField *userTF;
-@property (nonatomic, weak)  UITextField *pwTF;
 @end
 
 
 @implementation PasswordLoginViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:nil];
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
-    [super viewWillDisappear:animated];
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
     
-    [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-   
     UIButton *verloginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 70, 30)];
     [verloginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"验证码登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBar_bg_Color, NSForegroundColorAttributeName,NavBarSonControl_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [verloginBtn addTarget:self action:@selector(loginUsedVerificationCode)forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:verloginBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
 
-    
-    [self.tableView registerClass:[LoginCell class] forCellReuseIdentifier:NSStringFromClass([LoginCell class])];
-    [self.tableView registerClass:[LoginPasswordCell class] forCellReuseIdentifier:NSStringFromClass([LoginPasswordCell class])];
-
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    
-    [self creatHeaderView];
     [self creatFooterView];
     
     
+    
 }
-
 
 
 - (void)loginUsedVerificationCode
 {
     VerificationCodeLoginViewController *verLoginvc = [[VerificationCodeLoginViewController alloc] init];
     verLoginvc.userPhone = self.userTF.text;
-    verLoginvc.backImageStr = @"nav_back_gray";
 
     [self.navigationController pushViewController:verLoginvc animated:YES];
     
@@ -84,7 +57,6 @@
     
     ForgetPasswordViewController *verLoginvc = [[ForgetPasswordViewController alloc] init];
     verLoginvc.userPhone = self.userTF.text;
-    verLoginvc.backImageStr = @"nav_back_gray";
     [self.navigationController pushViewController:verLoginvc animated:YES];
     
     
@@ -95,7 +67,6 @@
 {
     RegisterViewController *registvc = [[RegisterViewController alloc] init];
     registvc.userPhone = self.userTF.text;
-    registvc.backImageStr = @"nav_back_gray";
     [self.navigationController pushViewController:registvc animated:YES];
 }
 
@@ -171,39 +142,7 @@
 }
 
 
-- (NSMutableArray *)dataArray
-{
-    if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc] initWithCapacity:5];
-        LoginCellModel *mode1 = [[LoginCellModel alloc] init];
-        mode1.textFieldPlaceholder = @"请输入手机号";
-        mode1.textFieldinfo = self.userPhone;
-        mode1.textFieldKeyboardType = UIKeyboardTypeNumberPad;
-        mode1.cellClassName = NSStringFromClass([LoginCell class]);
-        [_dataArray addObject:mode1];
-        
-        LoginCellModel *mode2 = [[LoginCellModel alloc] init];
-        mode2.textFieldKeyboardType = UIKeyboardTypeASCIICapable;
-        mode2.textFieldPlaceholder = @"请输入密码";
-        mode2.cellClassName = NSStringFromClass([LoginPasswordCell class]);
-        mode2.textFieldSecureTextEntry = YES;
-        [_dataArray addObject:mode2];
 
-        
-        
-    }
-    return _dataArray;
-    
-}
-
-//表头
-- (void)creatHeaderView
-{
-    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, (Screen_Height - 64)/2 )];
-    header.image = [UIImage imageNamed:@"logo_senyint"];
-    header.contentMode = UIViewContentModeCenter;
-    self.tableView.tableHeaderView = header;
-}
 
 //表尾
 - (void)creatFooterView
@@ -239,9 +178,31 @@
     
 }
 
-#pragma mark ==通知回调
+
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [super dataArray];
+       
+        LoginCellModel *mode2 = [[LoginCellModel alloc] init];
+        mode2.textFieldKeyboardType = UIKeyboardTypeASCIICapable;
+        mode2.textFieldPlaceholder = @"请输入密码";
+        mode2.cellClassName = NSStringFromClass([LoginPasswordCell class]);
+        mode2.textFieldSecureTextEntry = YES;
+        [_dataArray addObject:mode2];
+
+  
+    }
+
+    return _dataArray;
+    
+}
+
+#pragma mark ==通知回调 重写父类
 - (void)textFieldChange:(NSNotification *)noti
 {
+    NSLog(@"%@--textFieldChange",self);
     if ([self.userTF.text length] && [self.pwTF.text length]) {
         _loginBtn.enabled = YES;
     } else {
@@ -249,46 +210,6 @@
         _loginBtn.enabled = NO;
     }
     
-}
-#pragma mark ==UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    NSString * cellIdentifier = model.cellClassName;
-    LoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.model = model;
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        self.userTF = cell.tf;
-    } else {
-    
-        self.pwTF = cell.tf;
-    }
-    
-    return cell;
-
-}
-
-
-#pragma mark ==UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        return 45;
-    }
-
-    return 65;
 }
 
 @end

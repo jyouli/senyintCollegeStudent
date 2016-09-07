@@ -39,7 +39,7 @@
     
 
     EnterViewController *entervc = [[EnterViewController alloc] init];
-//    BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:entervc];
+////    BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:entervc];
     self.window.rootViewController = entervc;
 
     //全局ui设置
@@ -48,14 +48,9 @@
     return YES; 
 }
 
-//1. instancesRespondToSelector只能写在类名后面，respondsToSelector可以写在类名和实例名后面。
-//
-//2. [类 instancesRespondToSelector]判断的是该类的实例是否包含某方法，等效于：[该类的实例 respondsToSelector]。
-//
-//3. [类 respondsToSelector]用于判断是否包含某个类方法。
+
 - (void)setRootViewcontroller:(Class) vcClass
 {
-
     if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
         [vcClass setWindowRootViewController];
         
@@ -67,7 +62,6 @@
 #pragma mark --自定义全皮肤设置
 - (void)customizeAppearance
 {
-    
     //设置导航条背景
     //[[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];//通过颜色设置的背景色去不掉下边的线（阴影）
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"green_nav_bg"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -86,20 +80,18 @@
 //    
     
     // 设置title
-    [[UINavigationBar appearanceWhenContainedIn:[UINavigationController class],[BaseNavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarTitle_Font_Size,NSFontAttributeName ,nil]];
+    [[UINavigationBar appearanceWhenContainedIn:[BaseNavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarTitle_Font_Size,NSFontAttributeName ,nil]];
     
      //设置按钮
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], [BaseNavigationController class], nil] setBackgroundImage:[UIImage imageNamed:@"navBarItem_clearbg"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault ];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], [BaseNavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarSonControl_Font_Size,NSFontAttributeName ,nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[BaseNavigationController class], nil] setBackgroundImage:[UIImage imageNamed:@"navBarItem_clearbg"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault ];
+    [[UIBarButtonItem appearanceWhenContainedIn:[BaseNavigationController class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:NavBarSonControl_Font_Color,NSForegroundColorAttributeName,NavBarSonControl_Font_Size,NSFontAttributeName ,nil] forState:UIControlStateNormal];
+
     
 //    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"nav_back"] ];
 //    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"nav_back"] ];//不起作用
 
-    
-    [[UITabBarItem appearanceWhenContainedIn:[UINavigationController class], [BaseNavigationController class], nil] setTitlePositionAdjustment:UIOffsetMake(80, 30)];
-    [[UITabBarItem appearanceWhenContainedIn:[UINavigationController class], [BaseNavigationController class], nil] setImageInsets:UIEdgeInsetsMake(0, -50, 0, 50)];
-
-    
+//    //好像没起作用
+//    [[UITabBarItem appearanceWhenContainedIn:[BaseNavigationController class], nil] setImageInsets:UIEdgeInsetsMake(0, -50, 0, 50)];
 }
 
 //

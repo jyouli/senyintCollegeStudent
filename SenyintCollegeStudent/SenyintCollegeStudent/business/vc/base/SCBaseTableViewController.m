@@ -8,7 +8,8 @@
 
 #import "SCBaseTableViewController.h"
 
-@interface SCBaseTableViewController ()
+@interface SCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @end
 
 @implementation SCBaseTableViewController
@@ -18,25 +19,38 @@
     NSLog(@"%@ dealloc",self.class);
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    if ((floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_7_0) ) {
-        
-        //设置4周的都不拉伸
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-    if (!self.backImageStr) {
-        self.backImageStr = @"nav_back";
-    }
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [btn setImage:[UIImage imageNamed:self.backImageStr] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(navback) forControlEvents:UIControlEventTouchUpInside];
-    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    self.navigationItem.leftBarButtonItem = back;
+- (instancetype)init
+{
     
+    return [self initWithStyle:UITableViewStylePlain];
+}
+- (instancetype)initWithStyle:(UITableViewStyle)style
+{
+    if (self = [super init]) {
+        
+        self.style = style;
+    }
+    
+    return self;
+}
+- (void)loadView {
+    [super loadView];
+    
+    UITableView *tableview = [[UITableView alloc] initWithFrame:self.view.frame style:self.style];
+    tableview.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    self.view = tableview;
+    _tableView = tableview;
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -47,15 +61,10 @@
          ];
     }
     
-
-    
     UIView *v = [[UIView alloc] init];
     self.tableView.tableFooterView = v;
-}
+    
 
-- (void)navback
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -64,6 +73,12 @@
 }
 
 #pragma mark ==UITableViewDelegate
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    return cell;
+    
+}
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -74,16 +89,6 @@
         [cell setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
     }
     
-}
-
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
-- (NSUInteger)supportedInterfaceOrientations
-#else
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-#endif
-{
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

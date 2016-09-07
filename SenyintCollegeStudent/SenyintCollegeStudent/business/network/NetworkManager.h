@@ -5,15 +5,6 @@
 //  Created by    任亚丽 on 16/8/30.
 //  Copyright © 2016年 YL. All rights reserved.
 //
-/**
- NS_DESIGNATED_INITIALIZE 宏/关键字
- 意思是最终被指定的初始化方法，在interface只能用一次而且必须以init开头的方法。
- 在m文件中，不管init或者其他的初始化方法都要调用上面的initWithTitle方法初始化
- */
-/**
- DEPRECATED_ATTRIBUTE 宏/关键字
- 这个宏是用来 慢慢弃用属性或接口的，当我们不想让别人再用这属性或接口时，可以加上这个宏
- */
 
 #import <Foundation/Foundation.h>
 #import "Networktools.h"

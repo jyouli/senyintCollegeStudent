@@ -12,39 +12,20 @@
 #import "LoginVerificationCodeCell.h"
 #import "YLRegularCheck.h"
 @interface ForgetPasswordViewController ()
-@property (nonatomic, strong)NSMutableArray *dataArray;
-@property (nonatomic, weak)  UITextField *userTF;
-@property (nonatomic, weak)  UITextField *pwTF;
-@property (nonatomic, weak)  UITextField *vercodeTF;
+{
+    __weak  NSMutableArray *_dataArray; //用来做dataArray懒加载
 
+}
 
 @end
 
 
 @implementation ForgetPasswordViewController
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [[VerificationCodeCountdownSingle sharedCodeCountdownSingle] closeTimer];
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"忘记密码";
     
-    [self.tableView registerClass:[LoginCell class] forCellReuseIdentifier:NSStringFromClass([LoginCell class])];
-    [self.tableView registerClass:[LoginVerificationCodeCell class] forCellReuseIdentifier:NSStringFromClass([LoginVerificationCodeCell class])];
-    [self.tableView registerClass:[LoginPasswordCell class] forCellReuseIdentifier:NSStringFromClass([LoginPasswordCell class])];
-
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    
-    [self creatHeaderView];
     [self creatFooterView];
     
     
@@ -78,15 +59,8 @@
 {
     if (!_dataArray) {
         
-        _dataArray = [[NSMutableArray alloc] initWithCapacity:3];
-        LoginCellModel *mode1 = [[LoginCellModel alloc] init];
-        mode1.textFieldPlaceholder = @"请输入手机号";
-        mode1.textFieldinfo = self.userPhone;
-        mode1.textFieldKeyboardType = UIKeyboardTypeNumberPad;
-        mode1.cellClassName = NSStringFromClass([LoginCell class]);
-        [_dataArray addObject:mode1];
-        
-        
+        _dataArray = [super dataArray];
+
         LoginCellModel *mode2 = [[LoginCellModel alloc] init];
         mode2.textFieldPlaceholder = @"请输入验证码";
         mode2.textFieldKeyboardType = UIKeyboardTypeNumberPad;
@@ -107,16 +81,6 @@
     
 }
 
-//表头
-- (void)creatHeaderView
-{
-    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, (Screen_Height - 64)/2 )];
-    header.contentMode = UIViewContentModeCenter;
-    header.image = [UIImage imageNamed:@"logo_senyint"];
-    self.tableView.tableHeaderView = header;
-
-}
-
 //表尾
 - (void)creatFooterView
 {
@@ -132,51 +96,6 @@
     [commitBtn addTarget:self action:@selector(commitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [footer addSubview:commitBtn];
     
-    
-    
-    
 }
-
-#pragma mark ==UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    NSString * cellIdentifier = model.cellClassName;
-    LoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.model = model;
-
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        self.userTF = cell.tf;
-    } else if ([model.cellClassName isEqualToString:NSStringFromClass([LoginVerificationCodeCell class])]) {
-    
-        self.vercodeTF = cell.tf;
-    } else {
-        
-        self.pwTF = cell.tf;
-    }
-
-    return cell;
-    
-}
-
-
-#pragma mark ==UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    LoginCellModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if ([model.cellClassName isEqualToString:NSStringFromClass([LoginCell class])]) {
-        return 45;
-    }
-    
-    return 65;
-}
-
 
 @end
