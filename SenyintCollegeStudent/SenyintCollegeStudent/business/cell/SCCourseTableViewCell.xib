@@ -8,49 +8,125 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SCCourseTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="SCCourseTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="肺部疾病的介入性诊疗班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vt-UO-AIa">
-                        <rect key="frame" x="13" y="8" width="349" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-Tn-71J">
-                        <rect key="frame" x="13" y="37" width="94" height="68.5"/>
-                        <color key="backgroundColor" red="0.96792581113607712" green="1" blue="0.61105487202277597" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="中日友好医院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAo-Gb-2iT">
-                        <rect key="frame" x="115" y="52" width="247" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="报名将于8月23号截止" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANR-2n-K1u">
-                        <rect key="frame" x="115" y="68" width="247" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥699.0  已报名198人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35W-Dx-uC5">
-                        <rect key="frame" x="110" y="85" width="252" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="刘国梁  主讲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7P-Wa-yie">
-                        <rect key="frame" x="115" y="34" width="247" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="肺部疾病的介入性诊疗班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vt-UO-AIa">
+                        <rect key="frame" x="12" y="18" width="351" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="huj-gI-Fdh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-Tn-71J">
+                        <rect key="frame" x="12" y="50" width="130" height="75"/>
+                        <color key="backgroundColor" red="0.96792581113607712" green="1" blue="0.61105487202277597" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="TTi-UF-jcM"/>
+                            <constraint firstAttribute="height" constant="75" id="fca-rP-Kyd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中日友好医院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAo-Gb-2iT">
+                        <rect key="frame" x="157" y="70" width="198" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="PlC-I4-b5F"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.082352941176470587" green="0.4392156862745098" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名将于8月23号截止" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANR-2n-K1u">
+                        <rect key="frame" x="157" y="89" width="198" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="a7t-aW-Db7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已报名198人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35W-Dx-uC5">
+                        <rect key="frame" x="157" y="107" width="196" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Ena-xZ-MLa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘国梁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7P-Wa-yie">
+                        <rect key="frame" x="157" y="49" width="43" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="3AO-TH-0BN"/>
+                            <constraint firstAttribute="height" constant="20" id="7z6-dC-Akf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.082352941176470587" green="0.4392156862745098" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主讲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SG6-Zu-WY3">
+                        <rect key="frame" x="208" y="52" width="30" height="14"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.4392156862745098" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="MNJ-Cq-8dZ"/>
+                            <constraint firstAttribute="width" constant="30" id="pm1-O4-o1e"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥699" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj3-DF-hNH">
+                        <rect key="frame" x="240" y="105.5" width="115" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="gLQ-YQ-ymy"/>
+                            <constraint firstAttribute="width" constant="115" id="kUb-E2-Vtb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Pm4-Tn-71J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5go-vl-Mbx"/>
+                    <constraint firstAttribute="trailing" secondItem="Aj3-DF-hNH" secondAttribute="trailing" constant="20" id="9C5-jv-ida"/>
+                    <constraint firstAttribute="trailing" secondItem="ANR-2n-K1u" secondAttribute="trailing" constant="20" id="9bT-g5-hO1"/>
+                    <constraint firstAttribute="bottom" secondItem="Aj3-DF-hNH" secondAttribute="bottom" constant="13" id="GX5-Vm-8he"/>
+                    <constraint firstItem="35W-Dx-uC5" firstAttribute="top" secondItem="ANR-2n-K1u" secondAttribute="bottom" constant="2" id="NfA-ob-ayw"/>
+                    <constraint firstItem="WAo-Gb-2iT" firstAttribute="leading" secondItem="Pm4-Tn-71J" secondAttribute="trailing" constant="15" id="O97-gj-G4f"/>
+                    <constraint firstItem="7Vt-UO-AIa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="R2E-DZ-gBL"/>
+                    <constraint firstAttribute="trailing" secondItem="35W-Dx-uC5" secondAttribute="trailing" constant="22" id="RTU-6j-P2H"/>
+                    <constraint firstItem="Pm4-Tn-71J" firstAttribute="top" secondItem="7Vt-UO-AIa" secondAttribute="bottom" constant="13" id="aJr-3G-KWA"/>
+                    <constraint firstItem="SG6-Zu-WY3" firstAttribute="top" secondItem="7Vt-UO-AIa" secondAttribute="bottom" constant="15" id="cXF-d8-lqw"/>
+                    <constraint firstItem="ANR-2n-K1u" firstAttribute="top" secondItem="WAo-Gb-2iT" secondAttribute="bottom" constant="3" id="ccC-ja-MrE"/>
+                    <constraint firstItem="n7P-Wa-yie" firstAttribute="leading" secondItem="Pm4-Tn-71J" secondAttribute="trailing" constant="15" id="d0d-CC-htI"/>
+                    <constraint firstAttribute="trailing" secondItem="7Vt-UO-AIa" secondAttribute="trailing" constant="12" id="dIq-FK-GSD"/>
+                    <constraint firstAttribute="trailing" secondItem="WAo-Gb-2iT" secondAttribute="trailing" constant="20" id="e1w-zc-Tct"/>
+                    <constraint firstItem="ANR-2n-K1u" firstAttribute="leading" secondItem="Pm4-Tn-71J" secondAttribute="trailing" constant="15" id="fN9-R7-Shn"/>
+                    <constraint firstItem="SG6-Zu-WY3" firstAttribute="leading" secondItem="n7P-Wa-yie" secondAttribute="trailing" constant="8" id="gF2-bX-FPo"/>
+                    <constraint firstItem="WAo-Gb-2iT" firstAttribute="top" secondItem="n7P-Wa-yie" secondAttribute="bottom" constant="1" id="hwl-GY-SyS"/>
+                    <constraint firstItem="7Vt-UO-AIa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="mg6-LB-bso"/>
+                    <constraint firstItem="n7P-Wa-yie" firstAttribute="top" secondItem="7Vt-UO-AIa" secondAttribute="bottom" constant="12" id="mym-hZ-qBN"/>
+                    <constraint firstItem="35W-Dx-uC5" firstAttribute="leading" secondItem="Pm4-Tn-71J" secondAttribute="trailing" constant="15" id="vmS-H2-7V7"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="235.5" y="189"/>
+            <connections>
+                <outlet property="classTitleLabel" destination="7Vt-UO-AIa" id="UfK-ue-fSS"/>
+                <outlet property="dateLabel" destination="ANR-2n-K1u" id="BHD-nm-0JO"/>
+                <outlet property="hospitalLabel" destination="WAo-Gb-2iT" id="6Ig-Ib-bkq"/>
+                <outlet property="logoImageView" destination="Pm4-Tn-71J" id="JMT-f9-2fb"/>
+                <outlet property="mainSpeekerLabel" destination="n7P-Wa-yie" id="PJy-fw-USM"/>
+                <outlet property="nameLabelWidth" destination="3AO-TH-0BN" id="kpz-Va-TEt"/>
+                <outlet property="peopleCountLabel" destination="35W-Dx-uC5" id="aih-gH-Qzh"/>
+                <outlet property="priceLabel" destination="Aj3-DF-hNH" id="m2d-UX-ifn"/>
+            </connections>
+            <point key="canvasLocation" x="376.5" y="204"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="2" width="766" height="382"/>
+    </resources>
 </document>

@@ -16,6 +16,7 @@
     UITableView * _tableView;
     UITableView * _specialtyTabelView;
     UIView * alphaView;
+    UIButton * topBtn;
 }
 @end
 
@@ -37,6 +38,8 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
+    self.navigationController.navigationBarHidden = NO;
+
     [self putViews];
 }
 
@@ -55,14 +58,15 @@
 - (void)putTopView
 {
     //顶部筛选按钮
-    UIButton * topBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    topBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     [topBtn setTitle:@"全部学科" forState:UIControlStateNormal];
-    [topBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    topBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    [topBtn setImage:[UIImage imageNamed:@"clock"] forState:UIControlStateNormal];
-    [topBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -25, 0, 0)];
-    [topBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -125)];
-    [topBtn addTarget:self action:@selector(topBarAction) forControlEvents:UIControlEventTouchUpInside];
+    [topBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    topBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    [topBtn setImage:[UIImage imageNamed:@"down_point"] forState:UIControlStateNormal];
+    [topBtn setImage:[UIImage imageNamed:@"up_point"] forState:UIControlStateSelected];
+    [topBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -23, 0, 0)];
+    [topBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -141)];
+    [topBtn addTarget:self action:@selector(topBarAction:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationController.navigationBar.topItem.titleView = topBtn;
 }
@@ -70,10 +74,11 @@
 - (void)putTableView
 {
     //班级课程表
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height - 64) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height - 64) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor lightGrayColor];
+    _tableView.backgroundColor = View_bg_Color;
+    _tableView.separatorColor = SeparationLine_Color;
     [self.view addSubview:_tableView];
     
     //添加下拉刷新，上拉加载
@@ -93,6 +98,8 @@
         [weakTable.mj_footer endRefreshing];
     }];
     
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 20)];
+
 }
 
 - (void)putSpecialtyTableView
@@ -114,13 +121,14 @@
         _specialtyTabelView = [[UITableView alloc] initWithFrame:_tableView.bounds style:UITableViewStylePlain];
         _specialtyTabelView.delegate = self;
         _specialtyTabelView.dataSource = self;
-        _specialtyTabelView.backgroundColor = [UIColor clearColor];
+        _specialtyTabelView.backgroundColor = [UIColor whiteColor];
         _specialtyTabelView.hidden = YES;
         _specialtyTabelView.scrollsToTop = NO;
+        _tableView.separatorColor = SeparationLine_Color;
         [self.view addSubview:_specialtyTabelView];
         
         //表尾，用于去除空白cell的分割线
-        _specialtyTabelView.tableFooterView = [[UIView alloc] init];
+        _specialtyTabelView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 20)];
         
         if ([_specialtyTabelView respondsToSelector:@selector(setSeparatorInset:)]) {
             [_specialtyTabelView setSeparatorInset:UIEdgeInsetsZero];
@@ -133,12 +141,13 @@
 
 #pragma mark action
 
-- (void)topBarAction
+- (void)topBarAction:(UIButton * )btn
 {
     NSLog(@"选择学科");
     _specialtyTabelView.hidden = !_specialtyTabelView.hidden;
     alphaView.hidden = !alphaView.hidden;
     _specialtyTabelView.scrollsToTop = !_specialtyTabelView.hidden;
+    btn.selected = !btn.selected;
 }
 
 #pragma mark tableView
@@ -146,10 +155,10 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, tableView == _tableView ? 13 : 0, 0, 0)];
+        [cell setSeparatorInset:UIEdgeInsetsZero];
     }
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0, tableView == _tableView ? 13 : 0, 0, 0)];
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
 
@@ -160,17 +169,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return tableView == _tableView ? 115 : 44 ;
+    return tableView == _tableView ? 140 : 50 ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return tableView == _tableView ? 15 : 0 ;
+    return tableView == _tableView ? 0 : 0 ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return tableView == _tableView ? 15 : 0 ;
+    return tableView == _tableView ? 0 : 0 ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,7 +188,7 @@
         
         //班级信息
         static NSString * identifier = @"SCCourseTableViewCell";
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        SCCourseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"SCCourseTableViewCell" owner:self options:nil][0];
@@ -199,7 +208,8 @@
         }
         
         cell.textLabel.text = indexPath.row%2?@"口腔科":@"呼吸内科";
-        
+        cell.textLabel.textColor = (indexPath.row == 0?BodyContentImportantText_Font_Color : BlackText_Font_Color);
+
         return cell;
     }
 }
@@ -222,6 +232,7 @@
         _specialtyTabelView.hidden = YES;
         alphaView.hidden = YES;
         _specialtyTabelView.scrollsToTop = NO;
+        topBtn.selected = NO;
     }
 }
 

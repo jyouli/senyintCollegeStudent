@@ -10,4 +10,14 @@
 
 @interface SCCourseTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *classTitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *hospitalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *peopleCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mainSpeekerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWidth;
+
 @end
