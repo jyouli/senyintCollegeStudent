@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)baseURLString;
 /**
- 项目的基础参数字典
+ 项目的公共请求头参数字典  
  */
 + (NSDictionary *)userBaseInfo;
 /*

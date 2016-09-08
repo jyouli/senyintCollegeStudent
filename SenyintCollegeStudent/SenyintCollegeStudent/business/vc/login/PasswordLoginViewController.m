@@ -95,7 +95,7 @@
 {
     
     //通过校验之后 调用登录接口
-    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionary] ;
     [paraDic setValue:self.userTF.text forKey:@"mobile"];
     [paraDic setValue:self.pwTF.text forKey:@"password"];
     
@@ -103,7 +103,7 @@
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     __weak typeof(self) safeSelf = self;
-    [sessionManager GET:[[GlobalSingle baseUrl] stringByAppendingString:@"/v1/users/login"]  parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[[NetworkManager baseURLString] stringByAppendingString:@"/v1/users/login"]  parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"%lld", downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"success:%@", responseObject);
@@ -122,7 +122,7 @@
         
         [GlobalSingle setToken:[[responseObject objectForKey:@"content"] objectForKey:@"token"]];
         [GlobalSingle setUid:[[responseObject objectForKey:@"content"] objectForKey:@"uid"]];
-        [GlobalSingle setMobile:self.userTF.text];
+        [GlobalSingle setUserPhoneNumber:self.userTF.text];
         [GlobalSingle setPassword:self.pwTF.text];
         
         //        [NSClassFromString(@"HomeViewController") setWindowRootViewController];

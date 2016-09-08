@@ -43,10 +43,10 @@
 {
     NSLog(@"%@",[NSThread currentThread]);
 
-    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionary] ;
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [sessionManager GET:[[GlobalSingle baseUrl] stringByAppendingString:@"/v1/app/version"] parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:[@"" stringByAppendingString:@"/v1/app/version"] parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"totalUnitCount:%lld", downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",[NSThread currentThread]);
@@ -64,16 +64,16 @@
  */
 - (void)autoLoginRequest
 {
-    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[GlobalSingle userBaseInfo]] ;
-    NSString * apnToken = [GlobalSingle token];
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionary] ;
+    NSString * apnToken = [GlobalSingle apnToken];
     if (apnToken == nil || [apnToken isEqualToString:@""]) {
-        [paraDic setValue:@"" forKey:USERINFO_APNTOKEN];
+        [paraDic setValue:@"" forKey:USERINFO_APN_Token];
     }else{
-        [paraDic setValue:apnToken forKey:USERINFO_APNTOKEN];
+        [paraDic setValue:apnToken forKey:USERINFO_APN_Token];
     }
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [sessionManager GET: [[GlobalSingle baseUrl] stringByAppendingString:@"/v1/users/login_auto"] parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET: [@"" stringByAppendingString:@"/v1/users/login_auto"] parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"%lld", downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"success:%@", responseObject);

@@ -51,28 +51,37 @@ static NetworkManager *_sharedNetworkManager = nil;
 
 @implementation NetworkManager
 @synthesize dataTaskArray = _dataTaskArray;
-#define USERINFO_UID                     @"uid"             // x
-#define USERINFO_TOKEN                   @"token"           // x
-#define USERINFO_ROLE                    @"role"            //num x
-#define USERINFO_USERNAME                @"userName"
-#define USERINFO_REALNAME                @"realName"        //x
-#define USERINFO_PHONENUM                @"phoneNum"
-#define USERINFO_PASSWORD                @"password"
-#define USERINFO_APNTOKEN                @"apn_token"
 
-#define USERINFO_HEADIMAGEURL            @"headImageUrl"    //用户头像地址，
-#define USERINFO_DEVICEID                @"deviceId"        //程序第一次启动时生成的标示设备的deviceID
-#define USERINFO_BUILDCODE               @"buildCode"       //版本号  用于校验是否现实过桥页和是否创建deviceId
-#define USERINFO_APPVERSION              @"appVersion"       //版本号 如1.2.1
-#define USERINFO_IDFA                    @"idfa"            //广告标示符
+////参数值随时可变
+//#define USERINFO_Uid             @"uid"             // 登录之后服务器返回
+//#define USERINFO_Token           @"token"           // 登录之后服务器返回
+//#define USERINFO_App_Build_Code  @"app_build_code"  //创建编号 如110
+//#define USERINFO_App_version     @"app_version"      //版本号 如1.2.1
+//
+//
+////参数名宏定义 参数值不可变
+//#define USERINFO_Device_Id       @"device_id"       //设备唯一标识
+//#define K_REQUESTPUBLICPARAMETER_APPID_Value @"app_id" // 内部应用ID来源 1:IOS 2:Android
+//#define K_REQUESTPUBLICPARAMETER_Client @"client"      // 客户端参数	0学员端  1专家端区
+//
 
 
-#define K_REQUESTPUBLICPARAMETER_APPID @"app_id"
-#define K_REQUESTPUBLICPARAMETER_DEVICEID @"device_id"
-#define K_REQUESTPUBLICPARAMETER_APPID_VALUE @"1" //1:IOS 2:Android
-#define K_REQUESTPUBLICPARAMETER_APPBUILDCODE @"appBuildCode"
-#define K_REQUESTPUBLICPARAMETER_DEVICEINFO @"deviceInfo"
-#define K_REQUESTPUBLICPARAMETER_CLIENT @"client" // 0学员端  1专家端区
+//#define USERINFO_ROLE        @"role"            //num x
+//#define USERINFO_USERNAME    @"userName"
+//#define USERINFO_REALNAME    @"realName"        //x
+//#define USERINFO_PHONENUM    @"phoneNum"
+//#define USERINFO_PASSWORD    @"password"
+//#define USERINFO_APNTOKEN    @"apn_token"
+//
+//#define USERINFO_HEADIMAGEURL    @"headImageUrl"    //用户头像地址，
+//#define USERINFO_BUILDCODE       @"buildCode"       //版本号  用于校验是否现实过桥页和是否创建deviceId
+//#define USERINFO_APPVERSION      @"appVersion"       //版本号 如1.2.1
+//#define USERINFO_IDFA            @"idfa"            //广告标示符
+//
+//
+//#define K_REQUESTPUBLICPARAMETER_DEVICEID @"device_id"
+//#define K_REQUESTPUBLICPARAMETER_APPBUILDCODE @"appBuildCode"
+//#define K_REQUESTPUBLICPARAMETER_DEVICEINFO @"deviceInfo"
 
 
 //网络请求失败（系统级）提示语
@@ -88,7 +97,7 @@ static NetworkManager *_sharedNetworkManager = nil;
 //调试url
 + (NSString *)developmentBaseURLString
 {
-    return @"http://testapi.cinyi.com";
+    return @"http://192.168.20.162/";
 }
 
 //发布url
@@ -116,35 +125,37 @@ static NetworkManager *_sharedNetworkManager = nil;
     //测试键值是值传递 在其他地方修改了token偏好设置 字典token的值还是之前的 所以字典必须每次重新设值
     NSMutableDictionary *_userBaseInfo = [[NSMutableDictionary alloc] init];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:USERINFO_TOKEN]){//token
-        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_TOKEN] forKey:USERINFO_TOKEN ];
+    if ([userDefaults objectForKey:USERINFO_Token]){//token
+        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_Token] forKey:USERINFO_Token ];
     }else{
-        [_userBaseInfo setValue:@"" forKey:USERINFO_TOKEN ];
+        [_userBaseInfo setValue:@"" forKey:USERINFO_Token ];
     }
-    if ([userDefaults objectForKey:USERINFO_UID]){//uid
-        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_UID] forKey:USERINFO_UID ];
+    if ([userDefaults objectForKey:USERINFO_Uid]){//uid
+        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_Uid] forKey:USERINFO_Uid ];
     }else{
-        [_userBaseInfo setValue:@"" forKey:USERINFO_UID ];
+        [_userBaseInfo setValue:@"" forKey:USERINFO_Uid ];
     }
-    if ([userDefaults objectForKey:USERINFO_DEVICEID]){//deviceId
-        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_DEVICEID] forKey:K_REQUESTPUBLICPARAMETER_DEVICEID];
+    if ([userDefaults objectForKey:USERINFO_Device_Id]){//deviceId
+        [_userBaseInfo setValue:[userDefaults objectForKey:USERINFO_Device_Id] forKey:USERINFO_Device_Id];
     }else{
         NSString *deviceID = @"";
-        [userDefaults setValue:deviceID forKey:USERINFO_DEVICEID];
-        [_userBaseInfo setValue:deviceID forKey:K_REQUESTPUBLICPARAMETER_DEVICEID ];
+        [userDefaults setValue:deviceID forKey:USERINFO_Device_Id];
+        [_userBaseInfo setValue:deviceID forKey:USERINFO_Device_Id ];
     }
     
-    [_userBaseInfo setValue:K_REQUESTPUBLICPARAMETER_APPID_VALUE forKey:K_REQUESTPUBLICPARAMETER_APPID ];//appId
-    [_userBaseInfo setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:K_REQUESTPUBLICPARAMETER_APPBUILDCODE];//appBuildCode
-    [_userBaseInfo setValue:[self getDeviceInfo] forKey:K_REQUESTPUBLICPARAMETER_DEVICEINFO];//deviceInfo
-    [_userBaseInfo setValue:@0 forKey:K_REQUESTPUBLICPARAMETER_CLIENT];//client 区分专家端和学员端
+    [_userBaseInfo setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:USERINFO_App_Build_Code];//appBuildCode
     
     //appVersion
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     if (app_Version.length>0) {
-        [_userBaseInfo setValue:app_Version forKey:USERINFO_APPVERSION];
+        [_userBaseInfo setValue:app_Version forKey:USERINFO_App_version];
     }
+    
+    [_userBaseInfo setValue:@"1" forKey:K_REQUESTPUBLICPARAMETER_APPID_Value ];
+
+    [_userBaseInfo setValue:@"0" forKey:K_REQUESTPUBLICPARAMETER_Client];//client 区分专家端和学员端
+
     
     //idfa广告标示符 暂时不使用
     
