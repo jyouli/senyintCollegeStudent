@@ -22,18 +22,68 @@
     CGRect _keyboardRect;//保存键盘的Rect
     __weak UIView *_firstResponder;//保存键盘的Rect
     
+    __weak UIView *_bgTapView; //bgview上的点击事件
+    __weak UITapGestureRecognizer *_selfTap; //self上的点击事件
+    
 }
-
-@property (nonatomic, weak) UIView *bgview;
 @end
 
 @implementation YLBaseTableView
 - (void)dealloc
 {
+    NSLog(@"%@--%s",self,__func__);
+
+    [self subViewsResignFirstResponder];
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-//默认第一次显示出来的时候调用（比较迟调用） 测试不主动的调的话就调一次
+- (void)removeFromSuperview
+{
+//    NSLog(@"%@--%s",self.class,__func__);
+    
+    [self subViewsResignFirstResponder];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+    [super removeFromSuperview];
+
+
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow
+{
+//    NSLog(@"%@--%s---newWindow＝%@",self.class,__func__,newWindow);
+
+    if ([newWindow isEqual:[NSNull null]] || newWindow == nil) {//从窗口上移除，没有在显示
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [self subViewsResignFirstResponder];
+
+        
+    } else {  //添加到一个新窗口上显示
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+        
+        
+        if (!self.canSelectedCell) {
+            UITapGestureRecognizer *selfTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfTapClick)];
+            [self addGestureRecognizer:selfTap];
+            _selfTap = selfTap;
+        } else {
+            
+            if (_selfTap) {
+                [self removeGestureRecognizer:_selfTap];
+                
+            }
+        }
+
+    }
+    
+    [super willMoveToWindow:newWindow];
+    
+}
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
@@ -41,6 +91,7 @@
     if (CGSizeEqualToSize(self.contentSize, CGSizeZero)) {
         self.contentSize = CGSizeMake(self.bounds.size.width, self.bounds.size.height + 1);
     }
+
 }
 
 
@@ -49,14 +100,13 @@
     if ( CGSizeEqualToSize(self.contentSize, CGSizeZero) ) {
         [super setContentSize:self.bounds.size];
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    //点击键盘消失 会触发不了cell的点击事件  把点击事件加在tableview的backgroundView上,但是可能被tableview上的其他控件截取 主要在self.canselectedCell＝yes 的情况下起作用
     UIView *v = [[UIView alloc] init];
     self.backgroundView = v;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgviewTap)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(subViewsResignFirstResponder)];
     [v addGestureRecognizer:tap];
-    self.bgview = v;
+    _bgTapView = v;
     
 }
 
@@ -95,6 +145,10 @@
    
 }
 
+- (UIView *)backgroundView
+{
+    return _bgTapView;
+}
 - (void) setBaseTableViewContentInset:(UIEdgeInsets)contentInset
 {
     
@@ -102,7 +156,8 @@
     _priorInset = self.contentInset;
 }
 
-//tableview中此方法调的频率特别高 键盘出现或消失都会调
+//注意 此方法中更新self.contentInset与MJRefresh的框架冲突  MJRefresh会认为结束了更新
+////tableview中此方法调的频率特别高 键盘出现或消失都会调
 - (void)setContentSize:(CGSize)contentSize
 {
     contentSize.width = MAX(contentSize.width, self.frame.size.width);
@@ -128,11 +183,15 @@
         return;
     }
     
-    
+    //设置contentInset
+    [self contentInsetForKeyboard];//不设contentInset话，一部分cell可能会被键盘挡着拉不上来
+
+    //设置contentOffset
     //firstResponder最下边的点在窗口中的位置
     CGPoint point = [_firstResponder.superview convertPoint:CGPointMake(0, CGRectGetMaxY(_firstResponder.frame)) toView:[UIApplication sharedApplication].keyWindow];
 
     if ( Device_Heihgt - point.y - _keyboardRect.size.height > SpaceWithkeyboard) {
+
         return;
     
     } else {
@@ -140,7 +199,6 @@
         _priorOffset = self.contentOffset;
         CGPoint offset = self.contentOffset;
         offset.y += SpaceWithkeyboard - (Device_Heihgt - point.y - _keyboardRect.size.height);
-        [self contentInsetForKeyboard];
         __weak typeof(self) safeSelf = self;
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:[[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
@@ -213,10 +271,23 @@
 }
 
 
+///*
+//  注意直接在此处做点击键盘消失 会触发不了cell的点击事件
+// **/
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    [self subViewsResignFirstResponder];
+//}
 
-- (void)bgviewTap
+
+- (void)selfTapClick
 {
-//    NSLog(@"bgviewTap");
+    [self subViewsResignFirstResponder];
+}
+
+//键盘消失
+- (void)subViewsResignFirstResponder
+{
     if (_firstResponder) {
         [_firstResponder resignFirstResponder];
         _firstResponder = nil;
@@ -226,17 +297,6 @@
         }
         
     }
+
 }
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    if (_firstResponder) {
-//        [_firstResponder resignFirstResponder];
-//        _firstResponder = nil;
-//    } else {
-//        if (_keyboardVisible) {
-//            [self endEditing:YES];
-//        }
-//        
-//    }
-//}
 @end

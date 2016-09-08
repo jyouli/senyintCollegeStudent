@@ -33,6 +33,8 @@
     self.navigationItem.leftBarButtonItem = nil;
     
     UIImageView *iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    iv.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
     iv.contentMode = UIViewContentModeScaleAspectFill;
     iv.image = [UIImage imageNamed:@"loading"];
     if (iPhone4_4S) {
@@ -49,7 +51,7 @@
     CGFloat top = Screen_Height - height * 3 - bottomspace - space * 2;
 
     UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top, width, height)];
-    loginBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    loginBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     UIImage *image = [UIImage imageNamed:@"login"];
     [loginBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
     [loginBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"登录" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
@@ -58,6 +60,8 @@
     [self.view addSubview:loginBtn];
 
     UIButton *registBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top + height + space, width, height)];
+    registBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+
     [registBtn setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2] forState:UIControlStateNormal];
     [registBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"注册" attributes:[NSDictionary dictionaryWithObjectsAndKeys: SubmitButtonText_Font_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
     [registBtn addTarget:self action:@selector(registBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -65,6 +69,8 @@
     [self.view addSubview:registBtn];
     
     UIButton *experienceBtn = [[UIButton alloc] initWithFrame:CGRectMake(leftspace,top + (height + space) * 2, width, height)];
+    experienceBtn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+
     UIImage *img = [UIImage imageNamed:@"experience_bg"];
     [experienceBtn setBackgroundImage:[img stretchableImageWithLeftCapWidth:img.size.width / 2 topCapHeight:img.size.height / 2] forState:UIControlStateNormal];
     [experienceBtn setAttributedTitle: [[NSAttributedString alloc]initWithString:@"体验一下" attributes:[NSDictionary dictionaryWithObjectsAndKeys: NavBar_bg_Color, NSForegroundColorAttributeName,SubmitButtonText_Font_Size, NSFontAttributeName ,nil]] forState:UIControlStateNormal];
@@ -92,8 +98,6 @@
 - (void)experienceBtnClick
 {
     [self pushPresentViewController:[[SCVisitViewController alloc] init] isWithNavigationController:YES Animated:YES completion:nil];
-
-//    [self.navigationController pushViewController:[[SCVisitViewController alloc] init] animated:YES];
 
 }
 

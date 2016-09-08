@@ -9,15 +9,11 @@
 #import "SCBaseTableViewController.h"
 
 @interface SCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, weak)UITableView *tableView;
 
 @end
 
 @implementation SCBaseTableViewController
-
-- (void)dealloc
-{
-    NSLog(@"%@ dealloc",self.class);
-}
 
 - (instancetype)init
 {
@@ -41,7 +37,7 @@
     tableview.delegate = self;
     tableview.dataSource = self;
     self.view = tableview;
-    _tableView = tableview;
+    self.tableView = tableview; 
     
 }
 

@@ -55,17 +55,11 @@
     
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    self.backImageName = @"nav_back_gray";
-    return self;
-}
-
 - (void)viewDidLoad
 {
+    self.backImageName = @"nav_back_gray";
     [super viewDidLoad];
-
+    
     [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"white_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
@@ -83,7 +77,7 @@
 //表头
 - (void)creatHeaderView
 {
-    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, (Screen_Height - 64)/2 )];
+    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, (self.view.bounds.size.height - 64)/2 )];
     header.contentMode = UIViewContentModeCenter;
     header.image = [UIImage imageNamed:@"logo_senyint"];
     self.tableView.tableHeaderView = header;

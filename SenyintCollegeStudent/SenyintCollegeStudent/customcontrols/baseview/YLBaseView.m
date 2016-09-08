@@ -29,11 +29,44 @@
 @implementation YLBaseView
 - (void)dealloc
 {
+    NSLog(@"%@--%s",self,__func__);
+    
+    [self subViewsResignFirstResponder];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-//默认第一次显示出来的时候调用（比较迟调用） 测试不主动的调的话就调一次
+- (void)removeFromSuperview
+{
+//    NSLog(@"%@--%s",self.class,__func__);
+    
+    [self subViewsResignFirstResponder];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [super removeFromSuperview];
+    
+    
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow
+{
+//    NSLog(@"%@--%s---newWindow＝%@",self.class,__func__,newWindow);
+    
+    if ([newWindow isEqual:[NSNull null]] || newWindow == nil) {//从窗口上移除，没有在显示
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [self subViewsResignFirstResponder];
+
+        
+    } else {  //添加到一个新窗口上显示
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
+    [super willMoveToWindow:newWindow];
+    
+}
+
 - (void)drawRect:(CGRect)rect 
 {
     [super drawRect:rect];
@@ -47,8 +80,8 @@
     if ( CGSizeEqualToSize(self.contentSize, CGSizeZero) ) {
         [super setContentSize:self.bounds.size];
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
 }
 
@@ -107,8 +140,10 @@
         return;
     }
     
-
+    //设置contentInset
+    [self contentInsetForKeyboard];//不设contentInset话，一部分cell可能会被键盘挡着拉不上来
     
+    //设置contentOffset
     //firstResponder最下边的点在窗口中的位置
     CGPoint point = [_firstResponder.superview convertPoint:CGPointMake(0, CGRectGetMaxY(_firstResponder.frame)) toView:[UIApplication sharedApplication].keyWindow];
     if ( Device_Heihgt - point.y - _keyboardRect.size.height > SpaceWithkeyboard) {
@@ -128,8 +163,6 @@
         CGPoint offset = self.contentOffset;
         offset.y += SpaceWithkeyboard - (Device_Heihgt - point.y - _keyboardRect.size.height);
         
-        self.contentInset = [self contentInsetForKeyboard];
-
         __weak typeof(self) safeSelf = self;
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:[[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
@@ -206,10 +239,22 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    [self subViewsResignFirstResponder];
+}
+
+//键盘消失
+- (void)subViewsResignFirstResponder
+{
     if (_firstResponder) {
         [_firstResponder resignFirstResponder];
         _firstResponder = nil;
+    } else {
+        if (_keyboardVisible) {
+            [self endEditing:YES];
+        }
+        
     }
+    
 }
 
 @end
