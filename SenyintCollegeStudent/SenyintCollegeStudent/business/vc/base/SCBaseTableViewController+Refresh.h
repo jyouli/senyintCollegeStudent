@@ -7,7 +7,6 @@
 //
 
 #import "SCBaseTableViewController.h"
-#import "MJRefresh.h"
 
 /**
  SCBaseTableViewController扩展

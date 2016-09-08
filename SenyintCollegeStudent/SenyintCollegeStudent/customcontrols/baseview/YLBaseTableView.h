@@ -16,10 +16,10 @@
 @interface YLBaseTableView : UITableView
 
 /**
- 用来给获取bgview做参数设置  给UITableViewbackgroundView的添加tap点击 
- 用来解决UITableView的点击截取cell点击的问题
+ *canSelectedCell: 设置cell是否可以触发点击事件
  */
-@property (nonatomic, weak, readonly) UIView *bgview;
+@property (nonatomic, assign) BOOL canSelectedCell;
 
+//预留 有空测试是否必要
 - (void) setBaseTableViewContentInset:(UIEdgeInsets)contentInset;
 @end

@@ -16,7 +16,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"%@ dealloc",self.class);
+    NSLog(@"%@ %s",[self class],__func__);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)viewDidLoad {
@@ -53,4 +53,8 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
 @end

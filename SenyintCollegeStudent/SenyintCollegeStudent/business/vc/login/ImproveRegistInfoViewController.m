@@ -16,6 +16,7 @@
 #import "SCSpecialtyModel.h"
 #import "SCTitleModel.h"
 #import "UIImage+Rend.h"
+
 @interface ImproveRegistInfoViewController ()
 {
     SCTitleModel *titleModel;
@@ -41,6 +42,8 @@
     [self.navigationController. navigationBar setBackgroundImage:[[UIImage imageNamed:@"green_nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage createImageWithColor:Shadow_Color]];
     
+    self.canSelectedCell = YES;
+    
     UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 70, 30)];
     [sureBtn setBackgroundImage:[UIImage imageNamed:@"surebtn_bg"] forState:UIControlStateNormal];
     
@@ -53,13 +56,55 @@
     [self.tableView registerClass:[RegistInfoInputCell class] forCellReuseIdentifier:@"RegistInfoInputCell"];
     
     [self createFooterView];
+    
+    
 
 }
 
+- (void)commitBtnClick
+{
+    [self.view endEditing:YES];
+    InfoTextFieldCell *namecell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if ([YLStringTool isEmpty:namecell.infoTextField.text ] || ![YLRegularCheck checkChineseRealName:namecell.infoTextField.text]) {
+        
+        [SCProgressHUD showInfoWithStatus:@"请输入真实姓名"];
+        return;
+    }
+    
+    InfoTextFieldCell *pwCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    if ([YLStringTool isEmpty:pwCell.infoTextField.text ] || ![YLRegularCheck checkpassword:pwCell.infoTextField.text]) {
+        [SCProgressHUD showInfoWithStatus:@"请输入6-20位字母或数字密码"];
+        return;
+    }
+    
+    InfoTextFieldCell *hosCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    if ([YLStringTool isEmpty:hosCell.infoTextField.text ]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择医院"];
+        return;
+    }
+    
+    
+    if ([YLStringTool isEmpty:deptModel.name]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择科室"];
+        return;
+    }
+    
+    
+    if ([YLStringTool isEmpty:titleModel.name]) {
+        [SCProgressHUD showInfoWithStatus:@"请选择职称"];
+        return;
+    }
+    
+    [SCProgressHUD showInfoWithStatus:@"调接口"];
+    
+}
+
+//表尾
 - (void)createFooterView
 {
-    
-    //表尾
+
     UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 100)];
     footer.backgroundColor = [UIColor clearColor];
     
@@ -79,47 +124,6 @@
     
 }
 
-
-
-- (void)commitBtnClick
-{
-    [self.view endEditing:YES];
-    InfoTextFieldCell *namecell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if ([YLStringTool isEmpty:namecell.infoTextField.text ] || ![YLRegularCheck checkChineseRealName:namecell.infoTextField.text]) {
-        
-        [SCProgressHUD showInfoWithStatus:@"请输入真实姓名"];
-        return;
-    }
-    
-    InfoTextFieldCell *pwCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-
-    if ([YLStringTool isEmpty:pwCell.infoTextField.text ] || ![YLRegularCheck checkpassword:pwCell.infoTextField.text]) {
-        [SCProgressHUD showInfoWithStatus:@"请输入6-20位字母或数字密码"];
-        return;
-    }
-
-    InfoTextFieldCell *hosCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    
-    if ([YLStringTool isEmpty:hosCell.infoTextField.text ]) {
-        [SCProgressHUD showInfoWithStatus:@"请选择医院"];
-        return;
-    }
-
-    
-    if ([YLStringTool isEmpty:deptModel.name]) {
-        [SCProgressHUD showInfoWithStatus:@"请选择科室"];
-        return;
-    }
-
-    
-    if ([YLStringTool isEmpty:titleModel.name]) {
-        [SCProgressHUD showInfoWithStatus:@"请选择职称"];
-        return;
-    }
-
-    [SCProgressHUD showInfoWithStatus:@"调接口"];
-    
-}
 
 - (NSMutableArray *)dataArray
 {

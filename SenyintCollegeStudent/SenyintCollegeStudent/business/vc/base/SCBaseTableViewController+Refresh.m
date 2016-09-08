@@ -7,6 +7,8 @@
 //
 
 #import "SCBaseTableViewController+Refresh.h"
+#import "MJRefresh.h"
+
 @implementation SCBaseTableViewController (Refresh)
 
 /**
@@ -15,18 +17,18 @@
 - (void) setRefreshNormalHeaderWithRefreshingBlock:(void (^)(void)) headerFresh
 {
     __weak typeof(self.tableView) safeview = self.tableView;
-    if (headerFresh) {
-        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:headerFresh];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-    } else {
-        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            
+        
+        if (headerFresh) {
+            headerFresh();
+        } else {
             [NSThread sleepForTimeInterval:.5];
             [safeview.mj_header endRefreshing];
-        }];
         
-    }
-    
+        }
+
+    }];
     
 }
 
@@ -37,17 +39,16 @@
 {
     
     __weak typeof(self.tableView) safeview = self.tableView;
-    if (footerFresh) {
-        self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:footerFresh];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         
-    } else {
-        self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            
+        if (footerFresh) {
+            footerFresh();
+        } else {
             [NSThread sleepForTimeInterval:.5];
             [safeview.mj_footer endRefreshing];
-        }];
-        
-    }
+        }
+
+    }];
     
 }
 

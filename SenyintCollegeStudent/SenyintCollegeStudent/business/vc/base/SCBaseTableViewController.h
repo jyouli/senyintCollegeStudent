@@ -14,7 +14,7 @@
 
 @property (nonatomic, assign)UITableViewStyle style;
 
-@property (nonatomic, weak)UITableView *tableView;
+@property (nonatomic, weak,readonly)UITableView *tableView;
 
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 @end

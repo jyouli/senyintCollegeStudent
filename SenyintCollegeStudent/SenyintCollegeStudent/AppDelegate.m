@@ -140,8 +140,7 @@
 //    NSLog(@"%ld",application.applicationIconBadgeNumber);
 //}
 
-#pragma mark - 设置所有界面（包括启动图  不包括LaunchScreen）只竖屏显示 以下两种方法都可实现
-//用此方法设置支持方向 界面仍然可以旋转
+//用此方法设置启动图方向（不包括LaunchScreen 测试LaunchScreen是另一个窗口）只竖屏显示支持方向 其他界面仍然可以旋转
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
 - (NSUInteger)supportedInterfaceOrientations
 #else
@@ -150,15 +149,6 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
-////用此方法设置支持方向 界面不可以旋转 如设置了shouldAutorotate为YES会崩
-//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-//{
-//
-//    
-//    return UIInterfaceOrientationMaskPortrait;
-//}
-
 @end
 
 

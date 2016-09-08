@@ -67,9 +67,9 @@
 		BD5C2AA61D52058A0066762F /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5C2AA51D52058A0066762F /* TransitionViewController.m */; };
 		BD6236C11D7EC66C00E8418C /* SelectProvincesCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */; };
 		BD6236D31D7FC08900E8418C /* YLPresentPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */; };
-		BD6236D61D7FE6D300E8418C /* SCBaseViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */; };
 		BD6236D91D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */; };
 		BD6236DC1D7FF0C400E8418C /* BaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236DB1D7FF0C400E8418C /* BaseLoginViewController.m */; };
+		BD6236DF1D80F15F00E8418C /* RefreshTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6236DE1D80F15F00E8418C /* RefreshTool.m */; };
 		BDB4974E1D742C6A00FC89FE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */; };
 		BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497541D74397800FC89FE /* VerificationCodeCountdownSingle.m */; };
 		BDB497671D757F8A00FC89FE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB497661D757F8A00FC89FE /* NetworkManager.m */; };
@@ -127,8 +127,6 @@
 		ED33F5A81D65B58000A64DC7 /* TeskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED33F5A71D65B58000A64DC7 /* TeskViewController.m */; };
 		EDD2909D1D6D6B580081FBAF /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290941D6D6B580081FBAF /* SCBaseTableViewController.m */; };
 		EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290961D6D6B580081FBAF /* SCBaseViewController.m */; };
-		EDD2909F1D6D6B580081FBAF /* SCRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290981D6D6B580081FBAF /* SCRefreshTableViewController.m */; };
-		EDD290A01D6D6B580081FBAF /* SCRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD2909A1D6D6B580081FBAF /* SCRefreshViewController.m */; };
 		EDD290A11D6D6B580081FBAF /* SCTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD2909C1D6D6B580081FBAF /* SCTextTableViewController.m */; };
 		EDD290A71D6D6EDB0081FBAF /* YLBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A41D6D6EDB0081FBAF /* YLBaseTableView.m */; };
 		EDD290A81D6D6EDB0081FBAF /* YLBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD290A61D6D6EDB0081FBAF /* YLBaseView.m */; };
@@ -256,12 +254,12 @@
 		BD6236C01D7EC66C00E8418C /* SelectProvincesCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectProvincesCitiesViewController.m; sourceTree = "<group>"; };
 		BD6236D11D7FC08900E8418C /* YLPresentPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPresentPushViewController.h; sourceTree = "<group>"; };
 		BD6236D21D7FC08900E8418C /* YLPresentPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPresentPushViewController.m; sourceTree = "<group>"; };
-		BD6236D41D7FE6D300E8418C /* SCBaseViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCBaseViewController+Refresh.h"; sourceTree = "<group>"; };
-		BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCBaseViewController+Refresh.m"; sourceTree = "<group>"; };
 		BD6236D71D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCBaseTableViewController+Refresh.h"; sourceTree = "<group>"; };
 		BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCBaseTableViewController+Refresh.m"; sourceTree = "<group>"; };
 		BD6236DA1D7FF0C400E8418C /* BaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoginViewController.h; sourceTree = "<group>"; };
 		BD6236DB1D7FF0C400E8418C /* BaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoginViewController.m; sourceTree = "<group>"; };
+		BD6236DD1D80F15F00E8418C /* RefreshTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTool.h; sourceTree = "<group>"; };
+		BD6236DE1D80F15F00E8418C /* RefreshTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTool.m; sourceTree = "<group>"; };
 		BDB4974C1D742C6A00FC89FE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BDB4974D1D742C6A00FC89FE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BDB497531D74397800FC89FE /* VerificationCodeCountdownSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeCountdownSingle.h; sourceTree = "<group>"; };
@@ -374,10 +372,6 @@
 		EDD290941D6D6B580081FBAF /* SCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBaseTableViewController.m; sourceTree = "<group>"; };
 		EDD290951D6D6B580081FBAF /* SCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBaseViewController.h; sourceTree = "<group>"; };
 		EDD290961D6D6B580081FBAF /* SCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBaseViewController.m; sourceTree = "<group>"; };
-		EDD290971D6D6B580081FBAF /* SCRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRefreshTableViewController.h; sourceTree = "<group>"; };
-		EDD290981D6D6B580081FBAF /* SCRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRefreshTableViewController.m; sourceTree = "<group>"; };
-		EDD290991D6D6B580081FBAF /* SCRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRefreshViewController.h; sourceTree = "<group>"; };
-		EDD2909A1D6D6B580081FBAF /* SCRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRefreshViewController.m; sourceTree = "<group>"; };
 		EDD2909B1D6D6B580081FBAF /* SCTextTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTextTableViewController.h; sourceTree = "<group>"; };
 		EDD2909C1D6D6B580081FBAF /* SCTextTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTextTableViewController.m; sourceTree = "<group>"; };
 		EDD290A31D6D6EDB0081FBAF /* YLBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLBaseTableView.h; sourceTree = "<group>"; };
@@ -779,6 +773,8 @@
 				ED1E9F981D6BF739000BE638 /* check */,
 				ED1E9F9B1D6BF739000BE638 /* date&time */,
 				ED1E9F9E1D6BF739000BE638 /* string */,
+				BD6236DD1D80F15F00E8418C /* RefreshTool.h */,
+				BD6236DE1D80F15F00E8418C /* RefreshTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -940,20 +936,14 @@
 			children = (
 				EDD290951D6D6B580081FBAF /* SCBaseViewController.h */,
 				EDD290961D6D6B580081FBAF /* SCBaseViewController.m */,
-				BD6236D41D7FE6D300E8418C /* SCBaseViewController+Refresh.h */,
-				BD6236D51D7FE6D300E8418C /* SCBaseViewController+Refresh.m */,
+				EDD2909B1D6D6B580081FBAF /* SCTextTableViewController.h */,
+				EDD2909C1D6D6B580081FBAF /* SCTextTableViewController.m */,
 				EDD290931D6D6B580081FBAF /* SCBaseTableViewController.h */,
 				EDD290941D6D6B580081FBAF /* SCBaseTableViewController.m */,
 				BD6236D71D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.h */,
 				BD6236D81D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m */,
-				EDD290971D6D6B580081FBAF /* SCRefreshTableViewController.h */,
-				EDD290981D6D6B580081FBAF /* SCRefreshTableViewController.m */,
-				EDD290991D6D6B580081FBAF /* SCRefreshViewController.h */,
-				EDD2909A1D6D6B580081FBAF /* SCRefreshViewController.m */,
 				EDD290AC1D6D75340081FBAF /* SCTextViewController.h */,
 				EDD290AD1D6D75340081FBAF /* SCTextViewController.m */,
-				EDD2909B1D6D6B580081FBAF /* SCTextTableViewController.h */,
-				EDD2909C1D6D6B580081FBAF /* SCTextTableViewController.m */,
 				BD1C5FF71D7975760000939C /* BaseNavigationController.h */,
 				BD1C5FF81D7975760000939C /* BaseNavigationController.m */,
 			);
@@ -1116,6 +1106,7 @@
 				797344FB1D6FD5020083B5D6 /* PasswordLoginViewController.m in Sources */,
 				79FDED3B1D6EF96F00F32B14 /* RegisterViewController.m in Sources */,
 				797345071D7019E30083B5D6 /* SelectHospitalViewController.m in Sources */,
+				BD6236DF1D80F15F00E8418C /* RefreshTool.m in Sources */,
 				BD57F1B31D4F3D4A00BAB291 /* AFURLSessionManager.m in Sources */,
 				ED33F59A1D6584EB00A64DC7 /* UIScrollView+MJExtension.m in Sources */,
 				ED33F5981D6584EB00A64DC7 /* MJRefreshConst.m in Sources */,
@@ -1139,7 +1130,6 @@
 				ED1E9FB71D6BF801000BE638 /* YLScrollerImagesController.m in Sources */,
 				EDD2909E1D6D6B580081FBAF /* SCBaseViewController.m in Sources */,
 				BD30021B1D55FC6E0086E7F5 /* StudentView.m in Sources */,
-				EDD2909F1D6D6B580081FBAF /* SCRefreshTableViewController.m in Sources */,
 				BD6236D91D7FEBFC00E8418C /* SCBaseTableViewController+Refresh.m in Sources */,
 				F7B383861D703E4B00464E35 /* SCTitleModel.m in Sources */,
 				ED1E9FC01D6C2F45000BE638 /* URLImageView.m in Sources */,
@@ -1178,7 +1168,6 @@
 				ED33F5911D6584EB00A64DC7 /* MJRefreshBackGifFooter.m in Sources */,
 				BD57F1AE1D4F3D4A00BAB291 /* AFHTTPSessionManager.m in Sources */,
 				BDB497551D74397800FC89FE /* VerificationCodeCountdownSingle.m in Sources */,
-				EDD290A01D6D6B580081FBAF /* SCRefreshViewController.m in Sources */,
 				BD5C2A111D51954A0066762F /* SVIndefiniteAnimatedView.m in Sources */,
 				F7B383981D703E8500464E35 /* FMDatabase.m in Sources */,
 				ED33F5951D6584EB00A64DC7 /* MJRefreshNormalHeader.m in Sources */,
@@ -1201,7 +1190,6 @@
 				F786C3BD1D7421560015C16E /* SCCourseDetailViewController.m in Sources */,
 				BD57F1B71D4F3D4A00BAB291 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				ED33F5891D6584EB00A64DC7 /* MJRefreshAutoFooter.m in Sources */,
-				BD6236D61D7FE6D300E8418C /* SCBaseViewController+Refresh.m in Sources */,
 				ED33F58F1D6584EB00A64DC7 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ED33F58B1D6584EB00A64DC7 /* MJRefreshComponent.m in Sources */,
 				ED33F59C1D6584EB00A64DC7 /* UIView+MJExtension.m in Sources */,

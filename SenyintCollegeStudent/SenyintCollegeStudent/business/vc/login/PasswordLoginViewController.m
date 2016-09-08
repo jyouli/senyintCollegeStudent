@@ -13,7 +13,6 @@
 #import "ForgetPasswordViewController.h"
 #import "RegisterViewController.h"
 
-#import "SCBaseViewController+Refresh.h"
 @interface PasswordLoginViewController ()
 {
     __weak UIButton *_loginBtn;
@@ -38,13 +37,13 @@
 
     [self creatFooterView];
     
-    
-    
+
 }
 
 
 - (void)loginUsedVerificationCode
 {
+
     VerificationCodeLoginViewController *verLoginvc = [[VerificationCodeLoginViewController alloc] init];
     verLoginvc.userPhone = self.userTF.text;
 
@@ -191,8 +190,6 @@
         mode2.cellClassName = NSStringFromClass([LoginPasswordCell class]);
         mode2.textFieldSecureTextEntry = YES;
         [_dataArray addObject:mode2];
-
-  
     }
 
     return _dataArray;
