@@ -194,7 +194,13 @@ static NetworkManager *_sharedNetworkManager = nil;
         
     } else {
         
-        urlStr = [[self baseURLString] stringByAppendingString:str];
+        if ([str hasPrefix:@"http:"] || [str hasPrefix:@"https:"]) {
+            urlStr = str;
+            
+        } else {
+            
+            urlStr = [[self baseURLString] stringByAppendingString:str];
+        }
     }
     NSLog(@"%@",urlStr);
 #warning 编码有题
@@ -238,7 +244,7 @@ static NetworkManager *_sharedNetworkManager = nil;
 {
 
     Networktools *tools = [[Networktools alloc] init];
-    [tools GET:URLString parameters:parameters progress:parameters success:success failure:failure];
+    [tools GET:URLString parameters:parameters progress:downloadProgress success:success failure:failure];
 
 }
 
