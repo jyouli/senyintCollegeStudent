@@ -108,18 +108,17 @@ static NetworkManager *_sharedNetworkManager = nil;
 #pragma end
 
 #pragma mark 基础参数
-+ (NSDictionary *)userBaseInfo;
++ (NSMutableDictionary *)userBaseInfo;
 {
     /*
-     
-     字段	描述	必填	备注
-     token	唯一标识	N
-     uid	User ID	N
-     deviceId	设备唯一标志	Y
-     appId	内部应用ID	Y
-     appBuildCode	软件版本	Y
-     deviceInfo	品牌－软硬件信息	Y
-     client  int	0-学员端，1-专家端
+     字段	            描述      	必填	      备注
+     token          	唯一标识     	N	      登录后必填
+     uid	            User ID	    N
+     device_id         	设备唯一标志  Y
+     app_id             内部应用ID   Y       1: iOS 2: android
+     app_build_code     创建编号     Y       如 110
+     app_version        软件版本     Y       如 1.2.1
+     client             客户端参数   Y        0:学员端，1:专家端
      */
     
     //测试键值是值传递 在其他地方修改了token偏好设置 字典token的值还是之前的 所以字典必须每次重新设值
@@ -338,38 +337,7 @@ static NetworkManager *_sharedNetworkManager = nil;
 #warning 测试数据
 + (void)testNetwork
 {
-    //    NetworkManager *manger = [[NetworkManager alloc] init];
-    //通过校验之后 调用登录接口
-    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc] initWithDictionary:[NetworkManager userBaseInfo]];
-    [paraDic setValue:@"18735108707" forKey:@"mobile"];
-    [paraDic setValue:@"11111133" forKey:@"password"];
-    
-    //    Networktools *tools = [[Networktools alloc] init];
-    //    [tools GET:[@"http://testapi.cinyi.com" stringByAppendingString:@"/v1/users/login/"]  parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
-    //    } success:^(id  _Nullable responseObject) {
-    //
-    //        NSLog(@"success:%@",responseObject);
-    //    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-    //        NSLog(@"errorMessage:%@",message);
-    //
-    //        NSLog(@"error:%@",error);
-    //
-    //    }];
-    
-    
-    [self POST:@"/v1/users/login/" parameters:paraDic progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%@",uploadProgress);
-    } success:^(id  _Nullable responseObject) {
-        NSLog(@"success:%@",responseObject);
-    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-        
-        NSLog(@"errorMessage:%@",message);
-        NSLog(@"error:%@",error);
-    }];
-    
-    
-    
-    
+     
 }
 
 

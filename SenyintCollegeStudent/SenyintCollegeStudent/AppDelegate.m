@@ -14,7 +14,6 @@
 
 #import "UIImage+Rend.h"
 
-#import "AFNetworking.h"
 @interface AppDelegate ()
 
 @end
@@ -45,37 +44,7 @@
     self.window.rootViewController = entervc;
 
     //全局ui设置
-    [self customizeAppearance];
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:[NetworkManager userBaseInfo]];
-    [dic setValue:@"13520703356" forKey:@"mobile"];
-    [dic setValue:@"1" forKey:@"action"];
-
-    
-    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
-        NSLog(@"success=%@",responseObject);
-    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-        NSLog(@"messate:%@\error:%@",message,error);
-    }];
-    
-//    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
-//        NSLog(@"downloadProgress:%@",downloadProgress);
-//    } success:^(id  _Nullable responseObject) {
-//        NSLog(@"success=%@",responseObject);
-//    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-//        NSLog(@"messate:%@\error:%@",message,error);
-//    }];
-    
-    
-//    [NetworkManager POST:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
-//        
-//        NSLog(@"success=%@",responseObject);
-//    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-//        
-//        NSLog(@"messate:%@\error:%@",message,error);
-//    }];
-//    
-    
-    
+    [self customizeAppearance];    
     
     return YES;
 }

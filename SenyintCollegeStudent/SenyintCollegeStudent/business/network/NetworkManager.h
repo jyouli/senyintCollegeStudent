@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  项目的公共请求头参数字典  
  */
-+ (NSDictionary *)userBaseInfo;
++ (NSMutableDictionary *)userBaseInfo;
 /*
  URLString
  对传过来的url进行处理
