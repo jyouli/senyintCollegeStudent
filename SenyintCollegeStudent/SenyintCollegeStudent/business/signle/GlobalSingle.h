@@ -15,20 +15,22 @@
 +(instancetype)sharedGlobalSingle;
 
 
-+ (NSString *)baseUrl;
-
 + (BOOL)isFirstRunApp;
 + (BOOL)isLocalBuildCodeNewest;
 + (BOOL)isNeedAutoLogin;
-//用户基本信息 请求的基本参数
-+ (NSDictionary *)userBaseInfo;
-//登录成功后服务器返回信息
+
++ (void)setUserPhoneNumber:(NSString *)phone;
++ (NSString *)userPhoneNumber;
++ (void)setPassword:(NSString *)password;
++ (NSString *)userPassword;
++ (void)setAPNToken:(NSString *)apnToken;
++ (NSString *)apnToken;
+
+
+//登录成功后服务器返回信息存取,登录成功后公共请求头必传
 + (void)setToken:(NSString *)token;
 + (NSString *)token;
 + (void)setUid:(NSString *)uid;
-+ (void)setMobile:(NSString *)mobile;
-+ (NSString *)userMobile;
-+ (void)setPassword:(NSString *)password;
-+ (NSString *)userPassword;
++ (NSString *)uid;
 
 @end

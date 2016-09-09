@@ -9,61 +9,25 @@
 #ifndef AppSetting_h
 #define AppSetting_h
 
-#define USERINFO_UID                     @"uid"             // x
-#define USERINFO_TOKEN                   @"token"           // x
-#define USERINFO_ROLE                    @"role"            //num x
-#define USERINFO_USERNAME                @"userName"
-#define USERINFO_REALNAME                @"realName"        //x
-#define USERINFO_PHONENUM                @"phoneNum"
-#define USERINFO_PASSWORD                @"password"
-#define USERINFO_APNTOKEN                @"apn_token"
-
-#define USERINFO_HEADIMAGEURL            @"headImageUrl"    //用户头像地址，
-#define USERINFO_DEVICEID                @"deviceId"        //程序第一次启动时生成的标示设备的deviceID
-#define USERINFO_BUILDCODE               @"buildCode"       //版本号  用于校验是否现实过桥页和是否创建deviceId
-#define USERINFO_APPVERSION              @"appVersion"       //版本号 如1.2.1
-#define USERINFO_IDFA                    @"idfa"            //广告标示符
-
-
-#define K_REQUESTPUBLICPARAMETER_APPID @"app_id"
-#define K_REQUESTPUBLICPARAMETER_DEVICEID @"device_id"
-#define K_REQUESTPUBLICPARAMETER_APPID_VALUE @"1" //1:IOS 2:Android
-#define K_REQUESTPUBLICPARAMETER_APPBUILDCODE @"appBuildCode"
-#define K_REQUESTPUBLICPARAMETER_DEVICEINFO @"deviceInfo"
-#define K_REQUESTPUBLICPARAMETER_CLIENT @"client" // 0学员端  1专家端区
+#pragma mark 用户信息参数名宏定义
+/**
+ 公共请求头字段
+ */
+#define USERINFO_Uid             @"uid"             // 登录之后服务器返回
+#define USERINFO_Token           @"token"           // 登录之后服务器返回
+#define USERINFO_Device_Id       @"device_id"       //设备唯一标识
+#define USERINFO_App_Build_Code  @"app_build_code"  //创建编号 如110
+#define USERINFO_App_version     @"app_version"      //版本号 如1.2.1
+//参数值固定
+#define K_REQUESTPUBLICPARAMETER_APPID_Value @"app_id" // 内部应用ID来源 1:IOS 2:Android
+#define K_REQUESTPUBLICPARAMETER_Client @"client"      // 客户端参数	0学员端  1专家端区
 
 /**
- * 获取验证码间隔最大时长
+ 本地存储
  */
-#define GETINVALIDMAXINTERVAL 120
-
-#define JoinConfCountDownTime  (15 * 60)
-
-
-//宏文字
-/**
- * 客服电话
- */
-#define SCSERVER_TELEPHONE @"400-0000-000"
-
-/**
- * emoji表情提示
- */
-#define TINTMSG_FOR_CONTENT_ERROR                       @"暂不支持表情及特殊符号"
-
-/**
- * 数据库版本
- */
-#define INQUIRYCHAT_DATABASE_VERSION   @"1.0.0"
-
-/**
- * 字典数据库维护版本号
- *
- */
-#define DICTIONARY_DATABASE_VERSION   @"1.0.0"
-
-#define collectionViewHeight 75 //视频直播界面底部的item的高
-#define collectionViewWidth 135 //视频直播界面底部的item的宽
+#define USERINFO_PhoneNumber     @"user_Phone"         //用户手机号
+#define USERINFO_Password        @"user_Password"      //用户密码
+#define USERINFO_APN_Token        @"APN_Token"         //push token
 
 
 
