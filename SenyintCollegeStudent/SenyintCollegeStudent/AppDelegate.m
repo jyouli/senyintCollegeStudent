@@ -13,6 +13,8 @@
 #import "EnterViewController.h"
 
 #import "UIImage+Rend.h"
+
+#import "AFNetworking.h"
 @interface AppDelegate ()
 
 @end
@@ -49,25 +51,32 @@
     [dic setValue:@"1" forKey:@"action"];
 
     
-//    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
-//        NSLog(@"success=%@",responseObject);
-//    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
-//        NSLog(@"messate:%@\error:%@",message,error);
-//    }];
-    
-    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"downloadProgress:%@",downloadProgress);
-    } success:^(id  _Nullable responseObject) {
+    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
         NSLog(@"success=%@",responseObject);
     } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
         NSLog(@"messate:%@\error:%@",message,error);
     }];
     
-//    [NetworkManager POST:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
+//    [NetworkManager GET:@"v1/auth/verifycode" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+//        NSLog(@"downloadProgress:%@",downloadProgress);
+//    } success:^(id  _Nullable responseObject) {
 //        NSLog(@"success=%@",responseObject);
 //    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
 //        NSLog(@"messate:%@\error:%@",message,error);
 //    }];
+    
+    
+//    [NetworkManager POST:@"v1/auth/verifycode" parameters:dic success:^(id  _Nullable responseObject) {
+//        
+//        NSLog(@"success=%@",responseObject);
+//    } failure:^(NSString * _Nullable message, NSError * _Nullable error) {
+//        
+//        NSLog(@"messate:%@\error:%@",message,error);
+//    }];
+//    
+    
+    
+    
     return YES;
 }
 
