@@ -20,12 +20,12 @@
                             <constraint firstAttribute="height" constant="19" id="huj-gI-Fdh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-Tn-71J">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolderImage" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-Tn-71J">
                         <rect key="frame" x="12" y="50" width="130" height="75"/>
-                        <color key="backgroundColor" red="0.96792581113607712" green="1" blue="0.61105487202277597" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="130" id="TTi-UF-jcM"/>
                             <constraint firstAttribute="height" constant="75" id="fca-rP-Kyd"/>
@@ -127,6 +127,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="2" width="766" height="382"/>
+        <image name="placeHolderImage" width="130" height="75"/>
     </resources>
 </document>

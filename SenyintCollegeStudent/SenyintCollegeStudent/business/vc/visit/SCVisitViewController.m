@@ -17,6 +17,7 @@
     UITableView * _specialtyTabelView;
     UIView * alphaView;
     UIButton * topBtn;
+    long currentSelectedSpecialtyId;
 }
 @end
 
@@ -121,7 +122,7 @@
         _specialtyTabelView = [[UITableView alloc] initWithFrame:_tableView.bounds style:UITableViewStylePlain];
         _specialtyTabelView.delegate = self;
         _specialtyTabelView.dataSource = self;
-        _specialtyTabelView.backgroundColor = [UIColor whiteColor];
+        _specialtyTabelView.backgroundColor = [UIColor clearColor];
         _specialtyTabelView.hidden = YES;
         _specialtyTabelView.scrollsToTop = NO;
         _tableView.separatorColor = SeparationLine_Color;
@@ -164,7 +165,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -208,6 +209,8 @@
         }
         
         cell.textLabel.text = indexPath.row%2?@"口腔科":@"呼吸内科";
+        
+        //第一个变色
         cell.textLabel.textColor = (indexPath.row == 0?BodyContentImportantText_Font_Color : BlackText_Font_Color);
 
         return cell;
@@ -217,6 +220,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了第%ld个cell",indexPath.row);
+    
     if (tableView == _tableView) {
         
         NSLog(@"跳转到班级课程详细页");
@@ -226,8 +230,10 @@
     else{
         
         NSLog(@"筛选学科下的班级课程列表");
+        
         //刷新班级课程列表
         [_tableView.mj_header beginRefreshing];
+        
         //隐藏专科选择表
         _specialtyTabelView.hidden = YES;
         alphaView.hidden = YES;
