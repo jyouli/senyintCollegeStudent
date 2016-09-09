@@ -7,7 +7,6 @@
 //
 
 #import "EnterViewController.h"
-#import "LoginViewController.h"
 #import "PasswordLoginViewController.h"
 #import "VerificationCodeLoginViewController.h"
 #import "RegisterViewController.h"

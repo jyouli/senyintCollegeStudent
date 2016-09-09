@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "AppSetting.h"
-#import "LoginViewController.h"
-#import "TeskViewController.h"
 #import "EnterViewController.h"
 
 #import "UIImage+Rend.h"
@@ -26,37 +24,16 @@
     [_window makeKeyAndVisible];
     _window.backgroundColor = [UIColor whiteColor];
     
-    Class vcClass;
-    if ([GlobalSingle isFirstRunApp]) {
-        
-        vcClass = NSClassFromString(@"LoginViewController");
-        
-    } else {
-        
-        vcClass = NSClassFromString(@"TransitionViewController");
 
-    }
-//    [self setRootViewcontroller:vcClass];
     
 
     EnterViewController *entervc = [[EnterViewController alloc] init];
-////    BaseNavigationController *nc = [[BaseNavigationController alloc] initWithRootViewController:entervc];
     self.window.rootViewController = entervc;
 
     //全局ui设置
     [self customizeAppearance];    
     
     return YES;
-}
-
-
-- (void)setRootViewcontroller:(Class) vcClass
-{
-    if ([vcClass respondsToSelector:@selector(setWindowRootViewController)]) {
-        [vcClass setWindowRootViewController];
-        
-    }
-    
 }
 
 

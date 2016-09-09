@@ -91,55 +91,6 @@
 }
 
 
-- (void)loginRequest
-{
-    
-    //通过校验之后 调用登录接口
-    NSMutableDictionary *paraDic = [NSMutableDictionary dictionary] ;
-    [paraDic setValue:self.userTF.text forKey:@"mobile"];
-    [paraDic setValue:self.pwTF.text forKey:@"password"];
-    
-    NSLog(@"%@",paraDic);
-    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
-    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    __weak typeof(self) safeSelf = self;
-    [sessionManager GET:[[NetworkManager baseURLString] stringByAppendingString:@"/v1/users/login"]  parameters:paraDic progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"%lld", downloadProgress.totalUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"success:%@", responseObject);
-        [safeSelf loginSuccess:responseObject];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error:%@",error);
-        [safeSelf loginFailure];
-    }];
-    
-}
-- (void)loginSuccess:(id)responseObject
-{
-    
-    
-    if ([[[responseObject objectForKey:@"header"] objectForKey:@"status"] integerValue] == 1) {
-        
-        [GlobalSingle setToken:[[responseObject objectForKey:@"content"] objectForKey:@"token"]];
-        [GlobalSingle setUid:[[responseObject objectForKey:@"content"] objectForKey:@"uid"]];
-        [GlobalSingle setUserPhoneNumber:self.userTF.text];
-        [GlobalSingle setPassword:self.pwTF.text];
-        
-        //        [NSClassFromString(@"HomeViewController") setWindowRootViewController];
-        
-    } else {
-        
-        [SCProgressHUD showInfoWithStatus:[[responseObject objectForKey:@"header"] objectForKey:@"message"]];
-    }
-    
-    
-}
-
-- (void)loginFailure
-{
-    [SCProgressHUD showErrorWithStatus:@"请求超时，请稍后再试"];
-}
-
 
 
 
